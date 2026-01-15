@@ -8,6 +8,7 @@ dependencies = [
   "beautifulsoup4>=4.12.0",
   "lxml>=5.0.0",
   "html5lib>=1.1",
+  "docker>=7.1.0",
 ]
 
 [tool.pytest.ini_options]
@@ -27,3 +28,7 @@ multi_line_output = 3
 exclude_dirs = ["tests", ".venv", ".pants.d"]
 skips = ["B101"]
 
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+]
