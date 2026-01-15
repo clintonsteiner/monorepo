@@ -35,9 +35,17 @@ class PostgresTestHelper:
         """Wait for database to be ready."""
         for attempt in range(self.max_wait):
             try:
+                # First check if postgres is listening
                 result = self.container.exec_run(["pg_isready", "-U", self.db_user])
                 if result.exit_code == 0:
-                    return
+                    # Then verify we can actually connect and query
+                    try:
+                        cmd = ["psql", "-U", self.db_user, "-d", "postgres", "-c", "SELECT 1;"]
+                        result = self.container.exec_run(cmd)
+                        if result.exit_code == 0:
+                            return
+                    except Exception:
+                        pass
             except Exception:
                 pass
             time.sleep(1)
