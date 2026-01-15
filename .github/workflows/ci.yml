@@ -104,14 +104,8 @@ jobs:
           path: dist/*.pex
           retention-days: 30
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: Build Docker images (no push)
-        run: |
-          docker build -t ercot-lmp:ci .
-          docker build -f db_setup/Dockerfile.db -t ercot-db:ci db_setup/
-          echo "✓ Docker images built successfully"
+      - name: Build images with Pants
+        run: pants package //ercot_lmp:docker //db_setup:docker
 
       - name: Test Docker images
         run: |

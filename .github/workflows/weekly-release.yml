@@ -3,8 +3,8 @@ name: Weekly Release
 on:
   schedule:
     # Run every Monday at 00:00 UTC
-    - cron: '0 0 * * 1'
-  workflow_dispatch:  # Allow manual trigger
+    - cron: "0 0 * * 1"
+  workflow_dispatch: # Allow manual trigger
 
 permissions:
   contents: write
@@ -19,17 +19,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Fetch all history for version calculation
+          fetch-depth: 0 # Fetch all history for version calculation
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
       - name: Initialize Pants
         uses: pantsbuild/actions/init-pants@main
         with:
-          pants-python-version: '3.11'
+          pants-python-version: "3.11"
           gha-cache-key: v1
           named-caches-hash: ${{ hashFiles('pants.toml') }}
 
@@ -59,7 +59,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
       - name: Get current version and calculate next
         id: version
@@ -90,7 +90,7 @@ jobs:
       - name: Initialize Pants
         uses: pantsbuild/actions/init-pants@main
         with:
-          pants-python-version: '3.11'
+          pants-python-version: "3.11"
           gha-cache-key: v1
           named-caches-hash: ${{ hashFiles('pants.toml') }}
 
@@ -102,40 +102,31 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Log in to Docker Hub
-        if: github.event_name != 'pull_request'
+      - name: Log in to GHCR
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and push Docker images
+      - name: Build images with Pants
+        run: pants package //ercot_lmp:docker //db_setup:docker
+
+      - name: Tag and push
         run: |
-          VERSION=${{ steps.version.outputs.version }}
-          VERSION_NO_V=${VERSION#v}
+          VERSION=${GITHUB_REF#refs/tags/}
 
-          # Build and tag application image
-          docker build -t ercot-lmp:latest -t ercot-lmp:${VERSION} .
+          # Tag ercot-lmp
+          docker tag ercot-lmp:latest ghcr.io/${{ github.repository_owner }}/ercot-lmp:latest
+          docker tag ercot-lmp:latest ghcr.io/${{ github.repository_owner }}/ercot-lmp:$VERSION
+          docker push ghcr.io/${{ github.repository_owner }}/ercot-lmp:latest
+          docker push ghcr.io/${{ github.repository_owner }}/ercot-lmp:$VERSION
 
-          # Build and tag database image
-          docker build -f db_setup/Dockerfile.db -t ercot-db:latest -t ercot-db:${VERSION} db_setup/
-
-          # Push to registry if Docker credentials are available
-          if [ -n "${{ secrets.DOCKER_USERNAME }}" ]; then
-            docker tag ercot-lmp:latest ${{ secrets.DOCKER_USERNAME }}/ercot-lmp:latest
-            docker tag ercot-lmp:${VERSION} ${{ secrets.DOCKER_USERNAME }}/ercot-lmp:${VERSION}
-            docker push ${{ secrets.DOCKER_USERNAME }}/ercot-lmp:latest
-            docker push ${{ secrets.DOCKER_USERNAME }}/ercot-lmp:${VERSION}
-
-            docker tag ercot-db:latest ${{ secrets.DOCKER_USERNAME }}/ercot-db:latest
-            docker tag ercot-db:${VERSION} ${{ secrets.DOCKER_USERNAME }}/ercot-db:${VERSION}
-            docker push ${{ secrets.DOCKER_USERNAME }}/ercot-db:latest
-            docker push ${{ secrets.DOCKER_USERNAME }}/ercot-db:${VERSION}
-
-            echo "✓ Docker images pushed to Docker Hub"
-          else
-            echo "⚠ Docker credentials not set, skipping push"
-          fi
+          # Tag ercot-db
+          docker tag ercot-db:latest ghcr.io/${{ github.repository_owner }}/ercot-db:latest
+          docker tag ercot-db:latest ghcr.io/${{ github.repository_owner }}/ercot-db:$VERSION
+          docker push ghcr.io/${{ github.repository_owner }}/ercot-db:latest
+          docker push ghcr.io/${{ github.repository_owner }}/ercot-db:$VERSION
 
       - name: Create release notes
         run: |
