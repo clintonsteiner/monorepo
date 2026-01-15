@@ -156,7 +156,17 @@ class TestErcotDbImage:
 
     def test_schema_initialized(self, postgres_helper) -> None:
         """Test that ercot schema exists."""
-        postgres_helper.assert_query_contains("\\dn ercot", b"ercot")
+        import time
+
+        # Retry schema check as it may take a moment after container startup
+        for attempt in range(3):
+            try:
+                postgres_helper.assert_query_contains("\\dn ercot", b"ercot")
+                break
+            except RuntimeError as e:
+                if attempt == 2:
+                    raise e
+                time.sleep(1)
 
     def test_tables_created(self, postgres_helper) -> None:
         """Test that required tables exist."""

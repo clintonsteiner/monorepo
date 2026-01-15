@@ -13,6 +13,9 @@ dependencies = [
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+markers = [
+    "docker: tests that require Docker images",
+]
 
 [tool.black]
 line-length = 140
