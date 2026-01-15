@@ -1,0 +1,16 @@
+FROM postgres:16-alpine
+
+# Set default environment variables
+ENV POSTGRES_USER=ercot_user
+ENV POSTGRES_PASSWORD=ercot_pass
+ENV POSTGRES_DB=ercot_db
+
+# Copy SQL initialization files
+# PostgreSQL will execute .sql files in /docker-entrypoint-initdb.d/ in alphabetical order
+COPY sql/*.sql /docker-entrypoint-initdb.d/
+
+# Expose PostgreSQL port
+EXPOSE 5432
+
+# Default command (inherited from postgres image)
+# Runs postgres and executes init scripts automatically

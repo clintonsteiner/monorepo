@@ -1,0 +1,37 @@
+[GLOBAL]
+pants_version = "2.30.0"
+backend_packages = [
+    "pants.backend.python",
+    "pants.backend.python.lint.black",
+    "pants.backend.python.lint.isort",
+    "pants.backend.python.lint.flake8",
+]
+
+[source]
+root_patterns = ["/"]
+
+[python]
+interpreter_constraints = ["CPython>=3.11,<3.13"]
+
+[python-infer]
+use_rust_parser = true
+
+[black]
+config = "pyproject.toml"
+
+[isort]
+config = ["pyproject.toml"]
+
+[flake8]
+config = ".flake8"
+
+[update-build-files]
+check = false
+fmt = true
+
+[tailor]
+check = false
+build_file_name = "BUILD"
+
+[anonymous-telemetry]
+enabled = false

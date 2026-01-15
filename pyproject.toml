@@ -1,0 +1,29 @@
+[project]
+name = "ercot-lmp-monitor"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+  "requests>=2.31.0",
+  "pandas>=2.0.0",
+  "beautifulsoup4>=4.12.0",
+  "lxml>=5.0.0",
+  "html5lib>=1.1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.black]
+line-length = 140
+target-version = ['py311']
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+line_length = 140
+multi_line_output = 3
+
+[tool.bandit]
+exclude_dirs = ["tests", ".venv", ".pants.d"]
+skips = ["B101"]
+

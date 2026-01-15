@@ -1,0 +1,49 @@
+14:46:33.96 [INFO] pantsd 2.30.0 running with PID: 60260
+14:46:33.98 [INFO] handling request: `lint ::`
+14:46:35.77 [INFO] request completed: `lint ::`
+14:46:50.15 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", ".flake8.tmp.52572.1768510010149"}
+14:46:50.15 [INFO] notify invalidation: cleared 1 and dirtied 210 nodes for: {"", ".flake8.tmp.52572.1768510010149"}
+14:46:50.15 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {".flake8.tmp.52572.1768510010149", ""}
+14:46:50.15 [INFO] notify invalidation: cleared 1 and dirtied 210 nodes for: {"", ".flake8.tmp.52572.1768510010149"}
+14:46:50.15 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {".flake8.tmp.52572.1768510010149"}
+14:46:50.15 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {".flake8.tmp.52572.1768510010149"}
+14:46:50.15 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {".flake8", ""}
+14:46:50.15 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {".flake8", ""}
+14:46:51.47 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "pyproject.toml.tmp.52572.1768510011469"}
+14:46:51.47 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "pyproject.toml.tmp.52572.1768510011469"}
+14:46:51.47 [INFO] notify invalidation: cleared 1 and dirtied 210 nodes for: {"pyproject.toml.tmp.52572.1768510011469", ""}
+14:46:51.47 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pyproject.toml.tmp.52572.1768510011469"}
+14:46:51.47 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "pyproject.toml.tmp.52572.1768510011469"}
+14:46:51.47 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "pyproject.toml"}
+14:46:51.47 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pyproject.toml.tmp.52572.1768510011469"}
+14:46:51.47 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "pyproject.toml"}
+14:46:51.47 [INFO] notify invalidation: cleared 2 and dirtied 210 nodes for: {"", "pyproject.toml"}
+14:46:51.47 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "pyproject.toml"}
+14:46:52.55 [INFO] notify invalidation: cleared 1 and dirtied 210 nodes for: {"", "pants.toml.tmp.52572.1768510012550"}
+14:46:52.55 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "pants.toml.tmp.52572.1768510012550"}
+14:46:52.55 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "pants.toml.tmp.52572.1768510012550"}
+14:46:52.55 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pants.toml.tmp.52572.1768510012550"}
+14:46:52.55 [INFO] notify invalidation: cleared 1 and dirtied 4 nodes for: {"", "pants.toml"}
+14:46:52.55 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pants.toml.tmp.52572.1768510012550", ""}
+14:46:52.55 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pants.toml.tmp.52572.1768510012550"}
+14:46:52.55 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pants.toml", ""}
+14:46:52.55 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "pants.toml"}
+14:46:52.55 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "pants.toml"}
+14:46:52.55 [ERROR] saw filesystem changes covered by invalidation globs: SnapshotDiff(our_unique_files=(), our_unique_dirs=(), their_unique_files=(), their_unique_dirs=(), changed_files=('pants.toml',)). terminating the daemon.
+14:46:52.98 [ERROR] service failure for <pants.pantsd.service.scheduler_service.SchedulerService object at 0x109f8dd10>.
+14:46:52.98 [INFO] Waiting for ongoing runs to complete before exiting...
+14:46:52.98 [INFO] Server exiting with Ok(())
+14:46:52.98 [INFO] Waiting for Sessions to complete before exiting...
+14:46:52.98 [INFO] Waiting for shutdown of: ["scheduler_service_session", "store_gc_service_session", "pants_run_2026_01_15_14_46_34_195_15912a753a174633928b74e52ff47264"]
+14:46:52.98 [INFO] Shutdown completed: "scheduler_service_session"
+14:46:52.98 [INFO] Shutdown completed: "store_gc_service_session"
+14:46:52.98 [INFO] Shutdown completed: "pants_run_2026_01_15_14_46_34_195_15912a753a174633928b74e52ff47264"
+14:46:52.98 [INFO] Exiting pantsd
+14:46:52.98 [WARN] File watcher exiting with: The watcher was shut down.
+14:46:55.30 [INFO] pantsd 2.30.0 running with PID: 60397
+14:46:55.37 [INFO] handling request: `lint ::`
+14:46:57.69 [INFO] request completed: `lint ::`
+14:47:00.76 [INFO] handling request: `lint ::`
+14:47:02.75 [INFO] request completed: `lint ::`
+14:48:15.56 [INFO] Extending leases
+14:48:15.57 [INFO] Done extending leases
