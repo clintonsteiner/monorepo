@@ -1,0 +1,491 @@
+13:46:38.40 [INFO] pantsd 2.22.0 running with PID: 46724
+13:46:38.48 [INFO] handling request: `test ::`
+13:46:41.45 [INFO] request completed: `test ::`
+13:46:44.98 [INFO] handling request: `--version`
+13:46:45.13 [INFO] request completed: `--version`
+13:46:45.16 [INFO] handling request: `python --py-interpreter-search-paths`
+13:46:45.28 [INFO] request completed: `python --py-interpreter-search-paths`
+13:48:00.76 [INFO] Extending leases
+13:48:00.77 [INFO] Done extending leases
+13:48:06.04 [INFO] handling request: `python -c import sys; print(sys.executable); print(sys.version)`
+13:48:06.22 [INFO] request completed: `python -c import sys; print(sys.executable); print(sys.version)`
+13:48:23.24 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", ".venv"}
+13:48:23.24 [INFO] notify invalidation: cleared 1 and dirtied 126 nodes for: {"", ".venv"}
+13:48:23.66 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"uv.lock", ""}
+13:48:23.66 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"uv.lock"}
+13:48:23.66 [INFO] notify invalidation: cleared 1 and dirtied 126 nodes for: {"uv.lock", ""}
+13:48:23.66 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"uv.lock"}
+13:48:31.09 [INFO] handling request: `test ::`
+13:48:31.85 [INFO] request completed: `test ::`
+13:48:41.88 [INFO] handling request: `test ::`
+13:48:42.69 [INFO] request completed: `test ::`
+13:49:20.80 [INFO] Extending leases
+13:49:20.81 [INFO] Done extending leases
+13:49:42.91 [INFO] notify invalidation: cleared 1 and dirtied 130 nodes for: {"", "4913"}
+13:49:42.91 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "4913"}
+13:49:42.91 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "4913"}
+13:49:42.91 [INFO] notify invalidation: cleared 1 and dirtied 130 nodes for: {"4913", ""}
+13:49:42.91 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pyproject.toml", ""}
+13:49:42.91 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "pyproject.toml"}
+13:49:42.91 [INFO] notify invalidation: cleared 1 and dirtied 13 nodes for: {"", "pyproject.toml"}
+13:49:42.91 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pyproject.toml"}
+13:49:42.91 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pyproject.toml", ""}
+13:49:42.91 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pyproject.toml~", ""}
+13:49:42.91 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pyproject.toml"}
+13:49:42.91 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pyproject.toml~", ""}
+13:49:42.91 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pyproject.toml~", ""}
+13:49:42.91 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pyproject.toml~", ""}
+13:49:51.14 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "4913"}
+13:49:51.14 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"4913", ""}
+13:49:51.14 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "pants.toml"}
+13:49:51.14 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pants.toml", ""}
+13:49:51.14 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pants.toml"}
+13:49:51.14 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pants.toml~", ""}
+13:49:51.14 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pants.toml~", ""}
+13:49:51.14 [INFO] notify invalidation: cleared 1 and dirtied 130 nodes for: {"", "4913"}
+13:49:51.14 [INFO] notify invalidation: cleared 1 and dirtied 130 nodes for: {"4913", ""}
+13:49:51.14 [INFO] notify invalidation: cleared 1 and dirtied 4 nodes for: {"pants.toml", ""}
+13:49:51.14 [INFO] notify invalidation: cleared 2 and dirtied 130 nodes for: {"", "pants.toml"}
+13:49:51.14 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pants.toml"}
+13:49:51.14 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "pants.toml~"}
+13:49:51.14 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pants.toml~", ""}
+13:49:51.14 [ERROR] saw filesystem changes covered by invalidation globs: SnapshotDiff(our_unique_files=(), our_unique_dirs=(), their_unique_files=(), their_unique_dirs=(), changed_files=('pants.toml',)). terminating the daemon.
+13:49:51.45 [ERROR] service failure for <pants.pantsd.service.scheduler_service.SchedulerService object at 0x11117c820>.
+13:49:51.45 [INFO] Waiting for ongoing runs to complete before exiting...
+13:49:51.45 [INFO] Server exiting with Ok(())
+13:49:51.45 [INFO] Waiting for Sessions to complete before exiting...
+13:49:51.45 [INFO] Waiting for shutdown of: ["scheduler_service_session", "store_gc_service_session", "pants_run_2026_01_15_13_46_40_758_90636955115946d0926acd8cd57e6a9f", "pants_run_2026_01_15_13_48_31_154_f8aa4be6983846cfaac57f8dfd2cdeb5", "pants_run_2026_01_15_13_48_41_959_18a73b3e256e4a4ba977c20da18cc762"]
+13:49:51.45 [INFO] Shutdown completed: "scheduler_service_session"
+13:49:51.45 [INFO] Shutdown completed: "store_gc_service_session"
+13:49:51.45 [INFO] Shutdown completed: "pants_run_2026_01_15_13_46_40_758_90636955115946d0926acd8cd57e6a9f"
+13:49:51.45 [INFO] Shutdown completed: "pants_run_2026_01_15_13_48_31_154_f8aa4be6983846cfaac57f8dfd2cdeb5"
+13:49:51.45 [INFO] Shutdown completed: "pants_run_2026_01_15_13_48_41_959_18a73b3e256e4a4ba977c20da18cc762"
+13:49:51.45 [INFO] Exiting pantsd
+13:49:51.45 [WARN] File watcher exiting with: The watcher was shut down.
+13:49:57.88 [INFO] pantsd 2.22.0 running with PID: 47028
+13:49:57.96 [INFO] handling request: `test ::`
+13:50:00.98 [INFO] request completed: `test ::`
+13:50:31.94 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot", "lib_ercot/4913"}
+13:50:31.94 [INFO] notify invalidation: cleared 1 and dirtied 43 nodes for: {"lib_ercot/4913", "lib_ercot"}
+13:50:31.94 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot", "lib_ercot/4913"}
+13:50:31.94 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot", "lib_ercot/4913"}
+13:50:31.94 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot", "lib_ercot/BUILD"}
+13:50:31.94 [INFO] notify invalidation: cleared 1 and dirtied 40 nodes for: {"lib_ercot/BUILD", "lib_ercot"}
+13:50:31.94 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot", "lib_ercot/BUILD~"}
+13:50:31.94 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot", "lib_ercot/BUILD~"}
+13:50:31.95 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot", "lib_ercot/BUILD"}
+13:50:31.95 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/BUILD"}
+13:50:31.95 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot", "lib_ercot/BUILD~"}
+13:50:31.95 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot", "lib_ercot/BUILD~"}
+13:50:31.95 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/BUILD", "lib_ercot"}
+13:50:31.95 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/BUILD"}
+13:50:31.95 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/BUILD~", "lib_ercot"}
+13:50:31.95 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot", "lib_ercot/BUILD~"}
+13:50:48.16 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp", "tests/ercot_lmp/4913"}
+13:50:48.16 [INFO] notify invalidation: cleared 1 and dirtied 76 nodes for: {"tests/ercot_lmp/4913", "tests/ercot_lmp"}
+13:50:48.16 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp/4913", "tests/ercot_lmp"}
+13:50:48.16 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp", "tests/ercot_lmp/4913"}
+13:50:48.16 [INFO] notify invalidation: cleared 1 and dirtied 48 nodes for: {"tests/ercot_lmp", "tests/ercot_lmp/BUILD"}
+13:50:48.16 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp", "tests/ercot_lmp/BUILD"}
+13:50:48.16 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp/BUILD", "tests/ercot_lmp"}
+13:50:48.16 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp/BUILD"}
+13:50:48.16 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp/BUILD", "tests/ercot_lmp"}
+13:50:48.16 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp", "tests/ercot_lmp/BUILD~"}
+13:50:48.16 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp/BUILD"}
+13:50:48.16 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp/BUILD~", "tests/ercot_lmp"}
+13:50:48.16 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp", "tests/ercot_lmp/BUILD~"}
+13:50:48.16 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp/BUILD~", "tests/ercot_lmp"}
+13:51:20.30 [INFO] Extending leases
+13:51:20.30 [INFO] Done extending leases
+13:52:40.32 [INFO] Extending leases
+13:52:40.32 [INFO] Done extending leases
+13:53:51.90 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "4913"}
+13:53:51.91 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "4913"}
+13:53:51.91 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "pants.toml"}
+13:53:51.91 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "pants.toml"}
+13:53:51.91 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pants.toml"}
+13:53:51.91 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pants.toml~", ""}
+13:53:51.91 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "pants.toml~"}
+13:53:51.91 [INFO] notify invalidation: cleared 1 and dirtied 126 nodes for: {"", "4913"}
+13:53:51.91 [INFO] notify invalidation: cleared 1 and dirtied 126 nodes for: {"4913", ""}
+13:53:51.91 [INFO] notify invalidation: cleared 1 and dirtied 4 nodes for: {"pants.toml", ""}
+13:53:51.91 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pants.toml", ""}
+13:53:51.91 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pants.toml"}
+13:53:51.91 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pants.toml~", ""}
+13:53:51.91 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pants.toml~", ""}
+13:53:51.91 [ERROR] saw filesystem changes covered by invalidation globs: SnapshotDiff(our_unique_files=(), our_unique_dirs=(), their_unique_files=(), their_unique_dirs=(), changed_files=('pants.toml',)). terminating the daemon.
+13:53:52.16 [ERROR] service failure for <pants.pantsd.service.scheduler_service.SchedulerService object at 0x10ce3dfd0>.
+13:53:52.17 [INFO] Waiting for ongoing runs to complete before exiting...
+13:53:52.17 [INFO] Server exiting with Ok(())
+13:53:52.17 [INFO] Waiting for Sessions to complete before exiting...
+13:53:52.17 [INFO] Waiting for shutdown of: ["scheduler_service_session", "store_gc_service_session", "pants_run_2026_01_15_13_50_00_279_1ee4e82fc39c4c80bc53f74c454f18bf"]
+13:53:52.17 [INFO] Shutdown completed: "scheduler_service_session"
+13:53:52.17 [INFO] Shutdown completed: "store_gc_service_session"
+13:53:52.17 [INFO] Shutdown completed: "pants_run_2026_01_15_13_50_00_279_1ee4e82fc39c4c80bc53f74c454f18bf"
+13:53:52.17 [INFO] Exiting pantsd
+13:53:52.17 [WARN] File watcher exiting with: The watcher was shut down.
+13:55:53.27 [INFO] pantsd 2.26.0 running with PID: 48966
+13:55:53.34 [INFO] handling request: `test ::`
+13:55:55.24 [INFO] request completed: `test ::`
+13:57:15.18 [INFO] Extending leases
+13:57:15.19 [INFO] Done extending leases
+13:57:37.23 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"4913", ""}
+13:57:37.23 [INFO] notify invalidation: cleared 1 and dirtied 136 nodes for: {"", "4913"}
+13:57:37.23 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "4913"}
+13:57:37.23 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pants.toml", ""}
+13:57:37.23 [INFO] notify invalidation: cleared 1 and dirtied 136 nodes for: {"", "4913"}
+13:57:37.23 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "pants.toml"}
+13:57:37.23 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pants.toml"}
+13:57:37.23 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pants.toml~", ""}
+13:57:37.23 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "pants.toml~"}
+13:57:37.23 [INFO] notify invalidation: cleared 1 and dirtied 0 nodes for: {"pants.toml", ""}
+13:57:37.23 [INFO] notify invalidation: cleared 1 and dirtied 136 nodes for: {"", "pants.toml"}
+13:57:37.23 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pants.toml"}
+13:57:37.23 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pants.toml~", ""}
+13:57:37.23 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "pants.toml~"}
+13:57:37.23 [INFO] Filesystem changed during run: retrying `Scandir()` in 500ms...
+13:57:37.23 [INFO] Filesystem changed during run: retrying `Scandir()` in 500ms...
+13:57:37.23 [INFO] Filesystem changed during run: retrying `Scandir()` in 500ms...
+13:57:37.23 [INFO] Filesystem changed during run: retrying `Scandir()` in 500ms...
+13:57:37.23 [INFO] Filesystem changed during run: retrying `Scandir()` in 500ms...
+13:58:35.22 [INFO] Extending leases
+13:58:35.22 [INFO] Done extending leases
+13:58:39.30 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/4913", "lib_ercot"}
+13:58:39.30 [INFO] notify invalidation: cleared 1 and dirtied 24 nodes for: {"lib_ercot/4913", "lib_ercot"}
+13:58:39.30 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot", "lib_ercot/4913"}
+13:58:39.30 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/4913", "lib_ercot"}
+13:58:39.30 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot", "lib_ercot/BUILD"}
+13:58:39.30 [INFO] notify invalidation: cleared 1 and dirtied 19 nodes for: {"lib_ercot/BUILD", "lib_ercot"}
+13:58:39.30 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/BUILD", "lib_ercot"}
+13:58:39.30 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot", "lib_ercot/BUILD"}
+13:58:39.30 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/BUILD"}
+13:58:39.30 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/BUILD"}
+13:58:39.30 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot", "lib_ercot/BUILD~"}
+13:58:39.30 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/BUILD~", "lib_ercot"}
+13:58:39.30 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot", "lib_ercot/BUILD~"}
+13:58:39.30 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot", "lib_ercot/BUILD~"}
+13:59:25.42 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/4913", "lib_ercot"}
+13:59:25.42 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot", "lib_ercot/4913"}
+13:59:25.42 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/4913", "lib_ercot"}
+13:59:25.42 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/4913", "lib_ercot"}
+13:59:25.42 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/BUILD", "lib_ercot"}
+13:59:25.42 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/BUILD", "lib_ercot"}
+13:59:25.42 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot", "lib_ercot/BUILD"}
+13:59:25.42 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/BUILD", "lib_ercot"}
+13:59:25.42 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/BUILD"}
+13:59:25.42 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/BUILD"}
+13:59:25.42 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/BUILD~", "lib_ercot"}
+13:59:25.42 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot", "lib_ercot/BUILD~"}
+13:59:25.42 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/BUILD~", "lib_ercot"}
+13:59:25.42 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot", "lib_ercot/BUILD~"}
+13:59:46.49 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/4913", "lib_ercot"}
+13:59:46.49 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot", "lib_ercot/4913"}
+13:59:46.49 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot", "lib_ercot/4913"}
+13:59:46.49 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot", "lib_ercot/4913"}
+13:59:46.49 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot", "lib_ercot/BUILD"}
+13:59:46.49 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/BUILD", "lib_ercot"}
+13:59:46.49 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot", "lib_ercot/BUILD"}
+13:59:46.49 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/BUILD", "lib_ercot"}
+13:59:46.49 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/BUILD"}
+13:59:46.49 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/BUILD"}
+13:59:46.49 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/BUILD", "lib_ercot"}
+13:59:46.49 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot", "lib_ercot/BUILD"}
+13:59:46.49 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/BUILD"}
+13:59:46.49 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/BUILD"}
+13:59:46.49 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/BUILD~", "lib_ercot"}
+13:59:46.49 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/BUILD~", "lib_ercot"}
+13:59:46.49 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/BUILD~", "lib_ercot"}
+13:59:46.49 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/BUILD~", "lib_ercot"}
+13:59:55.25 [INFO] Extending leases
+13:59:55.25 [INFO] Done extending leases
+14:00:00.46 [INFO] notify invalidation: cleared 1 and dirtied 24 nodes for: {"tests/ercot_lmp/test_main.py", "tests/ercot_lmp"}
+14:00:00.46 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp", "tests/ercot_lmp/test_main.py"}
+14:00:00.46 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot", "lib_ercot/test_main.py"}
+14:00:00.46 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/test_main.py", "lib_ercot"}
+Signal 15 (SIGTERM) was raised. Exiting with failure.
+  File "/Users/cs/Library/Caches/nce/8fb836cadd1e1f50180fea66b6acab1f23108e9a74f158744e706c6da41a534b/bindings/venvs/2.26.0/bin/pants", line 11, in <module>
+    sys.exit(entry_point())
+  File "/Users/cs/Library/Caches/nce/8fb836cadd1e1f50180fea66b6acab1f23108e9a74f158744e706c6da41a534b/bindings/venvs/2.26.0/lib/python3.11/site-packages/pants/bin/pants_loader.py", line 114, in main
+    PantsLoader.main()
+  File "/Users/cs/Library/Caches/nce/8fb836cadd1e1f50180fea66b6acab1f23108e9a74f158744e706c6da41a534b/bindings/venvs/2.26.0/lib/python3.11/site-packages/pants/bin/pants_loader.py", line 108, in main
+    cls.run_alternate_entrypoint(entrypoint)
+  File "/Users/cs/Library/Caches/nce/8fb836cadd1e1f50180fea66b6acab1f23108e9a74f158744e706c6da41a534b/bindings/venvs/2.26.0/lib/python3.11/site-packages/pants/bin/pants_loader.py", line 85, in run_alternate_entrypoint
+    entrypoint_fn()
+  File "/Users/cs/Library/Caches/nce/8fb836cadd1e1f50180fea66b6acab1f23108e9a74f158744e706c6da41a534b/bindings/venvs/2.26.0/lib/python3.11/site-packages/pants/pantsd/pants_daemon.py", line 240, in launch_new_pantsd_instance
+    daemon.run_sync()
+  File "/Users/cs/Library/Caches/nce/8fb836cadd1e1f50180fea66b6acab1f23108e9a74f158744e706c6da41a534b/bindings/venvs/2.26.0/lib/python3.11/site-packages/pants/pantsd/pants_daemon.py", line 213, in run_sync
+    time.sleep(self.JOIN_TIMEOUT_SECONDS)
+  File "/Users/cs/Library/Caches/nce/8fb836cadd1e1f50180fea66b6acab1f23108e9a74f158744e706c6da41a534b/bindings/venvs/2.26.0/lib/python3.11/site-packages/pants/base/exception_sink.py", line 109, in handle_sigterm
+    raise self.SignalHandledNonLocalExit(signum, "SIGTERM")
+  File "/Users/cs/Library/Caches/nce/8fb836cadd1e1f50180fea66b6acab1f23108e9a74f158744e706c6da41a534b/bindings/venvs/2.26.0/lib/python3.11/site-packages/pants/base/exception_sink.py", line 94, in __init__
+    self.traceback_lines = traceback.format_stack()
+
+14:00:10.73 [WARN] Executor was not shut down explicitly.
+14:00:10.73 [ERROR] panic at 'Cannot drop a runtime in a context where blocking is not allowed. This happens when a runtime is dropped from within an asynchronous context.', /Users/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.43.0/src/runtime/blocking/shutdown.rs:51
+14:00:10.73 [ERROR] Please set RUST_BACKTRACE=1, re-run, and then file a bug at https://github.com/pantsbuild/pants/issues.
+14:00:10.73 [ERROR] panic at 'A Tokio 1.x context was found, but it is being shutdown.', /Users/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.43.0/src/runtime/time/entry.rs:568
+14:00:10.73 [ERROR] Please set RUST_BACKTRACE=1, re-run, and then file a bug at https://github.com/pantsbuild/pants/issues.
+14:00:10.78 [WARN] File watcher exiting with: The watcher was shut down.
+14:00:13.21 [INFO] pantsd 2.24.0 running with PID: 51018
+14:00:13.22 [INFO] handling request: `test ::`
+14:00:14.59 [INFO] request completed: `test ::`
+14:01:07.14 [INFO] notify invalidation: cleared 1 and dirtied 51 nodes for: {"3rdparty", "3rdparty/4913"}
+14:01:07.14 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"3rdparty", "3rdparty/4913"}
+14:01:07.15 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"3rdparty", "3rdparty/4913"}
+14:01:07.15 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"3rdparty/BUILD", "3rdparty"}
+14:01:07.15 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"3rdparty", "3rdparty/BUILD~"}
+14:01:07.15 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"3rdparty", "3rdparty/4913"}
+14:01:07.15 [INFO] notify invalidation: cleared 1 and dirtied 40 nodes for: {"3rdparty/BUILD", "3rdparty"}
+14:01:07.15 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"3rdparty", "3rdparty/BUILD~"}
+14:01:07.16 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"3rdparty/BUILD", "3rdparty"}
+14:01:07.16 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"3rdparty/BUILD", "3rdparty"}
+14:01:07.17 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"3rdparty/BUILD", "3rdparty"}
+14:01:07.17 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"3rdparty/BUILD"}
+14:01:07.17 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"3rdparty/BUILD~", "3rdparty"}
+14:01:07.17 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"3rdparty/BUILD~", "3rdparty"}
+14:01:07.17 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"3rdparty", "3rdparty/BUILD"}
+14:01:07.17 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"3rdparty/BUILD"}
+14:01:07.17 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"3rdparty", "3rdparty/BUILD~"}
+14:01:07.17 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"3rdparty", "3rdparty/BUILD~"}
+14:01:11.68 [INFO] handling request: `test ::`
+14:01:11.78 [INFO] request completed: `test ::`
+14:01:34.56 [INFO] Extending leases
+14:01:34.57 [INFO] Done extending leases
+14:02:54.61 [INFO] Extending leases
+14:02:54.62 [INFO] Done extending leases
+14:04:14.65 [INFO] Extending leases
+14:04:14.66 [INFO] Done extending leases
+14:04:28.60 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"3rdparty/4913", "3rdparty"}
+14:04:28.60 [INFO] notify invalidation: cleared 1 and dirtied 54 nodes for: {"3rdparty/4913", "3rdparty"}
+14:04:28.60 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"3rdparty/4913", "3rdparty"}
+14:04:28.60 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"3rdparty/BUILD", "3rdparty"}
+14:04:28.60 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"3rdparty/BUILD~", "3rdparty"}
+14:04:28.60 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"3rdparty", "3rdparty/4913"}
+14:04:28.60 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"3rdparty", "3rdparty/BUILD"}
+14:04:28.60 [INFO] notify invalidation: cleared 1 and dirtied 43 nodes for: {"3rdparty", "3rdparty/BUILD"}
+14:04:28.60 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"3rdparty", "3rdparty/BUILD~"}
+14:04:28.60 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"3rdparty", "3rdparty/BUILD"}
+14:04:28.61 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"3rdparty", "3rdparty/BUILD"}
+14:04:28.61 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"3rdparty", "3rdparty/BUILD~"}
+14:04:28.61 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"3rdparty/BUILD~", "3rdparty"}
+14:04:28.61 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"3rdparty/BUILD", "3rdparty"}
+14:04:28.61 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"3rdparty", "3rdparty/BUILD~"}
+14:04:28.61 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"3rdparty", "3rdparty/BUILD~"}
+14:04:49.06 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "4913"}
+14:04:49.06 [INFO] notify invalidation: cleared 1 and dirtied 154 nodes for: {"", "4913"}
+14:04:49.06 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "4913"}
+14:04:49.06 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"BUILD", ""}
+14:04:49.06 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "BUILD"}
+14:04:49.06 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"BUILD"}
+14:04:49.06 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"BUILD~", ""}
+14:04:49.06 [INFO] notify invalidation: cleared 1 and dirtied 154 nodes for: {"4913", ""}
+14:04:49.06 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "BUILD~"}
+14:04:49.06 [INFO] notify invalidation: cleared 1 and dirtied 84 nodes for: {"", "BUILD"}
+14:04:49.06 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"BUILD", ""}
+14:04:49.06 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"BUILD"}
+14:04:49.06 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"BUILD~", ""}
+14:04:49.06 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"BUILD~", ""}
+14:04:50.61 [INFO] handling request: `test ::`
+14:04:50.71 [INFO] request completed: `test ::`
+14:05:12.39 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"4913", ""}
+14:05:12.39 [INFO] notify invalidation: cleared 1 and dirtied 165 nodes for: {"", "4913"}
+14:05:12.39 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"4913", ""}
+14:05:12.39 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "pants.toml"}
+14:05:12.39 [INFO] notify invalidation: cleared 1 and dirtied 165 nodes for: {"", "4913"}
+14:05:12.39 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pants.toml~", ""}
+14:05:12.39 [INFO] notify invalidation: cleared 1 and dirtied 4 nodes for: {"", "pants.toml"}
+14:05:12.39 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "pants.toml"}
+14:05:12.39 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "pants.toml~"}
+14:05:12.39 [INFO] notify invalidation: cleared 2 and dirtied 165 nodes for: {"", "pants.toml"}
+14:05:12.39 [ERROR] saw filesystem changes covered by invalidation globs: SnapshotDiff(our_unique_files=(), our_unique_dirs=(), their_unique_files=(), their_unique_dirs=(), changed_files=('pants.toml',)). terminating the daemon.
+14:05:12.40 [INFO] notify invalidation: cleared 2 and dirtied 165 nodes for: {"", "pants.toml"}
+14:05:12.40 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pants.toml"}
+14:05:12.40 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "pants.toml~"}
+14:05:12.40 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pants.toml~", ""}
+14:05:12.40 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "pants.toml"}
+14:05:12.40 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pants.toml"}
+14:05:12.40 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "pants.toml~"}
+14:05:12.40 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "pants.toml~"}
+14:05:12.67 [ERROR] service failure for <pants.pantsd.service.scheduler_service.SchedulerService object at 0x1116532e0>.
+14:05:12.67 [INFO] Waiting for ongoing runs to complete before exiting...
+14:05:12.67 [INFO] Server exiting with Ok(())
+14:05:12.67 [INFO] Waiting for Sessions to complete before exiting...
+14:05:12.68 [INFO] Waiting for shutdown of: ["scheduler_service_session", "store_gc_service_session", "pants_run_2026_01_15_14_00_14_553_4c2a88f5ab3c42cb893df0b030819818", "pants_run_2026_01_15_14_01_11_747_43b745e2db8143a6832f5850b05852ad", "pants_run_2026_01_15_14_04_50_679_ab416dbddcbc4b3e92fdae1ad3df6cd9"]
+14:05:12.68 [INFO] Shutdown completed: "scheduler_service_session"
+14:05:12.68 [INFO] Shutdown completed: "store_gc_service_session"
+14:05:12.68 [INFO] Shutdown completed: "pants_run_2026_01_15_14_00_14_553_4c2a88f5ab3c42cb893df0b030819818"
+14:05:12.68 [INFO] Shutdown completed: "pants_run_2026_01_15_14_01_11_747_43b745e2db8143a6832f5850b05852ad"
+14:05:12.68 [INFO] Shutdown completed: "pants_run_2026_01_15_14_04_50_679_ab416dbddcbc4b3e92fdae1ad3df6cd9"
+14:05:12.68 [INFO] Exiting pantsd
+14:05:12.68 [WARN] File watcher exiting with: The watcher was shut down.
+14:07:46.23 [INFO] pantsd 2.30.0 running with PID: 51710
+14:07:46.28 [INFO] handling request: `test ::`
+14:07:46.50 [INFO] request completed: `test ::`
+14:08:35.56 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "4913"}
+14:08:35.56 [INFO] notify invalidation: cleared 1 and dirtied 98 nodes for: {"4913", ""}
+14:08:35.56 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"4913", ""}
+14:08:35.56 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"BUILD", ""}
+14:08:35.56 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "BUILD~"}
+14:08:35.56 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"BUILD", ""}
+14:08:35.56 [INFO] notify invalidation: cleared 1 and dirtied 98 nodes for: {"4913", ""}
+14:08:35.56 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"BUILD"}
+14:08:35.56 [INFO] notify invalidation: cleared 1 and dirtied 55 nodes for: {"", "BUILD"}
+14:08:35.56 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"BUILD~", ""}
+14:08:35.56 [INFO] notify invalidation: cleared 1 and dirtied 98 nodes for: {"", "BUILD"}
+14:08:35.56 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"BUILD"}
+14:08:35.56 [INFO] Filesystem changed during run: retrying `Scandir()` in 500ms...
+14:08:35.57 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "BUILD~"}
+14:08:35.57 [INFO] notify invalidation: cleared 1 and dirtied 98 nodes for: {"", "BUILD~"}
+14:08:35.57 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"BUILD~", ""}
+14:08:35.57 [INFO] notify invalidation: cleared 1 and dirtied 98 nodes for: {"", "BUILD~"}
+14:08:37.09 [INFO] handling request: `test ::`
+14:08:37.20 [INFO] request completed: `test ::`
+14:09:06.46 [INFO] Extending leases
+14:09:06.47 [INFO] Done extending leases
+14:09:12.24 [INFO] handling request: `clean`
+14:09:12.44 [INFO] request completed: `clean`
+14:09:15.95 [INFO] handling request: `test ::`
+14:09:16.05 [INFO] request completed: `test ::`
+14:09:35.81 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp", "tests/ercot_lmp/4913"}
+14:09:35.81 [INFO] notify invalidation: cleared 1 and dirtied 52 nodes for: {"tests/ercot_lmp", "tests/ercot_lmp/4913"}
+14:09:35.82 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp", "tests/ercot_lmp/4913"}
+14:09:35.82 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp/4913", "tests/ercot_lmp"}
+14:09:35.82 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp", "tests/ercot_lmp/BUILD"}
+14:09:35.82 [INFO] notify invalidation: cleared 1 and dirtied 46 nodes for: {"tests/ercot_lmp", "tests/ercot_lmp/BUILD"}
+14:09:35.82 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp/BUILD~", "tests/ercot_lmp"}
+14:09:35.82 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp", "tests/ercot_lmp/BUILD~"}
+14:09:35.82 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp/BUILD", "tests/ercot_lmp"}
+14:09:35.82 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp/BUILD", "tests/ercot_lmp"}
+14:09:35.82 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp/BUILD"}
+14:09:35.82 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp/BUILD"}
+14:09:35.82 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp/BUILD~", "tests/ercot_lmp"}
+14:09:35.82 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp", "tests/ercot_lmp/BUILD~"}
+14:09:35.82 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp/BUILD~", "tests/ercot_lmp"}
+14:09:35.82 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp", "tests/ercot_lmp/BUILD~"}
+14:09:38.50 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp", "tests/ercot_lmp/4913"}
+14:09:38.50 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp", "tests/ercot_lmp/4913"}
+14:09:38.50 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp", "tests/ercot_lmp/4913"}
+14:09:38.50 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp/4913", "tests/ercot_lmp"}
+14:09:38.50 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp", "tests/ercot_lmp/BUILD"}
+14:09:38.50 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp", "tests/ercot_lmp/BUILD"}
+14:09:38.50 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp/BUILD", "tests/ercot_lmp"}
+14:09:38.50 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp", "tests/ercot_lmp/BUILD"}
+14:09:38.50 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp/BUILD"}
+14:09:38.50 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp/BUILD"}
+14:09:38.50 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp/BUILD~", "tests/ercot_lmp"}
+14:09:38.50 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp", "tests/ercot_lmp/BUILD~"}
+14:09:38.50 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp", "tests/ercot_lmp/BUILD~"}
+14:09:38.50 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp/BUILD~", "tests/ercot_lmp"}
+14:09:40.27 [INFO] handling request: `test ::`
+14:09:40.37 [INFO] request completed: `test ::`
+14:09:59.29 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp", "tests/ercot_lmp/4913"}
+14:09:59.29 [INFO] notify invalidation: cleared 1 and dirtied 57 nodes for: {"tests/ercot_lmp", "tests/ercot_lmp/4913"}
+14:09:59.29 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp/4913", "tests/ercot_lmp"}
+14:09:59.29 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp", "tests/ercot_lmp/4913"}
+14:09:59.29 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp", "tests/ercot_lmp/BUILD"}
+14:09:59.29 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp/BUILD", "tests/ercot_lmp"}
+14:09:59.29 [INFO] notify invalidation: cleared 1 and dirtied 48 nodes for: {"tests/ercot_lmp", "tests/ercot_lmp/BUILD"}
+14:09:59.29 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp", "tests/ercot_lmp/BUILD"}
+14:09:59.29 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp/BUILD"}
+14:09:59.29 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp/BUILD"}
+14:09:59.29 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp", "tests/ercot_lmp/BUILD"}
+14:09:59.29 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp", "tests/ercot_lmp/BUILD"}
+14:09:59.29 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp", "tests/ercot_lmp/BUILD~"}
+14:09:59.29 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp", "tests/ercot_lmp/BUILD~"}
+14:09:59.29 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp", "tests/ercot_lmp/BUILD~"}
+14:09:59.29 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp", "tests/ercot_lmp/BUILD~"}
+14:10:00.30 [INFO] handling request: `test ::`
+14:10:00.40 [INFO] request completed: `test ::`
+14:10:05.95 [INFO] handling request: `peek //:reqs`
+14:10:06.05 [INFO] request completed: `peek //:reqs`
+14:10:19.92 [INFO] handling request: `peek //:reqs`
+14:10:20.03 [INFO] request completed: `peek //:reqs`
+14:10:22.06 [INFO] handling request: `test ::`
+14:10:22.16 [INFO] request completed: `test ::`
+14:10:26.50 [INFO] Extending leases
+14:10:26.51 [INFO] Done extending leases
+14:11:00.35 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests/ercot_lmp/BUILD", "tests/ercot_lmp"}
+14:11:00.35 [INFO] notify invalidation: cleared 2 and dirtied 61 nodes for: {"tests/ercot_lmp/BUILD", "tests/ercot_lmp"}
+14:11:00.35 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests", "tests/ercot_lmp"}
+14:11:00.35 [INFO] notify invalidation: cleared 1 and dirtied 65 nodes for: {"tests/ercot_lmp", "tests"}
+14:11:00.35 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"tests", ""}
+14:11:00.35 [INFO] notify invalidation: cleared 1 and dirtied 213 nodes for: {"", "tests"}
+14:11:02.05 [INFO] handling request: `test ::`
+14:11:02.16 [INFO] request completed: `test ::`
+14:11:46.54 [INFO] Extending leases
+14:11:46.55 [INFO] Done extending leases
+14:12:30.35 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "lib"}
+14:12:30.35 [INFO] notify invalidation: cleared 1 and dirtied 215 nodes for: {"", "lib"}
+14:13:06.58 [INFO] Extending leases
+14:13:06.58 [INFO] Done extending leases
+14:14:26.60 [INFO] Extending leases
+14:14:26.61 [INFO] Done extending leases
+14:15:13.14 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "pants.toml.tmp.52572.1768508113136"}
+14:15:13.14 [INFO] notify invalidation: cleared 1 and dirtied 215 nodes for: {"", "pants.toml.tmp.52572.1768508113136"}
+14:15:13.14 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pants.toml.tmp.52572.1768508113136", ""}
+14:15:13.14 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pants.toml.tmp.52572.1768508113136"}
+14:15:13.14 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "pants.toml"}
+14:15:13.14 [INFO] notify invalidation: cleared 1 and dirtied 215 nodes for: {"", "pants.toml.tmp.52572.1768508113136"}
+14:15:13.14 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "pants.toml"}
+14:15:13.14 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pants.toml.tmp.52572.1768508113136"}
+14:15:13.14 [INFO] notify invalidation: cleared 1 and dirtied 0 nodes for: {"", "pants.toml"}
+14:15:13.14 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pants.toml", ""}
+14:15:13.15 [ERROR] saw filesystem changes covered by invalidation globs: SnapshotDiff(our_unique_files=(), our_unique_dirs=(), their_unique_files=(), their_unique_dirs=(), changed_files=('pants.toml',)). terminating the daemon.
+14:15:13.68 [ERROR] service failure for <pants.pantsd.service.scheduler_service.SchedulerService object at 0x10c3f7fd0>.
+14:15:13.68 [INFO] Waiting for ongoing runs to complete before exiting...
+14:15:13.68 [INFO] Server exiting with Ok(())
+14:15:13.68 [INFO] Waiting for Sessions to complete before exiting...
+14:15:13.68 [INFO] Waiting for shutdown of: ["scheduler_service_session", "store_gc_service_session", "pants_run_2026_01_15_14_07_46_457_6fba7699329f4f7db3f9cbcf7142a4e3", "pants_run_2026_01_15_14_08_37_176_aed03256387643efa4381d038dbf294b", "pants_run_2026_01_15_14_09_16_31_b4ab00a2b11e4cc9911f8c3c89113601", "pants_run_2026_01_15_14_09_40_356_b2bc385fbed64d52ae6bb695d541a56f", "pants_run_2026_01_15_14_10_00_381_3c05a8ce8f7d4c2390a92fdfd404774c", "pants_run_2026_01_15_14_10_06_37_76c89ddf5102495ba92fe55891fb2211", "pants_run_2026_01_15_14_10_20_1_4c84f5550c4d4ed39d58a80d8a4b2e4b", "pants_run_2026_01_15_14_10_22_144_5365cb9bc7754412bcfa22ece8375016", "pants_run_2026_01_15_14_11_02_136_d7f3f5f525a84aca95d5acbf764ea897"]
+14:15:13.68 [INFO] Shutdown completed: "scheduler_service_session"
+14:15:13.68 [INFO] Shutdown completed: "store_gc_service_session"
+14:15:13.68 [INFO] Shutdown completed: "pants_run_2026_01_15_14_07_46_457_6fba7699329f4f7db3f9cbcf7142a4e3"
+14:15:13.68 [INFO] Shutdown completed: "pants_run_2026_01_15_14_08_37_176_aed03256387643efa4381d038dbf294b"
+14:15:13.68 [INFO] Shutdown completed: "pants_run_2026_01_15_14_09_16_31_b4ab00a2b11e4cc9911f8c3c89113601"
+14:15:13.68 [INFO] Shutdown completed: "pants_run_2026_01_15_14_09_40_356_b2bc385fbed64d52ae6bb695d541a56f"
+14:15:13.68 [INFO] Shutdown completed: "pants_run_2026_01_15_14_10_00_381_3c05a8ce8f7d4c2390a92fdfd404774c"
+14:15:13.68 [INFO] Shutdown completed: "pants_run_2026_01_15_14_10_06_37_76c89ddf5102495ba92fe55891fb2211"
+14:15:13.68 [INFO] Shutdown completed: "pants_run_2026_01_15_14_10_20_1_4c84f5550c4d4ed39d58a80d8a4b2e4b"
+14:15:13.68 [INFO] Shutdown completed: "pants_run_2026_01_15_14_10_22_144_5365cb9bc7754412bcfa22ece8375016"
+14:15:13.68 [INFO] Shutdown completed: "pants_run_2026_01_15_14_11_02_136_d7f3f5f525a84aca95d5acbf764ea897"
+14:15:13.68 [INFO] Exiting pantsd
+14:15:13.69 [WARN] File watcher exiting with: The watcher was shut down.
+14:15:33.98 [INFO] pantsd 2.30.0 running with PID: 52963
+14:15:34.09 [INFO] handling request: `list ::`
+14:15:34.14 [INFO] request completed: `list ::`
+14:15:34.98 [ERROR] Client failed to create a Scheduler: shutting down.
+14:15:34.98 [INFO] Waiting for ongoing runs to complete before exiting...
+14:15:34.98 [INFO] Server exiting with Ok(())
+14:15:34.98 [INFO] Waiting for Sessions to complete before exiting...
+14:15:34.99 [INFO] Exiting pantsd
+14:15:35.01 [WARN] File watcher exiting with: The watcher was shut down.
+14:15:50.88 [INFO] pantsd 2.30.0 running with PID: 53008
+14:15:50.92 [INFO] handling request: `list ::`
+14:15:51.15 [INFO] request completed: `list ::`
+14:15:58.14 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/BUILD.tmp.52572.1768508158138", "lib_ercot"}
+14:15:58.14 [INFO] notify invalidation: cleared 1 and dirtied 13 nodes for: {"lib_ercot/BUILD.tmp.52572.1768508158138", "lib_ercot"}
+14:15:58.14 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/BUILD.tmp.52572.1768508158138", "lib_ercot"}
+14:15:58.14 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot", "lib_ercot/BUILD.tmp.52572.1768508158138"}
+14:15:58.14 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/BUILD.tmp.52572.1768508158138"}
+14:15:58.14 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/BUILD.tmp.52572.1768508158138"}
+14:15:58.14 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot", "lib_ercot/BUILD"}
+14:15:58.14 [INFO] notify invalidation: cleared 1 and dirtied 11 nodes for: {"lib_ercot/BUILD", "lib_ercot"}
+14:15:58.14 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/BUILD", "lib_ercot"}
+14:15:58.14 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot", "lib_ercot/BUILD"}
+14:16:02.67 [INFO] handling request: `list ::`
+14:16:02.78 [INFO] request completed: `list ::`
+14:16:12.09 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot", "lib_ercot/BUILD.tmp.52572.1768508172094"}
+14:16:12.09 [INFO] notify invalidation: cleared 1 and dirtied 26 nodes for: {"lib_ercot/BUILD.tmp.52572.1768508172094", "lib_ercot"}
+14:16:12.09 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/BUILD.tmp.52572.1768508172094", "lib_ercot"}
+14:16:12.09 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/BUILD.tmp.52572.1768508172094", "lib_ercot"}
+14:16:12.09 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/BUILD.tmp.52572.1768508172094"}
+14:16:12.09 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/BUILD.tmp.52572.1768508172094"}
+14:16:12.09 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot", "lib_ercot/BUILD"}
+14:16:12.09 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot", "lib_ercot/BUILD"}
+14:16:12.09 [INFO] notify invalidation: cleared 1 and dirtied 21 nodes for: {"lib_ercot", "lib_ercot/BUILD"}
+14:16:12.09 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot", "lib_ercot/BUILD"}
+14:16:16.74 [INFO] handling request: `list ::`
+14:16:16.85 [INFO] request completed: `list ::`
+14:16:35.32 [INFO] handling request: `test ::`
+14:17:08.76 [INFO] request completed: `test ::`
+14:17:11.11 [INFO] Extending leases
+14:17:11.11 [INFO] Done extending leases

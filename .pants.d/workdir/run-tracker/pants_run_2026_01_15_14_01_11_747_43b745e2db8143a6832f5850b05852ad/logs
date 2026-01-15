@@ -1,0 +1,7 @@
+14:01:11.78 [31m[ERROR][0m 1 Exception encountered:
+
+Engine traceback:
+  in `test` goal
+
+InvalidTargetException: 3rdparty/BUILD:1: The 'source' field in target 3rdparty:reqs should not include `../` patterns because targets can only have sources in the current directory or subdirectories. It was set to ../pyproject.toml. Instead, use a normalized literal file path (relative to the BUILD file).
+

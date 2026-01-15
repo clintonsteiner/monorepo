@@ -1,0 +1,13 @@
+14:07:46.49 [33m[WARN][0m Unmatched globs from lib_ercot:lib_ercot's `sources` field: ["lib_ercot/*.py", "lib_ercot/*.pyi"], excludes: ["lib_ercot/*_test.py", "lib_ercot/*_test.pyi", "lib_ercot/conftest.py", "lib_ercot/test_*.py", "lib_ercot/test_*.pyi", "lib_ercot/tests.py", "lib_ercot/tests.pyi"]
+
+Do the file(s) exist? If so, check if the file(s) are in your `.gitignore` or the global `pants_ignore` option, which may result in Pants not being able to see the file(s) even though they exist on disk. Refer to https://www.pantsbuild.org/troubleshooting#pants-cannot-find-a-file-in-your-project.
+14:07:46.49 [33m[WARN][0m Unmatched glob from tests/ercot_lmp:tests's `sources` field: "tests/ercot_lmp/**/*.py"
+
+Do the file(s) exist? If so, check if the file(s) are in your `.gitignore` or the global `pants_ignore` option, which may result in Pants not being able to see the file(s) even though they exist on disk. Refer to https://www.pantsbuild.org/troubleshooting#pants-cannot-find-a-file-in-your-project.
+14:07:46.50 [31m[ERROR][0m 1 Exception encountered:
+
+Engine traceback:
+  in `test` goal
+
+KeyError: 'No section `tool.uv` found in pyproject.toml, which is loaded by Pants from a `uv_requirements` macro.\n\nDid you mean to set up uv?'
+

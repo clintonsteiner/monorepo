@@ -1,0 +1,9 @@
+13:55:55.24 [31m[ERROR][0m 1 Exception encountered:
+
+Engine traceback:
+  in `test` goal
+
+IntrinsicError: Unmatched glob from python_requirements(address="3rdparty:reqs", description=None, module_mapping=FrozenDict({}), overrides=None, source=pyproject.toml, tags=None, type_stubs_module_mapping=FrozenDict({}))'s field `source`: "3rdparty/pyproject.toml"
+
+Do the file(s) exist? If so, check if the file(s) are in your `.gitignore` or the global `pants_ignore` option, which may result in Pants not being able to see the file(s) even though they exist on disk. Refer to https://www.pantsbuild.org/troubleshooting#pants-cannot-find-a-file-in-your-project.
+

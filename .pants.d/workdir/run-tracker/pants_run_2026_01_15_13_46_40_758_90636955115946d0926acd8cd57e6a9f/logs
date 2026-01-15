@@ -1,0 +1,27 @@
+13:46:40.80 [33m[WARN][0m Pants cannot infer owners for the following imports in the target tests/ercot_lmp/test_main.py:tests:
+
+  * lib_ercot.utils.core.extract_row (line: 5)
+  * lib_ercot.utils.core.parse_update_time (line: 5)
+  * pandas (line: 3)
+
+If you do not expect an import to be inferrable, add `# pants: no-infer-dep` to the import line. Otherwise, see https://www.pantsbuild.org/2.22/docs/using-pants/troubleshooting-common-issues#import-errors-and-missing-dependencies for common problems.
+13:46:41.45 [31m[ERROR][0m 1 Exception encountered:
+
+Engine traceback:
+  in `test` goal
+
+ProcessExecutionFailure: Process 'Find interpreter for constraints: CPython>=3.10' failed with exit code 1.
+stdout:
+
+stderr:
+No supported version of Pip is compatible with the given targets:
+cp311-cp311-macosx_26_0_arm64 interpreter at /opt/homebrew/Cellar/python@3.11/3.11.14_1/Frameworks/Python.framework/Versions/3.11/bin/python3.11
+cp312-cp312-macosx_26_0_arm64 interpreter at /Library/Frameworks/Python.framework/Versions/3.12/bin/python3.12
+cp312-cp312-macosx_26_0_arm64 interpreter at /opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/bin/python3.12
+cp313-cp313-macosx_26_0_arm64 interpreter at /opt/homebrew/Cellar/python@3.13/3.13.9_1/Frameworks/Python.framework/Versions/3.13/bin/python3.13
+cp314-cp314-macosx_26_0_arm64 interpreter at /opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/bin/python3.14
+
+
+
+Use `--keep-sandboxes=on_failure` to preserve the process chroot for inspection.
+

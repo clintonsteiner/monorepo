@@ -1,0 +1,8 @@
+14:16:02.78 [ERROR] 1 Exception encountered:
+
+Engine traceback:
+  in `list` goal
+  in Find targets from input specs
+
+InvalidTargetException: lib_ercot/BUILD:1: Unrecognized field `skip_tests=True` in target lib_ercot:lib_ercot. Valid fields for the target type `python_sources`: ['dependencies', 'description', 'interpreter_constraints', 'overrides', 'resolve', 'restartable', 'run_goal_use_sandbox', 'sources', 'tags'].
+

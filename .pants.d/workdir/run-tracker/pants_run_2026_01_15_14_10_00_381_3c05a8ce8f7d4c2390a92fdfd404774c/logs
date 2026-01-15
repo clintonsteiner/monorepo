@@ -1,0 +1,7 @@
+14:10:00.40 [31m[ERROR][0m 1 Exception encountered:
+
+Engine traceback:
+  in `test` goal
+
+InvalidFieldException: : Failed to get dependencies for //:reqs#pandas: The file or directory '3rdparty/python/default.lock' does not exist on disk in the workspace, so the address '3rdparty/python/default.lock:_python-default_lockfile' from the `dependencies` field from the target //:reqs#pandas cannot be resolved.
+

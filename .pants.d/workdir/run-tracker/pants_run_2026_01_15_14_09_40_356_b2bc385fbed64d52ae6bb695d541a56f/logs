@@ -1,0 +1,10 @@
+14:09:40.37 [33m[WARN][0m Unmatched globs from tests/ercot_lmp:tests's `sources` field: ["tests/ercot_lmp/*_test.py", "tests/ercot_lmp/test_*.py", "tests/ercot_lmp/tests.py"]
+
+Do the file(s) exist? If so, check if the file(s) are in your `.gitignore` or the global `pants_ignore` option, which may result in Pants not being able to see the file(s) even though they exist on disk. Refer to https://www.pantsbuild.org/troubleshooting#pants-cannot-find-a-file-in-your-project.
+14:09:40.37 [31m[ERROR][0m 1 Exception encountered:
+
+Engine traceback:
+  in `test` goal
+
+InvalidFieldException: : Failed to get dependencies for //:reqs#pandas: The file or directory '3rdparty/python/default.lock' does not exist on disk in the workspace, so the address '3rdparty/python/default.lock:_python-default_lockfile' from the `dependencies` field from the target //:reqs#pandas cannot be resolved.
+
