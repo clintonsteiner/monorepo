@@ -130,6 +130,7 @@ class TestErcotDbImage:
         helper = PostgresTestHelper(
             container,
             db_user=self.DB_USER,
+            db_password=self.DB_PASSWORD,
             db_name=self.DB_NAME,
         )
 

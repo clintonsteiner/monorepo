@@ -14,6 +14,7 @@ class PostgresTestHelper:
         self,
         container: docker.models.containers.Container,
         db_user: str = "ercot_user",
+        db_password: str = "ercot_pass",
         db_name: str = "ercot_db",
         max_wait_seconds: int = 30,
     ):
@@ -22,11 +23,13 @@ class PostgresTestHelper:
         Args:
             container: Running PostgreSQL container.
             db_user: Database username.
+            db_password: Database password.
             db_name: Database name.
             max_wait_seconds: Max seconds to wait for DB readiness.
         """
         self.container = container
         self.db_user = db_user
+        self.db_password = db_password
         self.db_name = db_name
         self.max_wait = max_wait_seconds
         self._ensure_ready()
@@ -35,17 +38,10 @@ class PostgresTestHelper:
         """Wait for database to be ready."""
         for attempt in range(self.max_wait):
             try:
-                # First check if postgres is listening
+                # Check if postgres is listening
                 result = self.container.exec_run(["pg_isready", "-U", self.db_user])
                 if result.exit_code == 0:
-                    # Then verify we can actually connect and query
-                    try:
-                        cmd = ["psql", "-U", self.db_user, "-d", "postgres", "-c", "SELECT 1;"]
-                        result = self.container.exec_run(cmd)
-                        if result.exit_code == 0:
-                            return
-                    except Exception:
-                        pass
+                    return
             except Exception:
                 pass
             time.sleep(1)
@@ -65,7 +61,7 @@ class PostgresTestHelper:
             RuntimeError: If query execution fails and check=True.
         """
         cmd = ["psql", "-U", self.db_user, "-d", self.db_name, "-c", query]
-        result = self.container.exec_run(cmd)
+        result = self.container.exec_run(cmd, environment={"PGPASSWORD": self.db_password})
 
         if check and result.exit_code != 0:
             raise RuntimeError(f"psql failed with code {result.exit_code}: {result.output}")
