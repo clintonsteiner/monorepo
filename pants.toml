@@ -26,6 +26,9 @@ config = ["pyproject.toml"]
 [flake8]
 config = ".flake8"
 
+[test]
+timeout_default = 60
+
 [update-build-files]
 check = false
 fmt = true

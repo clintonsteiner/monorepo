@@ -16,7 +16,7 @@ class PostgresTestHelper:
         db_user: str = "ercot_user",
         db_password: str = "ercot_pass",
         db_name: str = "ercot_db",
-        max_wait_seconds: int = 30,
+        max_wait_seconds: int = 15,
     ):
         """Initialize PostgreSQL test helper.
 

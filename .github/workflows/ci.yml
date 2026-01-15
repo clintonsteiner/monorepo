@@ -47,14 +47,21 @@ jobs:
           pants fmt ::
           echo "✓ Code formatting is correct"
 
-      - name: build docker img
+      - name: Run unit tests (no Docker)
+        run: |
+          pants test :: --tag='-docker'
+          echo "✓ Unit tests passed"
+
+      - name: Build Docker images
         run: |
           make docker-build
+          make db-build
+          echo "✓ Docker images built"
 
-      - name: Run tests
+      - name: Run Docker tests
         run: |
-          pants test ::
-          echo "✓ All tests passed"
+          pants test :: --tag='docker'
+          echo "✓ Docker tests passed"
 
       - name: Upload test results
         if: always()
