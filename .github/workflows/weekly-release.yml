@@ -114,7 +114,7 @@ jobs:
 
       - name: Tag and push
         run: |
-          VERSION=${GITHUB_REF#refs/tags/}
+          VERSION=${{ steps.version.outputs.version }}
 
           # Tag ercot-lmp
           docker tag ercot-lmp:latest ghcr.io/${{ github.repository_owner }}/ercot-lmp:latest

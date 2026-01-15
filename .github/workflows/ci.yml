@@ -44,7 +44,7 @@ jobs:
 
       - name: Check formatting
         run: |
-          pants fmt ::
+          pants fmt --check ::
           echo "✓ Code formatting is correct"
 
       - name: Run unit tests (no Docker)
@@ -55,7 +55,6 @@ jobs:
       - name: Build Docker images
         run: |
           make docker-build
-          make db-build
           echo "✓ Docker images built"
 
       - name: Run Docker tests
@@ -110,5 +109,5 @@ jobs:
       - name: Test Docker images
         run: |
           # Test hello_world.pex in Docker
-          docker run --rm --entrypoint /app/bin/hello_world.pex ercot-lmp:ci --name "CI"
+          docker run --rm --entrypoint /app/bin/hello_world.pex ercot-lmp:latest --name "CI"
           echo "✓ Docker container test passed"
