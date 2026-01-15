@@ -5,6 +5,7 @@ backend_packages = [
     "pants.backend.python.lint.black",
     "pants.backend.python.lint.isort",
     "pants.backend.python.lint.flake8",
+    "pants.backend.docker",
 ]
 
 [source]
@@ -32,6 +33,11 @@ fmt = true
 [tailor]
 check = false
 build_file_name = "BUILD"
+
+[docker]
+default_repository = "ercot-lmp"
+build_args = []
+build_target_stage = ""
 
 [anonymous-telemetry]
 enabled = false

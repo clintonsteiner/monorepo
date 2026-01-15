@@ -47,3 +47,51 @@
 14:47:02.75 [INFO] request completed: `lint ::`
 14:48:15.56 [INFO] Extending leases
 14:48:15.57 [INFO] Done extending leases
+14:53:52.65 [INFO] pantsd 2.30.0 running with PID: 61402
+14:53:52.70 [INFO] handling request: `tailor ::`
+14:53:52.97 [INFO] request completed: `tailor ::`
+14:54:00.69 [INFO] handling request: `test example_lib::`
+14:54:02.79 [INFO] request completed: `test example_lib::`
+14:54:04.79 [INFO] handling request: `list example_lib::`
+14:54:04.89 [INFO] request completed: `list example_lib::`
+14:55:12.91 [INFO] Extending leases
+14:55:12.94 [INFO] Done extending leases
+14:55:20.00 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pants.toml.tmp.52572.1768510519994", ""}
+14:55:20.00 [INFO] notify invalidation: cleared 1 and dirtied 437 nodes for: {"", "pants.toml.tmp.52572.1768510519994"}
+14:55:20.00 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "pants.toml.tmp.52572.1768510519994"}
+14:55:20.00 [INFO] notify invalidation: cleared 1 and dirtied 437 nodes for: {"", "pants.toml.tmp.52572.1768510519994"}
+14:55:20.00 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pants.toml.tmp.52572.1768510519994"}
+14:55:20.00 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pants.toml", ""}
+14:55:20.00 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pants.toml.tmp.52572.1768510519994"}
+14:55:20.00 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pants.toml", ""}
+14:55:20.00 [INFO] notify invalidation: cleared 1 and dirtied 0 nodes for: {"pants.toml", ""}
+14:55:20.00 [INFO] notify invalidation: cleared 1 and dirtied 437 nodes for: {"", "pants.toml"}
+14:55:20.00 [INFO] Filesystem changed during run: retrying `Scandir()` in 500ms...
+14:55:21.46 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "pants.toml.tmp.52572.1768510521461"}
+14:55:21.46 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pants.toml.tmp.52572.1768510521461", ""}
+14:55:21.46 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pants.toml.tmp.52572.1768510521461"}
+14:55:21.46 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "pants.toml"}
+14:55:21.46 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pants.toml", ""}
+14:55:21.46 [INFO] notify invalidation: cleared 1 and dirtied 437 nodes for: {"", "pants.toml.tmp.52572.1768510521461"}
+14:55:21.46 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "pants.toml.tmp.52572.1768510521461"}
+14:55:21.46 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"pants.toml.tmp.52572.1768510521461"}
+14:55:21.46 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "pants.toml"}
+14:55:21.46 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "pants.toml"}
+14:55:21.46 [ERROR] saw filesystem changes covered by invalidation globs: SnapshotDiff(our_unique_files=(), our_unique_dirs=(), their_unique_files=(), their_unique_dirs=(), changed_files=('pants.toml',)). terminating the daemon.
+14:55:21.73 [ERROR] service failure for <pants.pantsd.service.scheduler_service.SchedulerService object at 0x10a11ba10>.
+14:55:21.73 [INFO] Waiting for ongoing runs to complete before exiting...
+14:55:21.73 [INFO] Server exiting with Ok(())
+14:55:21.73 [INFO] Waiting for Sessions to complete before exiting...
+14:55:21.73 [INFO] Waiting for shutdown of: ["scheduler_service_session", "store_gc_service_session", "pants_run_2026_01_15_14_53_52_937_b8fe4674790145aaaa2283acbfb4d484", "pants_run_2026_01_15_14_54_00_779_1f5bb3dae7044dc9947804661172a53b", "pants_run_2026_01_15_14_54_04_880_c358286c8c0741d290167905c1066f60"]
+14:55:21.73 [INFO] Shutdown completed: "scheduler_service_session"
+14:55:21.73 [INFO] Shutdown completed: "store_gc_service_session"
+14:55:21.73 [INFO] Shutdown completed: "pants_run_2026_01_15_14_53_52_937_b8fe4674790145aaaa2283acbfb4d484"
+14:55:21.73 [INFO] Shutdown completed: "pants_run_2026_01_15_14_54_00_779_1f5bb3dae7044dc9947804661172a53b"
+14:55:21.73 [INFO] Shutdown completed: "pants_run_2026_01_15_14_54_04_880_c358286c8c0741d290167905c1066f60"
+14:55:21.73 [INFO] Exiting pantsd
+14:55:21.74 [WARN] File watcher exiting with: The watcher was shut down.
+14:55:31.34 [INFO] pantsd 2.30.0 running with PID: 61618
+14:55:31.43 [INFO] handling request: `list ::`
+14:55:31.81 [INFO] request completed: `list ::`
+14:55:49.44 [INFO] handling request: `package db_setup:docker`
+14:55:49.66 [INFO] request completed: `package db_setup:docker`

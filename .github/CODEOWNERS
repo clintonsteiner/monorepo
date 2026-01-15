@@ -1,0 +1,25 @@
+# Code Owners
+# These owners will be the default owners for everything in the repo
+# They will be requested for review when someone opens a pull request
+
+# Default owners
+* @your-username
+
+# Python packages
+/ercot_lmp/ @your-username
+/lib_ercot/ @your-username
+/hello_world/ @your-username
+
+# Database
+/db_setup/ @your-username
+
+# CI/CD
+/.github/ @your-username
+
+# Configuration
+/pants.toml @your-username
+/pyproject.toml @your-username
+/.pre-commit-config.yaml @your-username
+
+# Documentation
+/*.md @your-username

@@ -54,10 +54,10 @@ pex:
 	@echo "  - dist/ercot_lmp.pex"
 	@echo "  - dist/hello_world.pex"
 
-docker-build: pex
-	@echo "Building Docker image with PEX files..."
-	docker build -t ercot-lmp:latest .
-	@echo "✓ Docker image built: ercot-lmp:latest"
+docker-build:
+	@echo "Building Docker images with Pants..."
+	pants package ercot_lmp:docker db_setup:docker
+	@echo "✓ Docker images built via Pants"
 
 docker-run:
 	@echo "Running ercot_lmp in Docker..."
@@ -70,8 +70,8 @@ docker-hello:
 docker: docker-build docker-run
 
 db-build:
-	@echo "Building PostgreSQL database image..."
-	docker build -f db_setup/Dockerfile.db -t ercot-db:latest db_setup/
+	@echo "Building PostgreSQL database image with Pants..."
+	pants package db_setup:docker
 	@echo "✓ Database image built: ercot-db:latest"
 
 db-run:
