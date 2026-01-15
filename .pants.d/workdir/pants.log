@@ -989,3 +989,97 @@ Signal 15 (SIGTERM) was raised. Exiting with failure.
 14:35:08.68 [INFO] request completed: `test ::`
 14:35:13.19 [INFO] handling request: `list ::`
 14:35:13.29 [INFO] request completed: `list ::`
+14:35:47.72 [INFO] Extending leases
+14:35:47.72 [INFO] Done extending leases
+14:37:03.67 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "db_setup"}
+14:37:03.67 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup", "db_setup/sql"}
+14:37:03.67 [INFO] notify invalidation: cleared 1 and dirtied 506 nodes for: {"db_setup", ""}
+14:37:03.67 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup", "db_setup/sql"}
+14:37:04.89 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/sql/01_schema.sql.tmp.52572.1768509424896", "db_setup/sql"}
+14:37:04.89 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/sql/01_schema.sql.tmp.52572.1768509424896", "db_setup/sql"}
+14:37:04.89 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/sql", "db_setup/sql/01_schema.sql.tmp.52572.1768509424896"}
+14:37:04.89 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/sql/01_schema.sql.tmp.52572.1768509424896", "db_setup/sql"}
+14:37:04.89 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/sql/01_schema.sql.tmp.52572.1768509424896"}
+14:37:04.89 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/sql/01_schema.sql.tmp.52572.1768509424896"}
+14:37:04.89 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/sql/01_schema.sql", "db_setup/sql"}
+14:37:04.89 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/sql/01_schema.sql", "db_setup/sql"}
+14:37:05.94 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/sql/02_seed_data.sql.tmp.52572.1768509425939", "db_setup/sql"}
+14:37:05.94 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/sql/02_seed_data.sql.tmp.52572.1768509425939", "db_setup/sql"}
+14:37:05.94 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/sql", "db_setup/sql/02_seed_data.sql.tmp.52572.1768509425939"}
+14:37:05.94 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/sql/02_seed_data.sql.tmp.52572.1768509425939"}
+14:37:05.94 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/sql", "db_setup/sql/02_seed_data.sql.tmp.52572.1768509425939"}
+14:37:05.94 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/sql/02_seed_data.sql", "db_setup/sql"}
+14:37:05.94 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/sql/02_seed_data.sql.tmp.52572.1768509425939"}
+14:37:05.94 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/sql", "db_setup/sql/02_seed_data.sql"}
+14:37:06.69 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/sql", "db_setup/sql/03_functions.sql.tmp.52572.1768509426695"}
+14:37:06.69 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/sql", "db_setup/sql/03_functions.sql.tmp.52572.1768509426695"}
+14:37:06.69 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/sql", "db_setup/sql/03_functions.sql.tmp.52572.1768509426695"}
+14:37:06.69 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/sql", "db_setup/sql/03_functions.sql.tmp.52572.1768509426695"}
+14:37:06.69 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/sql/03_functions.sql.tmp.52572.1768509426695"}
+14:37:06.69 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/sql/03_functions.sql.tmp.52572.1768509426695"}
+14:37:06.69 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/sql", "db_setup/sql/03_functions.sql"}
+14:37:06.69 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/sql/03_functions.sql", "db_setup/sql"}
+14:37:07.63 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup", "db_setup/README.md.tmp.52572.1768509427630"}
+14:37:07.63 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup", "db_setup/README.md.tmp.52572.1768509427630"}
+14:37:07.63 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup", "db_setup/README.md.tmp.52572.1768509427630"}
+14:37:07.63 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup", "db_setup/README.md.tmp.52572.1768509427630"}
+14:37:07.63 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/README.md.tmp.52572.1768509427630"}
+14:37:07.63 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup", "db_setup/README.md"}
+14:37:07.63 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/README.md.tmp.52572.1768509427630"}
+14:37:07.63 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/README.md", "db_setup"}
+14:37:07.76 [INFO] Extending leases
+14:37:07.77 [INFO] Done extending leases
+14:37:08.52 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/BUILD.tmp.52572.1768509428521", "db_setup"}
+14:37:08.52 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/BUILD.tmp.52572.1768509428521", "db_setup"}
+14:37:08.52 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup", "db_setup/BUILD.tmp.52572.1768509428521"}
+14:37:08.52 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup", "db_setup/BUILD.tmp.52572.1768509428521"}
+14:37:08.52 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/BUILD.tmp.52572.1768509428521"}
+14:37:08.52 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/BUILD.tmp.52572.1768509428521"}
+14:37:08.52 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/BUILD", "db_setup"}
+14:37:08.52 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/BUILD", "db_setup"}
+14:37:09.43 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup", "db_setup/Dockerfile.db.tmp.52572.1768509429433"}
+14:37:09.43 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup", "db_setup/Dockerfile.db.tmp.52572.1768509429433"}
+14:37:09.43 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup", "db_setup/Dockerfile.db.tmp.52572.1768509429433"}
+14:37:09.43 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/Dockerfile.db.tmp.52572.1768509429433", "db_setup"}
+14:37:09.43 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/Dockerfile.db.tmp.52572.1768509429433"}
+14:37:09.43 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/Dockerfile.db.tmp.52572.1768509429433"}
+14:37:09.43 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup", "db_setup/Dockerfile.db"}
+14:37:09.43 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup", "db_setup/Dockerfile.db"}
+14:37:11.54 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"Makefile.tmp.52572.1768509431544", ""}
+14:37:11.54 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "Makefile.tmp.52572.1768509431544"}
+14:37:11.54 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"Makefile.tmp.52572.1768509431544"}
+14:37:11.54 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"Makefile", ""}
+14:37:11.54 [INFO] notify invalidation: cleared 1 and dirtied 506 nodes for: {"", "Makefile.tmp.52572.1768509431544"}
+14:37:11.54 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"Makefile", ""}
+14:37:11.54 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"Makefile.tmp.52572.1768509431544", ""}
+14:37:11.54 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"Makefile.tmp.52572.1768509431544"}
+14:37:11.54 [INFO] notify invalidation: cleared 1 and dirtied 506 nodes for: {"", "Makefile"}
+14:37:11.54 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "Makefile"}
+14:37:13.14 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"Makefile.tmp.52572.1768509433147", ""}
+14:37:13.14 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "Makefile.tmp.52572.1768509433147"}
+14:37:13.14 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"Makefile.tmp.52572.1768509433147"}
+14:37:13.14 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"Makefile", ""}
+14:37:13.14 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"Makefile", ""}
+14:37:13.14 [INFO] notify invalidation: cleared 1 and dirtied 506 nodes for: {"", "Makefile.tmp.52572.1768509433147"}
+14:37:13.14 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "Makefile.tmp.52572.1768509433147"}
+14:37:13.14 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"Makefile.tmp.52572.1768509433147"}
+14:37:13.14 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "Makefile"}
+14:37:13.14 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"Makefile", ""}
+14:37:20.13 [INFO] handling request: `list db_setup:`
+14:37:20.25 [INFO] request completed: `list db_setup:`
+14:38:04.69 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/sql", "db_setup/sql/03_functions.sql.tmp.52572.1768509484688"}
+14:38:04.69 [INFO] notify invalidation: cleared 1 and dirtied 9 nodes for: {"db_setup/sql", "db_setup/sql/03_functions.sql.tmp.52572.1768509484688"}
+14:38:04.69 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/sql", "db_setup/sql/03_functions.sql.tmp.52572.1768509484688"}
+14:38:04.69 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/sql", "db_setup/sql/03_functions.sql.tmp.52572.1768509484688"}
+14:38:04.69 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/sql/03_functions.sql.tmp.52572.1768509484688"}
+14:38:04.69 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/sql/03_functions.sql.tmp.52572.1768509484688"}
+14:38:04.69 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/sql", "db_setup/sql/03_functions.sql"}
+14:38:04.69 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/sql", "db_setup/sql/03_functions.sql"}
+14:38:04.69 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/sql/03_functions.sql", "db_setup/sql"}
+14:38:04.69 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"db_setup/sql/03_functions.sql", "db_setup/sql"}
+14:38:27.79 [INFO] Extending leases
+14:38:27.80 [INFO] Done extending leases
+14:38:34.43 [INFO] handling request: `list ::`
+14:38:34.56 [INFO] request completed: `list ::`
+14:38:40.24 [INFO] handling request: `list ::`
+14:38:40.33 [INFO] request completed: `list ::`
