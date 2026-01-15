@@ -2,6 +2,7 @@
 pants_version = "2.30.0"
 backend_packages = [
     "pants.backend.python",
+    "pants.backend.docker",
 ]
 
 [source]
@@ -12,6 +13,9 @@ interpreter_constraints = ["CPython>=3.11,<3.13"]
 
 [python-infer]
 use_rust_parser = true
+
+[docker]
+default_repository = "ercot-lmp"
 
 [anonymous-telemetry]
 enabled = false

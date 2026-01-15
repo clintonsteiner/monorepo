@@ -3,6 +3,7 @@ python_sources(
 )
 
 pex_binary(
-    name="main",
+    name="pex",
     entry_point="scripts/main.py",
+    output_path="ercot_lmp.pex",
 )
