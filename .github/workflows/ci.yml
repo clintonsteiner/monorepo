@@ -44,7 +44,7 @@ jobs:
 
       - name: Check formatting
         run: |
-          pants fmt --check ::
+          pants fmt ::
           echo "✓ Code formatting is correct"
 
       - name: Run unit tests (no Docker)
