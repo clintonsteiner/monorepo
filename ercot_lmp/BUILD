@@ -1,26 +1,26 @@
+# Python sources for the ercot_lmp module
 python_sources(
     sources=["**/*.py"],
 )
 
+# PEX binary for the main application
 pex_binary(
     name="pex",
     entry_point="scripts/main.py",
     output_path="ercot_lmp.pex",
 )
 
-files(
-    name="dockerfile",
-    sources=["Dockerfile"],
-)
-
+# Docker image: ercot_lmp:latest
+# Includes ercot_lmp, lib_ercot, and hello_world packages
 docker_image(
     name="docker",
+    source="Dockerfile",
     dependencies=[
         ":pex",
-        "//hello_world:pex",
         ":ercot_lmp",
-        "//lib_ercot:lib_ercot",
+        "//hello_world:pex",
         "//hello_world:hello_world",
+        "//lib_ercot:lib_ercot",
     ],
-    image_tags=["latest", "{build_args.VERSION}"],
+    image_tags=["latest"],
 )
