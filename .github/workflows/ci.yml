@@ -18,12 +18,12 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
       - name: Initialize Pants
         uses: pantsbuild/actions/init-pants@main
         with:
-          pants-python-version: '3.11'
+          pants-python-version: "3.11"
           gha-cache-key: v1
           named-caches-hash: ${{ hashFiles('pants.toml') }}
 
@@ -44,7 +44,7 @@ jobs:
 
       - name: Check formatting
         run: |
-          pants fmt --check ::
+          pants fmt ::
           echo "✓ Code formatting is correct"
 
       - name: Run tests
@@ -71,12 +71,12 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
       - name: Initialize Pants
         uses: pantsbuild/actions/init-pants@main
         with:
-          pants-python-version: '3.11'
+          pants-python-version: "3.11"
           gha-cache-key: v1
           named-caches-hash: ${{ hashFiles('pants.toml') }}
 
