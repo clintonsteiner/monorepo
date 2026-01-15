@@ -1,16 +1,23 @@
 from __future__ import annotations
 
-import csv
 import io
-import time
+import logging
 from dataclasses import dataclass
 from datetime import datetime
-from pathlib import Path
 from typing import Iterable, Tuple
 
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
+
+from lib_ercot.shared.csv_writer import CSVWriter
+from lib_ercot.shared.datetime_fmt import DateTimeFormatter
+from lib_ercot.shared.lmp_processor import LMPDataProcessor
+from lib_ercot.shared.retry_policy import RetryPolicy
+from lib_ercot.shared.string_utils import StringUtil
+from lib_ercot.shared.validators import Validator
+
+logger = logging.getLogger(__name__)
 
 DEFAULT_URL = "https://www.ercot.com/content/cdr/html/hb_lz.html"
 DEFAULT_COLUMNS = ("LMP", "SPP")
@@ -26,6 +33,14 @@ class MonitorConfig:
 
 
 def build_headers(columns: Iterable[str]) -> list[str]:
+    """Build CSV headers for LMP data.
+
+    Args:
+        columns: Column names to include (e.g., 'LMP', 'SPP').
+
+    Returns:
+        List of header strings with location prefixes.
+    """
     cols = list(columns)
     headers: list[str] = ["Date", "Time"]
     headers.extend([f"HB_HOUSTON_{c}" for c in cols])
@@ -33,95 +48,89 @@ def build_headers(columns: Iterable[str]) -> list[str]:
     return headers
 
 
-def ensure_csv_headers(csv_filename: str, headers: list[str]) -> None:
-    path = Path(csv_filename)
-    if path.exists():
-        return
-    path.parent.mkdir(parents=True, exist_ok=True)
-    with path.open("w", newline="") as f:
-        csv.writer(f).writerow(headers)
-
-
-def parse_update_time(update_lines: list[str]) -> datetime:
-    # Example: 'Last Updated:  Oct 21, 2025 23:15:10'
-    if not update_lines:
-        return datetime.now()
-    ts = update_lines[0].replace("Last Updated:", "").strip()
-    return datetime.strptime(ts, "%b %d, %Y %H:%M:%S")
-
-
 def fetch_lmp_table(url: str) -> tuple[pd.DataFrame, datetime]:
+    """Fetch LMP table from ERCOT website.
+
+    Args:
+        url: URL to ERCOT LMP page.
+
+    Returns:
+        Tuple of (filtered dataframe, update datetime).
+
+    Raises:
+        RuntimeError: If table not found or parsing fails.
+    """
     resp = requests.get(url, timeout=30)
     resp.raise_for_status()
 
     soup = BeautifulSoup(resp.text, "html.parser")
     table = soup.find("table")
-    if table is None:
-        raise RuntimeError("No table found on page")
+    Validator.not_none(table, "No table found on page")
 
     df = pd.read_html(io.StringIO(str(table)))[0]
 
-    # Keep rows we care about
-    df_filtered = df[df[0].isin(["Settlement Point", "HB_HOUSTON", "LZ_HOUSTON"])]
+    # Filter to required settlement points and columns
+    df_filtered = LMPDataProcessor.filter_locations(df)
+    df_filtered = LMPDataProcessor.select_columns(df_filtered, [0, 1, 3])
 
-    # Keep only required columns: Settlement Point + (LMP/SPP)
-    # Original [0,1,3]: name, LMP, SPP on page.
-    df_filtered = df_filtered[[0, 1, 3]]
-
-    # Extract "Last Updated"
+    # Extract "Last Updated" timestamp
     update_text = soup.get_text()
-    update_lines = [line for line in update_text.splitlines() if "Last Updated" in line]
-    update_time = parse_update_time(update_lines)
+    update_line = StringUtil.extract_first_line_containing(update_text, "Last Updated")
+    update_time = DateTimeFormatter.parse_ercot_timestamp(update_line or DateTimeFormatter.format_iso_datetime(datetime.now()))
 
     return df_filtered, update_time
 
 
-def extract_row(df_filtered: pd.DataFrame, update_time: datetime) -> list[object]:
-    date_str = update_time.strftime("%Y-%m-%d")
-    time_str = update_time.strftime("%H:%M:%S")
-
-    hb = df_filtered[df_filtered[0] == "HB_HOUSTON"]
-    lz = df_filtered[df_filtered[0] == "LZ_HOUSTON"]
-    if hb.empty or lz.empty:
-        raise RuntimeError("Expected HB_HOUSTON and LZ_HOUSTON rows were not found")
-
-    hb_row = hb.iloc[0]
-    lz_row = lz.iloc[0]
-
-    row: list[object] = [date_str, time_str]
-    row.extend(hb_row.drop(0).tolist())
-    row.extend(lz_row.drop(0).tolist())
-    return row
-
-
-def append_csv_row(csv_filename: str, row: list[object]) -> None:
-    with open(csv_filename, "a", newline="") as f:
-        csv.writer(f).writerow(row)
-
-
 def run_monitor(config: MonitorConfig) -> None:
+    """Monitor ERCOT LMP page and append updates to CSV.
+
+    Polls the ERCOT page at intervals. When new data is detected, appends
+    a row to the CSV file. Uses exponential backoff on errors.
+
+    Args:
+        config: Monitor configuration.
+    """
     headers = build_headers(config.columns)
-    ensure_csv_headers(config.csv_filename, headers)
+    csv_writer = CSVWriter(config.csv_filename)
+    csv_writer.ensure_headers(headers)
 
     last_update: datetime | None = None
     sleep_time = config.poll_sleep_seconds
 
-    print("Monitoring ERCOT LMP page. Press Ctrl+C to stop.")
-    # while True:
-    for i in range(5):
-        try:
+    # Retry policy: 3 attempts with 1s backoff, exponential multiplier 2.0
+    retry_policy = RetryPolicy(max_attempts=3, backoff_seconds=1, backoff_multiplier=2.0)
+
+    logger.info("Monitoring ERCOT LMP page. Press Ctrl+C to stop.")
+
+    for i in range(5):  # Remove for production: try: while True:
+
+        def fetch_and_process():
             df, update_time = fetch_lmp_table(config.url)
+            return df, update_time
+
+        def on_error(exc: Exception, attempt: int):
+            logger.error(f"Error fetching LMP table (attempt {attempt + 1}): {exc}")
+
+        try:
+            df, update_time = retry_policy.execute(
+                fetch_and_process,
+                on_error=on_error,
+            )
+
             if last_update is None or update_time != last_update:
-                row = extract_row(df, update_time)
-                append_csv_row(config.csv_filename, row)
+                row = LMPDataProcessor.build_csv_row(df, update_time)
+                csv_writer.append_row(row)
                 last_update = update_time
-                print(f"New data detected at {update_time}, recorded 1 row.")
+                logger.info(f"New data detected at {update_time}, recorded 1 row.")
                 sleep_time = config.expected_update_interval_seconds
             else:
-                print(f"No change detected at {datetime.now().isoformat()}.")
+                logger.debug(f"No change detected at {datetime.now().isoformat()}.")
                 sleep_time = config.poll_sleep_seconds
+
         except Exception as e:
-            print(f"Error fetching or processing data: {e}")
+            logger.exception(f"Failed after retries: {e}")
             sleep_time = config.poll_sleep_seconds
+
+        import time
 
         time.sleep(sleep_time)
