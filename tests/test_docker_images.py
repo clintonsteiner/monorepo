@@ -203,10 +203,20 @@ class TestErcotDbImage:
 
     def test_sample_data_values(self, postgres_helper) -> None:
         """Test that sample data contains expected values."""
-        postgres_helper.assert_query_contains(
-            "SELECT location FROM ercot.lmp_data WHERE location='HB_HOUSTON' LIMIT 1;",
-            b"HB_HOUSTON",
-        )
+        import time
+
+        # Retry data check as seed data may take a moment to commit
+        for attempt in range(3):
+            try:
+                postgres_helper.assert_query_contains(
+                    "SELECT location FROM ercot.lmp_data WHERE location='HB_HOUSTON' LIMIT 1;",
+                    b"HB_HOUSTON",
+                )
+                break
+            except RuntimeError:
+                if attempt == 2:
+                    raise
+                time.sleep(1)
 
     def test_metadata_seeded(self, postgres_helper) -> None:
         """Test that monitor_metadata was seeded."""

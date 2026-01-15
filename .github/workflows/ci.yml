@@ -47,6 +47,10 @@ jobs:
           pants fmt ::
           echo "✓ Code formatting is correct"
 
+      - name: build docker img
+        run: |
+          make docker-build
+
       - name: Run tests
         run: |
           pants test ::
