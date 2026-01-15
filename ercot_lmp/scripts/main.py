@@ -10,7 +10,11 @@ def _parse_args() -> argparse.Namespace:
     p.add_argument("--url", default=MonitorConfig.url)
     p.add_argument("--csv", default=MonitorConfig.csv_filename)
     p.add_argument("--poll-sleep", type=int, default=MonitorConfig.poll_sleep_seconds)
-    p.add_argument("--expected-interval", type=int, default=MonitorConfig.expected_update_interval_seconds)
+    p.add_argument(
+        "--expected-interval",
+        type=int,
+        default=MonitorConfig.expected_update_interval_seconds,
+    )
     return p.parse_args()
 
 
@@ -27,4 +31,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

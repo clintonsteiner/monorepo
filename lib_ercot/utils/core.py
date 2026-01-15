@@ -12,7 +12,6 @@ import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 
-
 DEFAULT_URL = "https://www.ercot.com/content/cdr/html/hb_lz.html"
 DEFAULT_COLUMNS = ("LMP", "SPP")
 
@@ -65,8 +64,8 @@ def fetch_lmp_table(url: str) -> tuple[pd.DataFrame, datetime]:
     # Keep rows we care about
     df_filtered = df[df[0].isin(["Settlement Point", "HB_HOUSTON", "LZ_HOUSTON"])]
 
-    # Keep only required columns: Settlement Point + (LMP/SPP columns in current page layout)
-    # Original script used [0,1,3] which corresponds to: name, LMP, SPP on that page today.
+    # Keep only required columns: Settlement Point + (LMP/SPP)
+    # Original [0,1,3]: name, LMP, SPP on page.
     df_filtered = df_filtered[[0, 1, 3]]
 
     # Extract "Last Updated"
@@ -108,7 +107,7 @@ def run_monitor(config: MonitorConfig) -> None:
     sleep_time = config.poll_sleep_seconds
 
     print("Monitoring ERCOT LMP page. Press Ctrl+C to stop.")
-    #while True:
+    # while True:
     for i in range(5):
         try:
             df, update_time = fetch_lmp_table(config.url)
@@ -126,4 +125,3 @@ def run_monitor(config: MonitorConfig) -> None:
             sleep_time = config.poll_sleep_seconds
 
         time.sleep(sleep_time)
-

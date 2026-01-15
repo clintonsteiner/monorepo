@@ -12,9 +12,7 @@ def hello(name: str) -> None:
 
 def main() -> int:
     """Main entry point."""
-    parser = argparse.ArgumentParser(
-        description="A simple hello world application"
-    )
+    parser = argparse.ArgumentParser(description="A simple hello world application")
     parser.add_argument(
         "--name",
         default="World",

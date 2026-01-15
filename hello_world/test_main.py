@@ -1,6 +1,5 @@
 """Tests for hello_world."""
 
-import pytest
 from hello_world.main import hello
 
 

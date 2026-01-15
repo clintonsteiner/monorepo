@@ -23,4 +23,3 @@ def test_extract_row_hb_lz():
     assert row[0] == "2025-10-21"
     assert row[1] == "23:15:10"
     assert row[2:] == [1.23, 4.56, 7.89, 0.12]
-
