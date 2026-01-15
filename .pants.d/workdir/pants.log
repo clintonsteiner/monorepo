@@ -842,3 +842,150 @@ Signal 15 (SIGTERM) was raised. Exiting with failure.
 14:28:21.20 [INFO] Shutdown completed: "pants_run_2026_01_15_14_27_39_822_672f7c22cb2e496385081f8aa54e3f04"
 14:28:21.20 [INFO] Exiting pantsd
 14:28:21.21 [WARN] File watcher exiting with: The watcher was shut down.
+14:30:27.39 [INFO] pantsd 2.30.0 running with PID: 55753
+14:30:27.40 [INFO] handling request: `list ::`
+14:30:27.63 [INFO] request completed: `list ::`
+14:30:31.55 [INFO] handling request: `test ::`
+14:30:33.04 [INFO] request completed: `test ::`
+14:30:38.77 [INFO] handling request: `package ercot_lmp:pex`
+14:30:38.87 [INFO] request completed: `package ercot_lmp:pex`
+14:30:38.88 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", ".tmpiOHWFR.hardlink_canary"}
+14:30:38.88 [INFO] notify invalidation: cleared 1 and dirtied 294 nodes for: {"", ".tmpiOHWFR.hardlink_canary"}
+14:30:38.88 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", ".tmpiOHWFR.hardlink_canary"}
+14:30:38.88 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", ".tmpiOHWFR.hardlink_canary"}
+14:31:16.12 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"README.md.tmp.52572.1768509076117", ""}
+14:31:16.12 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "README.md.tmp.52572.1768509076117"}
+14:31:16.12 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"README.md.tmp.52572.1768509076117"}
+14:31:16.12 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "README.md"}
+14:31:16.12 [INFO] notify invalidation: cleared 1 and dirtied 294 nodes for: {"README.md.tmp.52572.1768509076117", ""}
+14:31:16.12 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"README.md.tmp.52572.1768509076117", ""}
+14:31:16.12 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"README.md.tmp.52572.1768509076117"}
+14:31:16.12 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "README.md"}
+14:31:47.59 [INFO] Extending leases
+14:31:47.61 [INFO] Done extending leases
+14:32:12.67 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/utils/4913", "lib_ercot/utils"}
+14:32:12.67 [INFO] notify invalidation: cleared 1 and dirtied 128 nodes for: {"lib_ercot/utils", "lib_ercot/utils/4913"}
+14:32:12.67 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/utils/4913", "lib_ercot/utils"}
+14:32:12.67 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/utils/4913", "lib_ercot/utils"}
+14:32:12.67 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/utils/core.py", "lib_ercot/utils"}
+14:32:12.67 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/utils", "lib_ercot/utils/core.py"}
+14:32:12.67 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/utils/core.py"}
+14:32:12.67 [INFO] notify invalidation: cleared 1 and dirtied 48 nodes for: {"lib_ercot/utils", "lib_ercot/utils/core.py"}
+14:32:12.67 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/utils", "lib_ercot/utils/core.py"}
+14:32:12.67 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/utils/core.py"}
+14:32:14.75 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/utils", "lib_ercot/utils/4913"}
+14:32:14.75 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/utils", "lib_ercot/utils/4913"}
+14:32:14.75 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/utils", "lib_ercot/utils/4913"}
+14:32:14.75 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/utils/4913", "lib_ercot/utils"}
+14:32:14.75 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/utils", "lib_ercot/utils/core.py"}
+14:32:14.75 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/utils", "lib_ercot/utils/core.py"}
+14:32:14.75 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/utils", "lib_ercot/utils/core.py"}
+14:32:14.75 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/utils", "lib_ercot/utils/core.py"}
+14:32:14.75 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/utils/core.py"}
+14:32:14.75 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/utils", "lib_ercot/utils/core.py"}
+14:32:14.75 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/utils/core.py"}
+14:32:14.75 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/utils/core.py"}
+14:32:14.75 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/utils", "lib_ercot/utils/core.py"}
+14:32:14.75 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"lib_ercot/utils/core.py"}
+14:32:15.87 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"TEMPLATE.md.tmp.52572.1768509135872", ""}
+14:32:15.87 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "TEMPLATE.md.tmp.52572.1768509135872"}
+14:32:15.87 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"TEMPLATE.md.tmp.52572.1768509135872"}
+14:32:15.87 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "TEMPLATE.md"}
+14:32:15.87 [INFO] notify invalidation: cleared 1 and dirtied 294 nodes for: {"", "TEMPLATE.md.tmp.52572.1768509135872"}
+14:32:15.87 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "TEMPLATE.md.tmp.52572.1768509135872"}
+14:32:15.87 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"TEMPLATE.md.tmp.52572.1768509135872"}
+14:32:15.87 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "TEMPLATE.md"}
+14:33:07.64 [INFO] Extending leases
+14:33:07.65 [INFO] Done extending leases
+14:33:41.35 [INFO] handling request: `test ::`
+14:33:43.83 [INFO] request completed: `test ::`
+14:33:46.31 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world", ""}
+14:33:46.31 [INFO] notify invalidation: cleared 1 and dirtied 297 nodes for: {"hello_world", ""}
+14:33:47.20 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world/__init__.py.tmp.52572.1768509227207", "hello_world"}
+14:33:47.20 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world", "hello_world/__init__.py.tmp.52572.1768509227207"}
+14:33:47.20 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world", "hello_world/__init__.py.tmp.52572.1768509227207"}
+14:33:47.20 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world/__init__.py.tmp.52572.1768509227207", "hello_world"}
+14:33:47.20 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world/__init__.py.tmp.52572.1768509227207"}
+14:33:47.20 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world/__init__.py.tmp.52572.1768509227207"}
+14:33:47.20 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world/__init__.py", "hello_world"}
+14:33:47.20 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world", "hello_world/__init__.py"}
+14:33:48.31 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world/main.py.tmp.52572.1768509228317", "hello_world"}
+14:33:48.31 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world/main.py.tmp.52572.1768509228317", "hello_world"}
+14:33:48.31 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world/main.py.tmp.52572.1768509228317", "hello_world"}
+14:33:48.31 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world/main.py.tmp.52572.1768509228317", "hello_world"}
+14:33:48.31 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world/main.py.tmp.52572.1768509228317"}
+14:33:48.31 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world/main.py.tmp.52572.1768509228317"}
+14:33:48.31 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world", "hello_world/main.py"}
+14:33:48.31 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world", "hello_world/main.py"}
+14:33:49.39 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world", "hello_world/BUILD.tmp.52572.1768509229397"}
+14:33:49.39 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world/BUILD.tmp.52572.1768509229397", "hello_world"}
+14:33:49.39 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world/BUILD.tmp.52572.1768509229397", "hello_world"}
+14:33:49.39 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world", "hello_world/BUILD.tmp.52572.1768509229397"}
+14:33:49.39 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world/BUILD.tmp.52572.1768509229397"}
+14:33:49.39 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world/BUILD.tmp.52572.1768509229397"}
+14:33:49.39 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world", "hello_world/BUILD"}
+14:33:49.39 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world", "hello_world/BUILD"}
+14:33:50.43 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world", "hello_world/test_main.py.tmp.52572.1768509230436"}
+14:33:50.43 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world", "hello_world/test_main.py.tmp.52572.1768509230436"}
+14:33:50.43 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world/test_main.py.tmp.52572.1768509230436"}
+14:33:50.43 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world/test_main.py", "hello_world"}
+14:33:50.43 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world", "hello_world/test_main.py.tmp.52572.1768509230436"}
+14:33:50.43 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world/test_main.py.tmp.52572.1768509230436", "hello_world"}
+14:33:50.43 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world/test_main.py.tmp.52572.1768509230436"}
+14:33:50.43 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world", "hello_world/test_main.py"}
+14:33:51.43 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world/BUILD.tmp.52572.1768509231431", "hello_world"}
+14:33:51.43 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world", "hello_world/BUILD.tmp.52572.1768509231431"}
+14:33:51.43 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world/BUILD.tmp.52572.1768509231431", "hello_world"}
+14:33:51.43 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world/BUILD.tmp.52572.1768509231431", "hello_world"}
+14:33:51.43 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world/BUILD.tmp.52572.1768509231431"}
+14:33:51.43 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world", "hello_world/BUILD"}
+14:33:51.43 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world/BUILD.tmp.52572.1768509231431"}
+14:33:51.43 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world/BUILD", "hello_world"}
+14:33:51.43 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world/BUILD", "hello_world"}
+14:33:51.43 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"hello_world/BUILD", "hello_world"}
+14:33:52.27 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "Dockerfile.tmp.52572.1768509232269"}
+14:33:52.27 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "Dockerfile.tmp.52572.1768509232269"}
+14:33:52.27 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"Dockerfile.tmp.52572.1768509232269"}
+14:33:52.27 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "Dockerfile"}
+14:33:52.27 [INFO] notify invalidation: cleared 1 and dirtied 297 nodes for: {"", "Dockerfile.tmp.52572.1768509232269"}
+14:33:52.27 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"Dockerfile", ""}
+14:33:52.27 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "Dockerfile.tmp.52572.1768509232269"}
+14:33:52.27 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"Dockerfile.tmp.52572.1768509232269"}
+14:33:52.27 [INFO] notify invalidation: cleared 1 and dirtied 297 nodes for: {"Dockerfile", ""}
+14:33:52.27 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "Dockerfile"}
+14:33:53.22 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "Makefile.tmp.52572.1768509233225"}
+14:33:53.22 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "Makefile.tmp.52572.1768509233225"}
+14:33:53.22 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"Makefile.tmp.52572.1768509233225"}
+14:33:53.22 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"Makefile", ""}
+14:33:53.22 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"Makefile", ""}
+14:33:53.22 [INFO] notify invalidation: cleared 1 and dirtied 297 nodes for: {"Makefile.tmp.52572.1768509233225", ""}
+14:33:53.22 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "Makefile.tmp.52572.1768509233225"}
+14:33:53.22 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"Makefile.tmp.52572.1768509233225"}
+14:33:53.22 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"Makefile", ""}
+14:33:53.22 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", "Makefile"}
+14:34:02.70 [INFO] handling request: `list hello_world:`
+14:34:02.80 [INFO] request completed: `list hello_world:`
+14:34:04.37 [INFO] handling request: `test hello_world:`
+14:34:07.73 [INFO] request completed: `test hello_world:`
+14:34:08.82 [INFO] handling request: `package ercot_lmp:pex hello_world:pex`
+14:34:14.73 [INFO] request completed: `package ercot_lmp:pex hello_world:pex`
+14:34:27.67 [INFO] Extending leases
+14:34:27.68 [INFO] Done extending leases
+14:34:31.01 [INFO] handling request: `package ercot_lmp:pex hello_world:pex`
+14:34:31.11 [INFO] request completed: `package ercot_lmp:pex hello_world:pex`
+14:34:41.40 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", ".dockerignore.tmp.52572.1768509281400"}
+14:34:41.40 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", ".dockerignore.tmp.52572.1768509281400"}
+14:34:41.40 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {".dockerignore.tmp.52572.1768509281400"}
+14:34:41.40 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {".dockerignore", ""}
+14:34:41.40 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {"", ".dockerignore"}
+14:34:41.40 [INFO] notify invalidation: cleared 1 and dirtied 500 nodes for: {"", ".dockerignore.tmp.52572.1768509281400"}
+14:34:41.40 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {".dockerignore.tmp.52572.1768509281400", ""}
+14:34:41.40 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {".dockerignore.tmp.52572.1768509281400"}
+14:34:41.40 [INFO] notify invalidation: cleared 0 and dirtied 0 nodes for: {".dockerignore", ""}
+14:34:41.40 [INFO] notify invalidation: cleared 1 and dirtied 500 nodes for: {".dockerignore", ""}
+14:34:42.62 [INFO] handling request: `package ercot_lmp:pex hello_world:pex`
+14:34:42.75 [INFO] request completed: `package ercot_lmp:pex hello_world:pex`
+14:35:07.30 [INFO] handling request: `test ::`
+14:35:08.68 [INFO] request completed: `test ::`
+14:35:13.19 [INFO] handling request: `list ::`
+14:35:13.29 [INFO] request completed: `list ::`

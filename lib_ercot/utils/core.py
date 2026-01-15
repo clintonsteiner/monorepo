@@ -108,7 +108,8 @@ def run_monitor(config: MonitorConfig) -> None:
     sleep_time = config.poll_sleep_seconds
 
     print("Monitoring ERCOT LMP page. Press Ctrl+C to stop.")
-    while True:
+    #while True:
+    for i in range(5):
         try:
             df, update_time = fetch_lmp_table(config.url)
             if last_update is None or update_time != last_update:
