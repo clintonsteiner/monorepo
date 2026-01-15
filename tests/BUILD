@@ -1,6 +1,6 @@
 python_tests(
     dependencies=[
-        "helpers",
+        "//tests/helpers:helpers",
     ],
 )
 
