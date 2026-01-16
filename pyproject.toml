@@ -31,6 +31,12 @@ multi_line_output = 3
 exclude_dirs = ["tests", ".venv", ".pants.d"]
 skips = ["B101"]
 
+[tool.uv.workspace]
+members = [
+    "only_uv_monorepo",
+    "only_uv_monorepo/math_library",
+]
+
 [dependency-groups]
 dev = [
     "pytest>=9.0.2",
