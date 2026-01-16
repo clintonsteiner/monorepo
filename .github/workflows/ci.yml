@@ -109,5 +109,5 @@ jobs:
       - name: Test Docker images
         run: |
           # Test hello_world.pex in Docker
-          docker run --rm --entrypoint /app/bin/hello_world.pex ercot-lmp:latest --name "CI"
+          docker run --rm --entrypoint /app/hello_world.pex ercot-lmp:latest --name "CI"
           echo "✓ Docker container test passed"
