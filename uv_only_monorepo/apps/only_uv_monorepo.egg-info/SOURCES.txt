@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+apps/only_uv_monorepo.egg-info/PKG-INFO
+apps/only_uv_monorepo.egg-info/SOURCES.txt
+apps/only_uv_monorepo.egg-info/dependency_links.txt
+apps/only_uv_monorepo.egg-info/requires.txt
+apps/only_uv_monorepo.egg-info/top_level.txt
+apps/service_a/__init__.py
+apps/service_a/main.py
+tests/test_service_a.py
