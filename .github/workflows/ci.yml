@@ -64,7 +64,7 @@ jobs:
 
       - name: Upload test results
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: test-results
           path: .pants.d/test/reports/
@@ -97,7 +97,7 @@ jobs:
           echo "✓ PEX files built successfully"
 
       - name: Upload PEX artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: pex-files
           path: dist/*.pex
