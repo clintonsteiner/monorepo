@@ -12,4 +12,5 @@ docker_image(
     dependencies=[":sql"],
     image_tags=["latest"],
     repository="ercot-db",
+    context_root=".",
 )
