@@ -1,4 +1,4 @@
-FROM postgres:16-alpine
+FROM postgres:18-alpine
 
 # Environment variables for default user and database
 ENV POSTGRES_USER=ercot_user \
