@@ -5,8 +5,8 @@ ENV POSTGRES_USER=ercot_user \
     POSTGRES_PASSWORD=ercot_pass \
     POSTGRES_DB=ercot_db
 
-# Copy SQL initialization files
-# PostgreSQL auto-executes .sql files in /docker-entrypoint-initdb.d/ (alphabetically)
-COPY db_setup/sql/*.sql /docker-entrypoint-initdb.d/
+# Copy SQL initialization files from the build context
+# Pants stages them in the root of the context
+COPY *.sql /docker-entrypoint-initdb.d/
 
 EXPOSE 5432

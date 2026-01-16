@@ -109,7 +109,7 @@ all: test pex
 
 clean:
 	@echo "Cleaning build artifacts..."
-	rm -rf dist/
-	pants clean-all
+	rm -rf dist/ .pants.d/
 	docker rmi -f ercot-lmp:latest 2>/dev/null || true
+	docker rmi -f ercot-db:latest 2>/dev/null || true
 	@echo "✓ Clean complete"
