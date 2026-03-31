@@ -1,4 +1,3 @@
-README.md
 pyproject.toml
 apps/only_uv_monorepo.egg-info/PKG-INFO
 apps/only_uv_monorepo.egg-info/SOURCES.txt
