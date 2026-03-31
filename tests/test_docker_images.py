@@ -33,7 +33,7 @@ class TestErcotLmpImage:
         assert self.IMAGE in docker_client.images.get(self.IMAGE).tags
 
     def test_has_python(self, docker_client):
-        assert b"Python 3." in run_in_container(docker_client, self.IMAGE, ["python", "--version"])
+        assert b"Python 3" in run_in_container(docker_client, self.IMAGE, ["python", "--version"])
 
     def test_pex_files_exist(self, docker_client):
         out = run_in_container(docker_client, self.IMAGE, ["ls", "/app/"])
