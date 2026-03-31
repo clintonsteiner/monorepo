@@ -1,41 +1,53 @@
 # GitHub Pages Guide
 
-This repository can publish a small project site through GitHub Actions instead of using branch-based Pages publishing.
+This repo does not currently publish a GitHub Pages site, but the `docs/` directory is structured so you can add one without reorganizing the repository again.
 
-## Workflow
+## Recommended approach
 
-The Pages deployment workflow lives at [`.github/workflows/pages.yml`](/Users/cs/git/monorepo/.github/workflows/pages.yml).
+Use GitHub Pages with a dedicated static site generator workflow instead of publishing raw Markdown files directly from the default branch.
 
-It uses the current Actions-based GitHub Pages flow:
+That keeps the source docs in `docs/` and makes it easier to add navigation, theming, and search later.
 
-- `actions/configure-pages@v5`
-- `actions/upload-pages-artifact@v4`
-- `actions/deploy-pages@v4`
+Good options:
 
-## What gets published
+- MkDocs for a simple docs-first site
+- Docusaurus if you want versioning and a richer frontend
+- plain static HTML in `docs/site/` if you want the smallest setup
 
-The workflow publishes the static content under `site/`.
+## Simple Pages setup
 
-Key files:
+1. Choose a generator and add its config at the repo root.
+2. Keep long-form source docs in `docs/`.
+3. Generate the built site into a publish directory such as `site/` or `docs/site/`.
+4. Add a GitHub Actions workflow that:
+   - checks out the repo
+   - installs the docs toolchain
+   - builds the site
+   - deploys with GitHub Pages
+5. In repository settings, configure Pages to deploy from GitHub Actions.
 
-- [site/index.html](/Users/cs/git/monorepo/site/index.html)
-- [site/styles.css](/Users/cs/git/monorepo/site/styles.css)
-- [site/404.html](/Users/cs/git/monorepo/site/404.html)
+## Suggested content layout
 
-## Repository setup
+- `README.md`: fast repo overview and links
+- `docs/README.md`: docs index
+- `docs/SETUP.md`: local development setup
+- `docs/RELEASE.md`: release process
+- `docs/GITHUB_PAGES.md`: publishing and docs hosting guidance
 
-To enable the site in GitHub:
+That split keeps the root README short while preserving room for operational docs.
 
-1. Open repository `Settings`.
-2. Open `Pages`.
-3. Set the source to `GitHub Actions`.
+## If you want a minimal first version
 
-After that, pushes to `master` that touch `site/`, `docs/`, `README.md`, or the Pages workflow will trigger a deployment.
+Start with:
 
-## Editing the site
+- a homepage that links to setup, release, and package docs
+- one workflow that builds on pushes to `master` or `main`
+- no versioning, no blog, no custom theme work
 
-- Keep long-form project docs in `docs/`.
-- Keep the public landing page and static Pages assets in `site/`.
-- Update the workflow only if the deployment trigger or artifact path changes.
+You can add richer navigation later once the docs structure stabilizes.
 
-This split keeps the repo docs readable in GitHub while also providing a lightweight published site.
+## Things to avoid
+
+- treating generated site output as hand-edited source
+- duplicating the same setup instructions across the root README and multiple docs pages
+- publishing directly from a personal workstation instead of CI
