@@ -31,6 +31,16 @@ Responsibilities:
 - create a GitHub release and attach PEX files for tagged releases
 - upload a preview artifact set for manual runs
 
+### `pages.yml`
+
+Runs on pushes to `master` that change the static site, docs, root README, or the Pages workflow itself, and also supports manual dispatch.
+
+Responsibilities:
+
+- package the static content under `site/`
+- upload the artifact using the official Pages actions
+- deploy to the `github-pages` environment
+
 ## Reusable pieces
 
 ### `.github/actions/setup-pants`

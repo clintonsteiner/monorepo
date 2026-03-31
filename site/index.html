@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ercot-lmp-monitor</title>
+    <meta
+      name="description"
+      content="A Pants-based Python monorepo for ERCOT monitoring, Docker packaging, and example projects."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <p class="eyebrow">GitHub Pages</p>
+        <h1>ercot-lmp-monitor</h1>
+        <p class="lede">
+          A small Python monorepo built with Pants for application code, Docker images,
+          shared libraries, and example projects.
+        </p>
+        <div class="actions">
+          <a href="https://github.com/clintonsteiner/monorepo">Repository</a>
+          <a href="https://github.com/clintonsteiner/monorepo/actions">Actions</a>
+        </div>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <h2>Project Areas</h2>
+          <ul>
+            <li><strong>ercot_lmp/</strong>: monitor application and Docker target</li>
+            <li><strong>lib_ercot/</strong>: shared utility code</li>
+            <li><strong>infra/</strong>: infrastructure assets and database image</li>
+            <li><strong>examples/</strong>: sample packages and binaries</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Quick Commands</h2>
+          <pre><code>make test
+make lint
+make fmt
+make tailor
+make docker-build</code></pre>
+        </article>
+
+        <article class="card">
+          <h2>Docs</h2>
+          <ul>
+            <li><a href="https://github.com/clintonsteiner/monorepo/blob/master/README.md">Root README</a></li>
+            <li><a href="https://github.com/clintonsteiner/monorepo/blob/master/docs/README.md">Docs Index</a></li>
+            <li><a href="https://github.com/clintonsteiner/monorepo/blob/master/docs/SETUP.md">Setup Guide</a></li>
+            <li><a href="https://github.com/clintonsteiner/monorepo/blob/master/docs/RELEASE.md">Release Guide</a></li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Automation</h2>
+          <ul>
+            <li>CI validates BUILD files, lint, tests, packaging, and Docker integration.</li>
+            <li>Release automation is tag-driven.</li>
+            <li>The Pages site is deployed through GitHub Actions.</li>
+          </ul>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
