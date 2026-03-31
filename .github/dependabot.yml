@@ -1,34 +1,85 @@
 version: 2
 updates:
-  # GitHub Actions updates
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "daily"
-    cooldown:
-      default-days: 7
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    groups:
+      github-actions:
+        patterns:
+          - "*"
     labels:
       - "dependencies"
       - "github-actions"
 
-  # Python dependencies
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
-      interval: "daily"
-    cooldown:
-      default-days: 7
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    groups:
+      python-root:
+        patterns:
+          - "*"
     labels:
       - "dependencies"
       - "python"
 
-  # Docker base images
-  - package-ecosystem: "docker"
-    directory: "/"
+  - package-ecosystem: "pip"
+    directory: "/sample_flask"
     schedule:
-      interval: "daily"
-    cooldown:
-      default-days: 7
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    groups:
+      python-sample-flask:
+        patterns:
+          - "*"
+    labels:
+      - "dependencies"
+      - "python"
+
+  - package-ecosystem: "uv"
+    directory: "/uv_only_monorepo"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    groups:
+      uv-workspace:
+        patterns:
+          - "*"
+    labels:
+      - "dependencies"
+      - "python"
+
+  - package-ecosystem: "uv"
+    directory: "/uv_only_monorepo/libs/math_library"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    groups:
+      uv-math-library:
+        patterns:
+          - "*"
+    labels:
+      - "dependencies"
+      - "python"
+
+  - package-ecosystem: "docker"
+    directory: "/ercot_lmp"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    groups:
+      docker-ercot-lmp:
+        patterns:
+          - "*"
     labels:
       - "dependencies"
       - "docker"
@@ -36,9 +87,41 @@ updates:
   - package-ecosystem: "docker"
     directory: "/infra/db_setup"
     schedule:
-      interval: "daily"
-    cooldown:
-      default-days: 7
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    groups:
+      docker-db-setup:
+        patterns:
+          - "*"
+    labels:
+      - "dependencies"
+      - "docker"
+
+  - package-ecosystem: "docker"
+    directory: "/infra/docker_linux"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    groups:
+      docker-linux:
+        patterns:
+          - "*"
+    labels:
+      - "dependencies"
+      - "docker"
+
+  - package-ecosystem: "docker"
+    directory: "/sample_flask"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    groups:
+      docker-sample-flask:
+        patterns:
+          - "*"
     labels:
       - "dependencies"
       - "docker"
