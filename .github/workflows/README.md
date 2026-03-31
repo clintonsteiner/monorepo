@@ -45,7 +45,6 @@ The action also pins `PANTS_BUILDROOT` and `PANTS_TOML` to `github.workspace`, a
 
 Docker integration tests are tagged in [`tests/BUILD`](/Users/cs/git/monorepo/tests/BUILD), so CI can run:
 
-- `pants test --tag='-docker' ::` for fast unit coverage
 - `pants --tag='-docker' test ::` for fast unit coverage
 - `pants --tag='docker' test ::` for image-backed integration coverage
 
