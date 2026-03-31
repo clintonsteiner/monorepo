@@ -9,7 +9,7 @@ help:
 	@echo "  tailor            - Auto-generate/update BUILD files"
 	@echo "  update-build-files- Update BUILD file formatting"
 	@echo "  hooks             - Install pre-commit hooks"
-	@echo "  pex               - Build all PEX executables"
+	@echo "  pex               - Build all PEX executables (ercot_lmp, hello_world, git_utils)"
 	@echo "  docker-build      - Build Docker image (includes PEX files)"
 	@echo "  docker-run        - Run Docker container (ercot_lmp)"
 	@echo "  docker-hello      - Run hello_world.pex in Docker"
@@ -49,10 +49,11 @@ hooks:
 
 pex:
 	@echo "Building PEX executables..."
-	pants package ercot_lmp:pex examples/hello_world:pex
+	pants package ercot_lmp:pex examples/hello_world:pex git_utils:pex
 	@echo "✓ PEX files built:"
 	@echo "  - dist/ercot_lmp.pex"
 	@echo "  - dist/hello_world.pex"
+	@echo "  - dist/git_utils.pex"
 
 docker-build:
 	@echo "Building Docker images with Pants..."
