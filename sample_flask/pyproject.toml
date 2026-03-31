@@ -1,0 +1,20 @@
+[project]
+name = "sample-flask"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "adbc-driver-manager>=1.10.0",
+    "adbc-driver-postgresql>=1.10.0",
+    "connectorx>=0.4.5",
+    "dash>=3.4.0",
+    "flask>=3.1.2",
+    "numpy>=2.4.1",
+    "pandas>=2.3.3",
+    "polars>=1.37.1",
+    "psycopg>=3.3.2",
+    "psycopg2-binary>=2.9.11",
+    "pyarrow>=23.0.0",
+    "sqlalchemy>=2.0.46",
+]
