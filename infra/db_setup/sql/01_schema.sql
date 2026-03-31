@@ -14,12 +14,12 @@ CREATE TABLE IF NOT EXISTS ercot.lmp_data (
     congestion_value DECIMAL(10, 2),
     loss_value DECIMAL(10, 2),
     created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
-    UNIQUE(timestamp, location)
+    UNIQUE (timestamp, location)
 );
 
 -- Create index on timestamp for faster queries
-CREATE INDEX IF NOT EXISTS idx_lmp_timestamp ON ercot.lmp_data(timestamp DESC);
-CREATE INDEX IF NOT EXISTS idx_lmp_location ON ercot.lmp_data(location);
+CREATE INDEX IF NOT EXISTS idx_lmp_timestamp ON ercot.lmp_data (timestamp DESC);
+CREATE INDEX IF NOT EXISTS idx_lmp_location ON ercot.lmp_data (location);
 
 -- Create monitoring metadata table
 CREATE TABLE IF NOT EXISTS ercot.monitor_metadata (

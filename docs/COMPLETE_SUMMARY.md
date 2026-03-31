@@ -22,7 +22,7 @@ monorepo/
 │       ├── __init__.py
 │       └── main.py                # Application entry point
 │
-├── hello_world/                   # Example CLI tool package
+├── examples/hello_world/                   # Example CLI tool package
 │   ├── BUILD                      # Build targets (sources, tests, pex)
 │   ├── __init__.py
 │   ├── main.py                    # CLI entry point
@@ -35,7 +35,7 @@ monorepo/
 │   │   └── core.py
 │   └── test_main.py              # Tests
 │
-├── db_setup/                      # Database setup
+├── infra/db_setup/                # Database setup
 │   ├── BUILD                      # SQL file targets
 │   ├── Dockerfile.db              # PostgreSQL image
 │   ├── README.md                  # Database documentation
@@ -45,8 +45,8 @@ monorepo/
 │       └── 03_functions.sql      # Stored procedures
 │
 ├── README.md                      # Project documentation
-├── SETUP.md                       # Development setup guide
-└── TEMPLATE.md                    # Template file reference
+├── docs/SETUP.md                  # Development setup guide
+└── docs/TEMPLATE.md               # Template file reference
 ```
 
 ## 🎯 Features
@@ -72,11 +72,11 @@ monorepo/
   - `dist/hello_world.pex` (922 KB)
 - **Docker Images**
   - Application: `ercot-lmp:latest` (324 MB)
-  - Database: `ercot-db:latest` (PostgreSQL 16)
+  - Database: `ercot-db:latest` (PostgreSQL 18)
 
 ### Database
 
-- **PostgreSQL 16-alpine** - Lightweight database image
+- **PostgreSQL 18-alpine** - Lightweight database image
 - **SQL Migrations** - Numbered SQL files (01*, 02*, 03\_)
 - **Sample Data** - Pre-populated test data
 - **Stored Functions** - Database procedures
@@ -230,11 +230,11 @@ pants test ::
 make test
 
 # Run package tests
-pants test hello_world::
+pants test examples/hello_world::
 pants test lib_ercot::
 
 # Run specific test file
-pants test hello_world/test_main.py
+pants test examples/hello_world/test_main.py
 ```
 
 ### Building
@@ -244,7 +244,7 @@ pants test hello_world/test_main.py
 pants package ::
 
 # Build specific PEX
-pants package hello_world:pex
+pants package examples/hello_world:pex
 pants package ercot_lmp:pex
 ```
 
@@ -255,7 +255,7 @@ pants package ercot_lmp:pex
 pants list ::
 
 # List package targets
-pants list hello_world::
+pants list examples/hello_world::
 
 # Show dependencies
 pants dependencies lib_ercot::
@@ -311,12 +311,12 @@ git commit --no-verify
 - **Size**: ~324 MB
 - **Contents**:
   - Python source code (ercot_lmp, lib_ercot, hello_world)
-  - PEX executables in `/app/bin/`
+  - PEX executables in `/app/`
   - All Python dependencies
 - **Entry Point**: ercot_lmp application
 - **Alternate Entry Points**:
-  - `/app/bin/hello_world.pex` - Hello world CLI
-  - `/app/bin/ercot_lmp.pex` - Main application
+  - `/app/hello_world.pex` - Hello world CLI
+  - `/app/ercot_lmp.pex` - Main application
 
 ### Database Image (ercot-db:latest)
 
@@ -414,7 +414,7 @@ Simple CLI tool demonstrating PEX packaging.
 ./dist/hello_world.pex --name "World" --repeat 3
 
 # Run in Docker
-docker run --rm --entrypoint /app/bin/hello_world.pex \
+docker run --rm --entrypoint /app/hello_world.pex \
     ercot-lmp:latest --name "Docker"
 ```
 
@@ -481,7 +481,7 @@ Total: 21 targets across 4 packages
 - `lib_ercot` - Python sources
 - `tests` - Test suite
 
-### db_setup
+### infra/db_setup
 
 - `sql` - SQL initialization files
 
@@ -608,15 +608,15 @@ git commit
 ### Docker Files
 
 - `Dockerfile` - Main application image
-- `db_setup/Dockerfile.db` - Database image
+- `infra/db_setup/Dockerfile.db` - Database image
 - Multi-stage builds for optimization
 
 ### Documentation
 
 - `README.md` - Project overview
-- `SETUP.md` - Development setup guide
-- `TEMPLATE.md` - Template file reference
-- `db_setup/README.md` - Database documentation
+- `docs/SETUP.md` - Development setup guide
+- `docs/TEMPLATE.md` - Template file reference
+- `infra/db_setup/README.md` - Database documentation
 
 ## 🎯 Best Practices
 
@@ -690,7 +690,7 @@ git commit
 ```bash
 # Build optimized images
 docker build -t myapp:prod .
-docker build -f db_setup/Dockerfile.db -t mydb:prod db_setup/
+docker build -f infra/db_setup/Dockerfile.db -t mydb:prod infra/db_setup/
 
 # Push to registry
 docker tag myapp:prod registry.example.com/myapp:prod

@@ -1,106 +1,129 @@
 name: CI
 
 on:
-  push:
-    branches: [main, master, develop]
   pull_request:
-    branches: [main, master, develop]
+  push:
+    branches:
+      - main
+      - master
+      - develop
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  test:
-    name: Test and Lint
+  validate:
+    name: Validate Repo
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
+      - name: Bootstrap Pants
+        uses: ./.github/actions/setup-pants
 
-      - name: Initialize Pants
-        uses: pantsbuild/actions/init-pants@main
-        with:
-          gha-cache-key: v1
-          named-caches-hash: ${{ hashFiles('pants.toml') }}
-
-      - name: Check BUILD files are up to date
+      - name: Check BUILD files are current
         run: |
           pants tailor --check ::
-          echo "✓ BUILD files are up to date"
 
       - name: Check BUILD file formatting
         run: |
           pants update-build-files --check ::
-          echo "✓ BUILD files are properly formatted"
 
-      - name: Lint code
+      - name: Run lint and formatting checks
         run: |
           pants lint ::
-          echo "✓ Linting passed"
 
-      - name: Run unit tests (no Docker)
-        run: |
-          pants test :: --tag='-docker'
-          echo "✓ Unit tests passed"
-
-      - name: Build Docker images
-        run: |
-          make docker-build
-          echo "✓ Docker images built"
-
-      - name: Run Docker tests
-        run: |
-          pants test :: --tag='docker'
-          echo "✓ Docker tests passed"
-
-      - name: Upload test results
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: test-results
-          path: .pants.d/test/reports/
-
-  build:
-    name: Build Artifacts
+  unit-tests:
+    name: Unit Tests
     runs-on: ubuntu-latest
-    needs: test
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
+      - name: Bootstrap Pants
+        uses: ./.github/actions/setup-pants
 
-      - name: Initialize Pants
-        uses: pantsbuild/actions/init-pants@main
-        with:
-          gha-cache-key: v1
-          named-caches-hash: ${{ hashFiles('pants.toml') }}
-
-      - name: Build PEX files
+      - name: Run non-Docker tests
         run: |
-          pants package ::
-          ls -lh dist/*.pex
-          echo "✓ PEX files built successfully"
+          pants test --tag='-docker' ::
+
+  package:
+    name: Build PEX Artifacts
+    runs-on: ubuntu-latest
+    needs:
+      - validate
+      - unit-tests
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Bootstrap Pants
+        uses: ./.github/actions/setup-pants
+
+      - name: Package PEX files
+        run: |
+          pants package //ercot_lmp:pex //examples/hello_world:pex
 
       - name: Upload PEX artifacts
         uses: actions/upload-artifact@v4
         with:
           name: pex-files
-          path: dist/*.pex
-          retention-days: 30
+          path: |
+            dist/*.pex
+          retention-days: 14
 
-      - name: Build images with Pants
-        run: pants package //ercot_lmp:docker //db_setup:docker
+  docker-integration:
+    name: Docker Integration
+    runs-on: ubuntu-latest
+    needs:
+      - validate
+      - unit-tests
 
-      - name: Test Docker images
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Bootstrap Pants
+        uses: ./.github/actions/setup-pants
+
+      - name: Build Docker images
         run: |
-          # Test hello_world.pex in Docker
-          docker run --rm --entrypoint /app/hello_world.pex ercot-lmp:latest --name "CI"
-          echo "✓ Docker container test passed"
+          pants package //ercot_lmp:docker //infra/db_setup:docker
+
+      - name: Run Docker integration tests
+        run: |
+          pants test --tag='docker' ::
+
+  summary:
+    name: CI Summary
+    runs-on: ubuntu-latest
+    if: always()
+    needs:
+      - validate
+      - unit-tests
+      - package
+      - docker-integration
+
+    steps:
+      - name: Summarize results
+        run: |
+          echo "## CI results" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Validate: ${{ needs.validate.result }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Unit tests: ${{ needs.unit-tests.result }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Package: ${{ needs.package.result }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Docker integration: ${{ needs.docker-integration.result }}" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Fail when required jobs failed
+        if: needs.validate.result != 'success' || needs.unit-tests.result != 'success' || needs.package.result != 'success' || needs.docker-integration.result != 'success'
+        run: |
+          exit 1

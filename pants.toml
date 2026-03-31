@@ -9,7 +9,11 @@ backend_packages = [
 ]
 
 [source]
-root_patterns = ["/"]
+root_patterns = [
+    "/",
+    "/examples",
+    "/infra",
+]
 
 [python]
 interpreter_constraints = ["CPython>=3.11,<3.13"]
@@ -37,7 +41,7 @@ fmt = true
 check = false
 build_file_name = "BUILD"
 ignore_paths = [
-    "docker_linux/**",
+    "infra/docker_linux/**",
     "sample_flask/**",
     "uv_only_monorepo/**",
 ]

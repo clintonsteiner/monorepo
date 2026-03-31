@@ -5,6 +5,7 @@ This document provides the complete file structure for the template.
 ## Core Configuration Files
 
 ### pants.toml
+
 ```toml
 [GLOBAL]
 pants_version = "2.30.0"
@@ -26,6 +27,7 @@ enabled = false
 ```
 
 ### pyproject.toml
+
 ```toml
 [project]
 name = "your-project-name"
@@ -42,6 +44,7 @@ testpaths = ["tests"]
 ```
 
 ### Root BUILD
+
 ```python
 python_requirements(
     name="reqs",
@@ -52,6 +55,7 @@ python_requirements(
 ## Package Structure
 
 ### Application Package (ercot_lmp/BUILD)
+
 ```python
 python_sources(
     sources=["**/*.py"],
@@ -65,6 +69,7 @@ pex_binary(
 ```
 
 ### Library Package (lib_ercot/BUILD)
+
 ```python
 python_sources(
     sources=["**/*.py", "!*_test.py", "!test_*.py"],
@@ -79,6 +84,7 @@ python_tests(
 ## Docker Configuration
 
 ### Dockerfile
+
 ```dockerfile
 FROM python:3.11-slim
 
@@ -100,6 +106,7 @@ ENTRYPOINT ["python", "/app/ercot_lmp/scripts/main.py"]
 ```
 
 ### .dockerignore
+
 ```
 # Git
 .git/
@@ -139,6 +146,7 @@ htmlcov/
 ## Build Automation
 
 ### Makefile
+
 ```makefile
 .PHONY: help test pex docker-build docker-run docker clean all
 
@@ -186,26 +194,31 @@ clean:
 ## Key Design Principles
 
 ### 1. Simplicity
+
 - Minimal configuration files
 - Only essential dependencies
 - Clear, self-documenting structure
 
 ### 2. Separation of Concerns
+
 - Application code separate from libraries
 - Tests separate from sources
 - Build configuration separate from source code
 
 ### 3. Reproducibility
+
 - Pinned tool versions (Pants)
 - Explicit interpreter constraints
 - Docker for consistent environments
 
 ### 4. Developer Experience
+
 - Makefile for common operations
 - Clear help messages
 - Fast feedback (cached builds)
 
 ### 5. Production Ready
+
 - PEX for deployment
 - Docker for containerization
 - Comprehensive testing support
@@ -213,8 +226,10 @@ clean:
 ## Extending the Template
 
 ### Adding a New Service
+
 1. Create `my_service/` directory
 2. Add `my_service/BUILD`:
+
    ```python
    python_sources(sources=["**/*.py"])
 
@@ -224,11 +239,14 @@ clean:
        output_path="my_service.pex",
    )
    ```
+
 3. Update Dockerfile if needed
 4. Update Makefile with new targets
 
 ### Adding Backend Features
+
 Common backends to add to `pants.toml`:
+
 ```toml
 backend_packages = [
     "pants.backend.python",
@@ -240,7 +258,9 @@ backend_packages = [
 ```
 
 ### Multi-Environment Dockerfiles
+
 Create `Dockerfile.dev`, `Dockerfile.prod`, etc. and update Makefile:
+
 ```makefile
 docker-build-dev:
 	docker build -f Dockerfile.dev -t myapp:dev .
@@ -264,6 +284,7 @@ After setting up from this template:
 ## Common Patterns
 
 ### Entry Point Script
+
 ```python
 # scripts/main.py
 import argparse
@@ -281,6 +302,7 @@ if __name__ == "__main__":
 ```
 
 ### Library Module
+
 ```python
 # lib_ercot/utils/core.py
 """Core utilities."""
@@ -291,6 +313,7 @@ def my_function():
 ```
 
 ### Test File
+
 ```python
 # lib_ercot/test_main.py
 import pytest

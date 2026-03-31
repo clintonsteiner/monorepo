@@ -23,10 +23,10 @@ docker_image(
     source="Dockerfile",
     dependencies=[
         ":pex",                    # ercot_lmp.pex
-        "//hello_world:pex",       # hello_world.pex
+        "//examples/hello_world:pex",       # hello_world.pex
         ":ercot_lmp",              # Python sources
         "//lib_ercot:lib_ercot",   # Library sources
-        "//hello_world:hello_world", # hello_world sources
+        "//examples/hello_world:hello_world", # hello_world sources
     ],
     image_tags=["latest"],
 )
@@ -39,9 +39,9 @@ docker_image(
 - Contains PEX binaries in `/app`
 - Multiple Python packages (ercot_lmp, lib_ercot, hello_world)
 
-### Database Image: `db_setup:docker`
+### Database Image: `infra/db_setup:docker`
 
-**Location**: `db_setup/BUILD`
+**Location**: `infra/db_setup/BUILD`
 
 ```python
 docker_image(
@@ -55,7 +55,7 @@ docker_image(
 
 **Features**:
 
-- Based on postgres:16-alpine
+- Based on postgres:18-alpine
 - Includes SQL initialization files
 - Auto-runs SQL scripts on first start
 - Lightweight (272 MB)
@@ -69,14 +69,14 @@ docker_image(
 pants package ercot_lmp:docker
 
 # Build database image
-pants package db_setup:docker
+pants package infra/db_setup:docker
 ```
 
 ### Build All Images
 
 ```bash
 # Build both Docker images
-pants package ercot_lmp:docker db_setup:docker
+pants package ercot_lmp:docker infra/db_setup:docker
 
 # Or use Makefile
 make docker-build
@@ -179,17 +179,17 @@ ENV PYTHONPATH=/app
 ENTRYPOINT ["python", "/app/ercot_lmp/scripts/main.py"]
 ```
 
-### Database Dockerfile (`db_setup/Dockerfile.db`)
+### Database Dockerfile (`infra/db_setup/Dockerfile.db`)
 
 ```dockerfile
-FROM postgres:16-alpine
+FROM postgres:18-alpine
 
 ENV POSTGRES_USER=ercot_user
 ENV POSTGRES_PASSWORD=ercot_pass
 ENV POSTGRES_DB=ercot_db
 
 # Pants provides paths relative to repo root
-COPY db_setup/sql/*.sql /docker-entrypoint-initdb.d/
+COPY infra/db_setup/sql/*.sql /docker-entrypoint-initdb.d/
 
 EXPOSE 5432
 ```
@@ -205,7 +205,7 @@ docker_image(
     name="docker",
     dependencies=[
         ":pex",                    # Builds ercot_lmp.pex first
-        "//hello_world:pex",       # Builds hello_world.pex first
+        "//examples/hello_world:pex",       # Builds hello_world.pex first
         ":ercot_lmp",              # Includes Python sources
         "//lib_ercot:lib_ercot",   # Includes library sources
     ],
@@ -226,7 +226,7 @@ Request: pants package ercot_lmp:docker
     ↓
 1. Build ercot_lmp:pex (if not cached)
     ↓
-2. Build hello_world:pex (if not cached)
+2. Build examples/hello_world:pex (if not cached)
     ↓
 3. Collect Python sources (ercot_lmp, lib_ercot, hello_world)
     ↓
@@ -246,7 +246,7 @@ The workflows already use Pants for Docker builds:
 ```yaml
 # .github/workflows/ci.yml
 - name: Build Docker images
-  run: pants package ercot_lmp:docker db_setup:docker
+  run: pants package ercot_lmp:docker infra/db_setup:docker
 ```
 
 ### Publishing Images
@@ -377,13 +377,13 @@ Before (standalone Docker):
 
 ```bash
 docker build -t ercot-lmp:latest .
-docker build -f db_setup/Dockerfile.db -t ercot-db:latest db_setup/
+docker build -f infra/db_setup/Dockerfile.db -t ercot-db:latest infra/db_setup/
 ```
 
 After (Pants):
 
 ```bash
-pants package ercot_lmp:docker db_setup:docker
+pants package ercot_lmp:docker infra/db_setup:docker
 # Or: make docker-build
 ```
 
@@ -437,4 +437,4 @@ docker_image(
 - [Docker Best Practices](https://docs.docker.com/develop/dev-best-practices/)
 - Project Dockerfiles:
   - `ercot_lmp/Dockerfile`
-  - `db_setup/Dockerfile.db`
+  - `infra/db_setup/Dockerfile.db`

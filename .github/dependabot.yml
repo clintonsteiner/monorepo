@@ -34,7 +34,7 @@ updates:
       - "docker"
 
   - package-ecosystem: "docker"
-    directory: "/db_setup"
+    directory: "/infra/db_setup"
     schedule:
       interval: "daily"
     cooldown:

@@ -8,10 +8,10 @@
 # Python packages
 /ercot_lmp/ @your-username
 /lib_ercot/ @your-username
-/hello_world/ @your-username
+/examples/ @your-username
 
-# Database
-/db_setup/ @your-username
+# Infrastructure
+/infra/ @your-username
 
 # CI/CD
 /.github/ @your-username
@@ -22,4 +22,5 @@
 /.pre-commit-config.yaml @your-username
 
 # Documentation
-/*.md @your-username
+/docs/ @your-username
+/README.md @your-username
