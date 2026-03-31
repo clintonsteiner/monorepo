@@ -85,7 +85,7 @@ class TestErcotDbImage:
         return pg.exec_run(cmd, environment={"PGPASSWORD": self.CREDS["password"]}).output
 
     def test_postgres_version(self, pg):
-        assert b"PostgreSQL 16" in self._query(pg, "SELECT version();")
+        assert b"PostgreSQL 18" in self._query(pg, "SELECT version();")
 
     def test_schema_exists(self, pg):
         assert b"ercot" in self._query(pg, "\\dn ercot")

@@ -25,21 +25,25 @@ SQL files are executed in alphabetical order during container initialization:
 ## Usage
 
 ### Build the database image
+
 ```bash
 make db-build
 ```
 
 ### Run the database container
+
 ```bash
 make db-run
 ```
 
 ### Stop the database container
+
 ```bash
 make db-stop
 ```
 
 ### Connect to the database
+
 ```bash
 make db-shell
 # or directly:
@@ -55,32 +59,35 @@ psql -h localhost -p 5432 -U ercot_user -d ercot_db
 ## Tables
 
 ### ercot.lmp_data
+
 Stores ERCOT LMP (Locational Marginal Pricing) data.
 
-| Column | Type | Description |
-|--------|------|-------------|
-| id | SERIAL | Primary key |
-| timestamp | TIMESTAMPTZ | Time of reading |
-| location | VARCHAR(100) | Location code |
-| lmp_value | DECIMAL(10,2) | Total LMP value |
-| energy_value | DECIMAL(10,2) | Energy component |
+| Column           | Type          | Description          |
+| ---------------- | ------------- | -------------------- |
+| id               | SERIAL        | Primary key          |
+| timestamp        | TIMESTAMPTZ   | Time of reading      |
+| location         | VARCHAR(100)  | Location code        |
+| lmp_value        | DECIMAL(10,2) | Total LMP value      |
+| energy_value     | DECIMAL(10,2) | Energy component     |
 | congestion_value | DECIMAL(10,2) | Congestion component |
-| loss_value | DECIMAL(10,2) | Loss component |
-| created_at | TIMESTAMPTZ | Record creation time |
+| loss_value       | DECIMAL(10,2) | Loss component       |
+| created_at       | TIMESTAMPTZ   | Record creation time |
 
 ### ercot.monitor_metadata
+
 Stores monitoring job metadata and status.
 
-| Column | Type | Description |
-|--------|------|-------------|
-| id | SERIAL | Primary key |
-| key | VARCHAR(100) | Metadata key (unique) |
-| value | TEXT | Metadata value |
-| updated_at | TIMESTAMPTZ | Last update time |
+| Column     | Type         | Description           |
+| ---------- | ------------ | --------------------- |
+| id         | SERIAL       | Primary key           |
+| key        | VARCHAR(100) | Metadata key (unique) |
+| value      | TEXT         | Metadata value        |
+| updated_at | TIMESTAMPTZ  | Last update time      |
 
 ## Functions
 
 ### ercot.get_latest_lmp(location)
+
 Get the most recent LMP reading for a location.
 
 ```sql
@@ -88,6 +95,7 @@ SELECT * FROM ercot.get_latest_lmp('HB_HOUSTON');
 ```
 
 ### ercot.update_metadata(key, value)
+
 Update or insert monitoring metadata.
 
 ```sql
@@ -95,6 +103,7 @@ SELECT ercot.update_metadata('last_poll_time', NOW()::TEXT);
 ```
 
 ### ercot.get_avg_lmp(location, start_time, end_time)
+
 Calculate average LMP over a time period.
 
 ```sql
@@ -117,6 +126,7 @@ SELECT ercot.get_avg_lmp(
 ### Modifying Schema
 
 For development, you can modify SQL files and rebuild:
+
 ```bash
 make db-stop
 make db-clean
