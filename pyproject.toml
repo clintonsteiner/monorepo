@@ -33,8 +33,6 @@ skips = ["B101"]
 
 [tool.uv.workspace]
 members = [
-    "uv_only_monorepo",
-    "uv_only_monorepo/libs/math_library",
     "sample_flask",
 ]
 
