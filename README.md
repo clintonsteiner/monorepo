@@ -96,3 +96,4 @@ GitHub Actions workflows for CI and release automation.
 - `pants fmt --check` is not a valid Pants invocation in this repo. Use `pants lint ::` for non-mutating formatting checks and `pants fmt ::` to apply changes.
 - BUILD file formatting is handled separately with `pants update-build-files --check ::`.
 - Docker packaging targets live in [`ercot_lmp/BUILD`](/Users/cs/git/monorepo/ercot_lmp/BUILD) and [`infra/db_setup/BUILD`](/Users/cs/git/monorepo/infra/db_setup/BUILD).
+- GitHub Pages deployment is configured in [`pages.yml`](/Users/cs/git/monorepo/.github/workflows/pages.yml), and the published static site content lives under [`site/`](/Users/cs/git/monorepo/site).
