@@ -39,6 +39,8 @@ Shared composite action used by both workflows.
 
 It installs Python and initializes Pants with a single cache configuration, which keeps the workflows easy to extend without copy-pasting the bootstrap block everywhere.
 
+The action also pins `XDG_CACHE_HOME`, `SCIE_BASE`, and `PANTS_GLOBAL_CACHE_DIR` to `runner.temp`. That avoids bootstrap failures on runners where `HOME` or workspace-backed cache paths are read-only, which is a common failure mode for `scie-pants` under local Actions emulators and some containerized setups.
+
 ### Tagged test split
 
 Docker integration tests are tagged in [`tests/BUILD`](/Users/cs/git/monorepo/tests/BUILD), so CI can run:

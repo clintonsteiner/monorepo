@@ -21,6 +21,13 @@ runs:
 
     - name: Initialize Pants
       uses: pantsbuild/actions/init-pants@main
+      env:
+        # Some runners and local GitHub Actions emulators expose HOME or the
+        # workspace cache path as read-only. Keep scie/Pants bootstrap state in
+        # the runner temp directory so bootstrap is always writable.
+        XDG_CACHE_HOME: ${{ runner.temp }}/xdg-cache
+        SCIE_BASE: ${{ runner.temp }}/scie
+        PANTS_GLOBAL_CACHE_DIR: ${{ runner.temp }}/pants-cache
       with:
         gha-cache-key: ${{ inputs.cache-key-suffix }}
         named-caches-hash: ${{ hashFiles('pants.toml', 'pyproject.toml', 'uv.lock') }}
