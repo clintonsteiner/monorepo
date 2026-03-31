@@ -1,252 +1,96 @@
-# Python Monorepo with Pants Build System
+# ercot-lmp-monitor monorepo
 
-A clean, production-ready template for Python monorepos using [Pants](https://www.pantsbuild.org/) build system with PEX and Docker support.
+## Overview
 
-## Project Structure
+This repo is a small Python monorepo built around [Pants](https://www.pantsbuild.org/). It combines a real ERCOT LMP monitoring app, shared libraries, Docker packaging, database bootstrap assets, and a few example projects that show different monorepo layouts.
 
-```
-.
-├── pants.toml              # Pants configuration
-├── pyproject.toml          # Project dependencies
-├── BUILD                   # Root build file (dependencies)
-├── Makefile               # Convenient build commands
-├── Dockerfile             # Docker image definition
-├── .dockerignore          # Docker build exclusions
-│
-├── ercot_lmp/             # Application package
-│   ├── BUILD              # Build targets (sources, pex)
-│   └── scripts/
-│       ├── __init__.py
-│       └── main.py        # Application entry point
-│
-└── lib_ercot/             # Shared library package
-    ├── BUILD              # Build targets (sources, tests)
-    ├── utils/
-    │   ├── __init__.py
-    │   └── core.py
-    └── test_main.py       # Tests
-```
+The root project uses Pants 2.30.0 for dependency inference, linting, formatting, testing, packaging, and Docker image builds. There is also a separate `uv_only_monorepo/` example for a workspace-first layout that does not depend on Pants.
 
-## Quick Start
+## Install / Setup
 
-### Prerequisites
+You can work with this repo in a few different ways depending on whether you want the full Pants workflow or just a local Python environment.
 
-- Python 3.11+
-- [Pants](https://www.pantsbuild.org/docs/installation) 2.30.0
-- Docker (for containerization)
+#### Method 1: Pants + local tooling
 
-### Available Commands
+- Install Python 3.11 or newer.
+- Install `pants` 2.30.0.
+- Install Docker if you want to build or test container targets.
+- Install optional developer tools such as `pre-commit`.
 
-```bash
-# Show all available targets
-make help
+Common commands:
 
-# Run tests
-make test
+- `make test`
+- `make lint`
+- `make fmt`
+- `make tailor`
+- `make update-build-files`
+- `make pex`
+- `make docker-build`
 
-# Build standalone PEX executable
-make pex
+#### Method 2: Python virtual environment
 
-# Build Docker image
-make docker-build
+- Create or activate a local virtual environment.
+- Install dependencies from [`pyproject.toml`](/Users/cs/git/monorepo/pyproject.toml).
+- Use Pants for build graph operations and target-aware test or packaging commands.
 
-# Run Docker container
-make docker-run
+#### Method 3: Explore examples only
 
-# Build and run Docker (combined)
-make docker
+- Read the package-specific READMEs such as [`example_lib/README.md`](/Users/cs/git/monorepo/example_lib/README.md) and [`db_setup/README.md`](/Users/cs/git/monorepo/db_setup/README.md).
+- Run individual targets with Pants as needed, for example `pants test hello_world::` or `pants package ercot_lmp:docker`.
 
-# Run tests and build PEX
-make all
+## Common commands
 
-# Clean all build artifacts
-make clean
-```
+- `pants tailor --check ::` checks whether BUILD files need to be regenerated.
+- `pants update-build-files --check ::` checks BUILD file formatting.
+- `pants lint ::` runs flake8 plus read-only Black/isort checks.
+- `pants fmt ::` applies Black/isort formatting changes.
+- `pants test ::` runs the full test suite.
+- `pants package ::` builds packageable targets.
 
-### Using Pants Directly
+## Top-level directories
 
-```bash
-# List all targets
-pants list ::
+#### `/ercot_lmp`
 
-# Run tests
-pants test ::
+Main application package. Contains the monitor entry point and Docker packaging target for the ERCOT LMP workflow.
 
-# Build PEX
-pants package ercot_lmp:pex
+#### `/lib_ercot`
 
-# Run specific tests
-pants test lib_ercot:tests
-```
+Shared support library for parsing, validation, retries, CSV output, and other utility logic used by the monitor.
 
-## Template Structure
+#### `/db_setup`
 
-### 1. Pants Configuration (`pants.toml`)
+PostgreSQL image definition plus SQL initialization scripts for local database setup.
 
-Minimal configuration with:
-- Python backend
-- Python 3.11-3.13 interpreter constraints
-- Rust parser for better performance
-- Telemetry disabled
+#### `/hello_world`
 
-### 2. BUILD Files
+Minimal executable example with tests and a PEX target.
 
-**Root BUILD** - Defines Python requirements from `pyproject.toml`
+#### `/example_lib`
 
-**Package BUILD files** - Define:
-- `python_sources`: Source code targets
-- `pex_binary`: Executable PEX files
-- `python_tests`: Test targets
+Small reusable library example that demonstrates a clean package layout, tests, and library documentation.
 
-### 3. PEX Executable
+#### `/sample_flask`
 
-Creates a standalone executable Python file (`.pex`) that:
-- Contains all dependencies
-- Works without virtual environments
-- Can be shipped as a single file
-- Built to `dist/ercot_lmp.pex`
+Example web application project used as another monorepo sample.
 
-### 4. Docker Image
+#### `/uv_only_monorepo`
 
-Multi-stage Docker build that:
-- Uses Python 3.11-slim base
-- Installs dependencies from pyproject.toml
-- Copies source code
-- Sets up proper PYTHONPATH
-- Defines entry point
+Separate example monorepo organized around `uv` workspaces rather than Pants.
 
-### 5. Makefile
+#### `/tests`
 
-Provides convenient commands with:
-- Clear output messages
-- Proper PHONY targets
-- Combined targets (docker = build + run)
-- Clean target for all artifacts
+Repository-level tests that exercise the integrated project behavior.
 
-## Customizing This Template
+#### `/3rdparty`
 
-### For a New Project
+Third-party dependency target definitions used by Pants.
 
-1. **Update project metadata** in `pyproject.toml`:
-   ```toml
-   [project]
-   name = "your-project-name"
-   version = "0.1.0"
-   dependencies = [...]
-   ```
+#### `/.github/workflows`
 
-2. **Rename packages**:
-   - `ercot_lmp/` → your application package
-   - `lib_ercot/` → your library package
+GitHub Actions workflows for CI and release automation.
 
-3. **Update BUILD files** with new package names
+## Notes
 
-4. **Update Dockerfile** COPY commands with new paths
-
-5. **Update Makefile** targets as needed
-
-### Adding a New Package
-
-1. Create directory with Python code
-2. Add `BUILD` file:
-   ```python
-   python_sources(
-       sources=["**/*.py", "!*_test.py", "!test_*.py"],
-   )
-
-   python_tests(
-       name="tests",
-       sources=["*_test.py", "test_*.py"],
-   )
-   ```
-
-### Adding a New PEX Binary
-
-In your package's `BUILD` file:
-```python
-pex_binary(
-    name="mybinary",
-    entry_point="module/main.py",
-    output_path="mybinary.pex",
-)
-```
-
-Build with: `pants package //path/to/package:mybinary`
-
-## Best Practices
-
-### BUILD Files
-- Keep them simple and declarative
-- Use glob patterns for sources (`**/*.py`)
-- Separate test sources from production sources
-- Explicit naming for non-default targets
-
-### Dependencies
-- Define all dependencies in `pyproject.toml`
-- Pants will automatically infer import dependencies
-- Use explicit `dependencies=[]` only when needed
-
-### Testing
-- Name test files `test_*.py` or `*_test.py`
-- Run all tests with `pants test ::`
-- Run specific tests with `pants test path/to:tests`
-
-### Docker
-- Keep Dockerfile simple and cacheable
-- Order layers by change frequency
-- Use `.dockerignore` to exclude unnecessary files
-- Pin dependency versions for reproducibility
-
-## CI/CD Integration
-
-Example GitHub Actions workflow:
-
-```yaml
-name: CI
-on: [push, pull_request]
-
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: pantsbuild/actions/init-pants@main
-      - run: pants test ::
-
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: pantsbuild/actions/init-pants@main
-      - run: pants package ::
-```
-
-## Troubleshooting
-
-### Pants cache issues
-```bash
-pants clean-all
-```
-
-### Docker build fails
-```bash
-# Check .dockerignore
-# Verify source paths in Dockerfile
-docker build -t test . --progress=plain
-```
-
-### PEX runtime issues
-```bash
-# Test PEX locally
-./dist/ercot_lmp.pex --help
-```
-
-## Resources
-
-- [Pants Documentation](https://www.pantsbuild.org/docs)
-- [PEX Documentation](https://pex.readthedocs.io/)
-- [Python Packaging Guide](https://packaging.python.org/)
-
-## License
-
-[Your License Here]
+- `pants fmt --check` is not a valid Pants invocation in this repo. Use `pants lint ::` for non-mutating formatting checks and `pants fmt ::` to apply changes.
+- BUILD file formatting is handled separately with `pants update-build-files --check ::`.
+- Docker packaging targets live in [`ercot_lmp/BUILD`](/Users/cs/git/monorepo/ercot_lmp/BUILD) and [`db_setup/BUILD`](/Users/cs/git/monorepo/db_setup/BUILD).

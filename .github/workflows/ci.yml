@@ -41,11 +41,6 @@ jobs:
           pants lint ::
           echo "✓ Linting passed"
 
-      - name: Check formatting
-        run: |
-          pants fmt --check ::
-          echo "✓ Code formatting is correct"
-
       - name: Run unit tests (no Docker)
         run: |
           pants test :: --tag='-docker'

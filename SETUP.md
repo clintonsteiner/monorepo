@@ -56,6 +56,7 @@ make db-build
 ### Daily Development
 
 1. **Pull latest changes**
+
    ```bash
    git pull origin main
    make tailor  # Update BUILD files for new code
@@ -67,6 +68,7 @@ make db-build
    - Run `make fmt` to format
 
 3. **Before committing**
+
    ```bash
    make fmt          # Auto-format code
    make lint         # Check for issues
@@ -84,6 +86,7 @@ make db-build
 ### Working with Pants
 
 #### Tailor - Auto-generate BUILD files
+
 ```bash
 # Check what Tailor would do
 pants tailor --check ::
@@ -95,11 +98,13 @@ make tailor
 ```
 
 Tailor automatically:
+
 - Creates BUILD files for new packages
 - Adds missing targets (python_sources, python_tests, etc.)
 - Discovers new dependencies
 
 #### Update BUILD Files - Format existing BUILD files
+
 ```bash
 # Format BUILD files
 pants update-build-files ::
@@ -110,6 +115,7 @@ make update-build-files
 This ensures BUILD files follow consistent formatting.
 
 #### Code Formatting
+
 ```bash
 # Format all Python code
 make fmt
@@ -118,10 +124,11 @@ make fmt
 pants fmt path/to/file.py
 
 # Check formatting without changes
-pants fmt --check ::
+pants lint ::
 ```
 
 #### Linting
+
 ```bash
 # Run all linters
 make lint
@@ -152,6 +159,7 @@ git commit --no-verify -m "message"
 ```
 
 Installed hooks:
+
 - **pants-tailor**: Checks BUILD files are up to date
 - **pants-update-build-files**: Ensures BUILD files are formatted
 - **pants-fmt**: Formats Python code
@@ -168,6 +176,7 @@ Installed hooks:
 ## Common Commands
 
 ### Testing
+
 ```bash
 # Run all tests
 make test
@@ -181,6 +190,7 @@ pants test lib_ercot/test_main.py
 ```
 
 ### Building PEX Files
+
 ```bash
 # Build all PEX executables
 make pex
@@ -195,6 +205,7 @@ pants package hello_world:pex
 ```
 
 ### Docker Operations
+
 ```bash
 # Application containers
 make docker-build      # Build app image
@@ -211,6 +222,7 @@ make db-clean        # Remove database + volume
 ```
 
 ### Discovery and Inspection
+
 ```bash
 # List all targets
 pants list ::
@@ -234,6 +246,7 @@ pants validate ::
 ### Adding a New Package
 
 1. **Create directory structure**
+
    ```bash
    mkdir -p my_package
    touch my_package/__init__.py
@@ -241,11 +254,13 @@ pants validate ::
    ```
 
 2. **Run Tailor to generate BUILD file**
+
    ```bash
    make tailor
    ```
 
 3. **Verify the BUILD file**
+
    ```bash
    cat my_package/BUILD
    ```
@@ -259,6 +274,7 @@ pants validate ::
 ### Adding a New PEX Binary
 
 Edit the package's BUILD file:
+
 ```python
 pex_binary(
     name="mybinary",
@@ -272,6 +288,7 @@ Or let Tailor detect it if you have an entry point.
 ### Adding Dependencies
 
 1. **Add to pyproject.toml**
+
    ```toml
    dependencies = [
      "requests>=2.31.0",
@@ -284,12 +301,14 @@ Or let Tailor detect it if you have an entry point.
 ## Troubleshooting
 
 ### BUILD files out of date
+
 ```bash
 make tailor              # Fix it
 pants tailor --check ::  # Check what's wrong
 ```
 
 ### Import errors
+
 ```bash
 # Check dependencies
 pants dependencies path/to/file.py
@@ -301,15 +320,17 @@ python_sources(
 ```
 
 ### Formatting issues
+
 ```bash
 # Auto-fix most issues
 make fmt
 
-# Check what would change
-pants fmt --check ::
+# Check formatting without changing files
+pants lint ::
 ```
 
 ### Cache issues
+
 ```bash
 # Clean Pants cache
 pants clean-all
@@ -319,6 +340,7 @@ make clean
 ```
 
 ### Pre-commit hook failures
+
 ```bash
 # Fix formatting
 make fmt
@@ -352,7 +374,6 @@ jobs:
       - run: |
           pants tailor --check ::
           pants update-build-files --check ::
-          pants fmt --check ::
           pants lint ::
           pants test ::
           pants package ::
@@ -361,6 +382,7 @@ jobs:
 ## Best Practices
 
 ### DO:
+
 - ✅ Run `make tailor` after adding new files
 - ✅ Run `make fmt` before committing
 - ✅ Run `make test` locally before pushing
@@ -369,6 +391,7 @@ jobs:
 - ✅ Keep BUILD files simple and let Tailor manage them
 
 ### DON'T:
+
 - ❌ Manually edit BUILD files unless necessary
 - ❌ Skip pre-commit hooks
 - ❌ Commit without running tests

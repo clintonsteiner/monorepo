@@ -37,7 +37,6 @@ jobs:
           pants tailor --check ::
           pants update-build-files --check ::
           pants lint ::
-          pants fmt --check ::
           pants test ::
           echo "✓ All checks passed"
 

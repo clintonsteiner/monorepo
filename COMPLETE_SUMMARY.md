@@ -52,11 +52,13 @@ monorepo/
 ## 🎯 Features
 
 ### Build System
+
 - **Pants 2.30.0** - Fast, reliable builds with caching
 - **Tailor** - Auto-generates and maintains BUILD files
 - **Multi-language support** - Python, SQL, Docker, etc.
 
 ### Python Tooling
+
 - **Black** - Code formatting (88 char line length)
 - **isort** - Import sorting
 - **flake8** - Code linting
@@ -64,6 +66,7 @@ monorepo/
 - **pytest** - Testing framework
 
 ### Packaging & Distribution
+
 - **PEX Files** - Standalone executable Python files
   - `dist/ercot_lmp.pex` (19.6 MB)
   - `dist/hello_world.pex` (922 KB)
@@ -72,13 +75,15 @@ monorepo/
   - Database: `ercot-db:latest` (PostgreSQL 16)
 
 ### Database
+
 - **PostgreSQL 16-alpine** - Lightweight database image
-- **SQL Migrations** - Numbered SQL files (01_, 02_, 03_)
+- **SQL Migrations** - Numbered SQL files (01*, 02*, 03\_)
 - **Sample Data** - Pre-populated test data
 - **Stored Functions** - Database procedures
 - **Persistent Volume** - Data survives container restarts
 
 ### Quality Assurance
+
 - **Pre-commit Hooks** - 15+ automated checks
 - **Linting** - Code quality enforcement
 - **Testing** - Automated test execution
@@ -89,6 +94,7 @@ monorepo/
 ## 🚀 Quick Start
 
 ### Initial Setup
+
 ```bash
 # 1. Install pre-commit hooks
 make hooks
@@ -105,6 +111,7 @@ make db-build
 ```
 
 ### Daily Development
+
 ```bash
 # Format code
 make fmt
@@ -120,6 +127,7 @@ make pex
 ```
 
 ### Running Services
+
 ```bash
 # Run application
 ./dist/hello_world.pex --name "World"
@@ -137,42 +145,47 @@ make db-shell    # Connect to DB
 ## 📋 Available Make Commands
 
 ### Development
-| Command | Description |
-|---------|-------------|
-| `make help` | Show all available commands |
-| `make test` | Run all tests |
-| `make lint` | Run linters (flake8, isort, black) |
-| `make fmt` | Auto-format code (black, isort) |
-| `make tailor` | Auto-generate/update BUILD files |
-| `make update-build-files` | Update BUILD file formatting |
-| `make hooks` | Install pre-commit hooks |
+
+| Command                   | Description                        |
+| ------------------------- | ---------------------------------- |
+| `make help`               | Show all available commands        |
+| `make test`               | Run all tests                      |
+| `make lint`               | Run linters (flake8, isort, black) |
+| `make fmt`                | Auto-format code (black, isort)    |
+| `make tailor`             | Auto-generate/update BUILD files   |
+| `make update-build-files` | Update BUILD file formatting       |
+| `make hooks`              | Install pre-commit hooks           |
 
 ### Building
-| Command | Description |
-|---------|-------------|
-| `make pex` | Build all PEX executables |
-| `make docker-build` | Build Docker application image |
-| `make db-build` | Build PostgreSQL database image |
+
+| Command             | Description                     |
+| ------------------- | ------------------------------- |
+| `make pex`          | Build all PEX executables       |
+| `make docker-build` | Build Docker application image  |
+| `make db-build`     | Build PostgreSQL database image |
 
 ### Running
-| Command | Description |
-|---------|-------------|
-| `make docker-run` | Run ercot_lmp in Docker |
-| `make docker-hello` | Run hello_world.pex in Docker |
-| `make docker` | Build and run Docker container |
-| `make db-run` | Start PostgreSQL database |
-| `make db-shell` | Connect to database shell |
+
+| Command             | Description                    |
+| ------------------- | ------------------------------ |
+| `make docker-run`   | Run ercot_lmp in Docker        |
+| `make docker-hello` | Run hello_world.pex in Docker  |
+| `make docker`       | Build and run Docker container |
+| `make db-run`       | Start PostgreSQL database      |
+| `make db-shell`     | Connect to database shell      |
 
 ### Cleanup
-| Command | Description |
-|---------|-------------|
-| `make clean` | Clean build artifacts |
-| `make db-stop` | Stop database container |
+
+| Command         | Description                        |
+| --------------- | ---------------------------------- |
+| `make clean`    | Clean build artifacts              |
+| `make db-stop`  | Stop database container            |
 | `make db-clean` | Remove database container + volume |
 
 ## 🔧 Pants Commands
 
 ### Tailor (BUILD File Management)
+
 ```bash
 # Check what BUILD files need updating
 pants tailor --check ::
@@ -183,6 +196,7 @@ make tailor
 ```
 
 ### Formatting
+
 ```bash
 # Format all code
 pants fmt ::
@@ -192,10 +206,11 @@ make fmt
 pants fmt path/to/file.py
 
 # Check formatting (no changes)
-pants fmt --check ::
+pants lint ::
 ```
 
 ### Linting
+
 ```bash
 # Run all linters
 pants lint ::
@@ -208,6 +223,7 @@ pants lint --only=isort ::
 ```
 
 ### Testing
+
 ```bash
 # Run all tests
 pants test ::
@@ -222,6 +238,7 @@ pants test hello_world/test_main.py
 ```
 
 ### Building
+
 ```bash
 # Build all packages
 pants package ::
@@ -232,6 +249,7 @@ pants package ercot_lmp:pex
 ```
 
 ### Discovery
+
 ```bash
 # List all targets
 pants list ::
@@ -251,24 +269,28 @@ pants dependees lib_ercot::
 Hooks run automatically on `git commit`:
 
 ### Pants Hooks
+
 - `pants-tailor` - Ensures BUILD files are up to date
 - `pants-update-build-files` - Formats BUILD files
 - `pants-fmt` - Formats Python code
 - `pants-lint` - Runs linters
 
 ### Python Hooks
+
 - `black` - Code formatting
 - `isort` - Import sorting
 - `flake8` - Code linting
 - `bandit` - Security checks
 
 ### Other Hooks
+
 - `prettier` - YAML/JSON/Markdown formatting
 - `hadolint` - Dockerfile linting
 - `sqlfluff` - SQL linting and formatting
 - File checks (trailing whitespace, EOF, merge conflicts, etc.)
 
 ### Manual Hook Execution
+
 ```bash
 # Run all hooks
 pre-commit run --all-files
@@ -284,6 +306,7 @@ git commit --no-verify
 ## 🐳 Docker Images
 
 ### Application Image (ercot-lmp:latest)
+
 - **Base**: python:3.11-slim
 - **Size**: ~324 MB
 - **Contents**:
@@ -296,10 +319,11 @@ git commit --no-verify
   - `/app/bin/ercot_lmp.pex` - Main application
 
 ### Database Image (ercot-db:latest)
+
 - **Base**: postgres:16-alpine
 - **Size**: ~230 MB
 - **Features**:
-  - Auto-executes SQL files in order (01_, 02_, 03_)
+  - Auto-executes SQL files in order (01*, 02*, 03\_)
   - Pre-populated with sample data
   - Stored functions and procedures
   - Persistent volume support
@@ -314,6 +338,7 @@ git commit --no-verify
 ### Tables
 
 #### `ercot.lmp_data`
+
 Stores ERCOT LMP (Locational Marginal Pricing) data.
 
 ```sql
@@ -331,6 +356,7 @@ CREATE TABLE ercot.lmp_data (
 ```
 
 #### `ercot.monitor_metadata`
+
 Stores monitoring job metadata and status.
 
 ```sql
@@ -368,7 +394,9 @@ SELECT ercot.get_avg_lmp(
 ## 📦 PEX Executables
 
 ### What is PEX?
+
 PEX (Python EXecutable) files are self-contained Python applications that:
+
 - Include all dependencies
 - Work without virtual environments
 - Are a single executable file
@@ -377,6 +405,7 @@ PEX (Python EXecutable) files are self-contained Python applications that:
 ### Available PEX Files
 
 #### hello_world.pex (922 KB)
+
 Simple CLI tool demonstrating PEX packaging.
 
 ```bash
@@ -390,6 +419,7 @@ docker run --rm --entrypoint /app/bin/hello_world.pex \
 ```
 
 #### ercot_lmp.pex (19.6 MB)
+
 Main application with all dependencies (pandas, requests, etc.).
 
 ```bash
@@ -403,6 +433,7 @@ docker run --rm ercot-lmp:latest
 ## 🎨 Code Style Configuration
 
 ### Black
+
 ```toml
 [tool.black]
 line-length = 88
@@ -410,6 +441,7 @@ target-version = ['py311']
 ```
 
 ### isort
+
 ```toml
 [tool.isort]
 profile = "black"
@@ -418,6 +450,7 @@ multi_line_output = 3
 ```
 
 ### flake8
+
 ```toml
 [tool.flake8]
 max-line-length = 88
@@ -429,27 +462,33 @@ extend-ignore = ["E203", "W503"]
 Total: 21 targets across 4 packages
 
 ### Root (/)
+
 - `reqs` - Python requirements from pyproject.toml
 
 ### ercot_lmp
+
 - `ercot_lmp` - Python sources
 - `pex` - PEX executable
 
 ### hello_world
+
 - `hello_world` - Python sources
 - `tests` - Test suite
 - `pex` - PEX executable
 
 ### lib_ercot
+
 - `lib_ercot` - Python sources
 - `tests` - Test suite
 
 ### db_setup
+
 - `sql` - SQL initialization files
 
 ## 🔄 Typical Workflows
 
 ### Adding a New Feature
+
 ```bash
 # 1. Create new files
 mkdir -p my_feature
@@ -474,6 +513,7 @@ git commit -m "Add new feature"
 ```
 
 ### Updating Dependencies
+
 ```bash
 # 1. Edit pyproject.toml
 # Add new dependency
@@ -487,6 +527,7 @@ make pex
 ```
 
 ### Releasing
+
 ```bash
 # 1. Run all checks
 make fmt
@@ -510,27 +551,32 @@ git push --tags
 ## 🧰 Troubleshooting
 
 ### BUILD files out of date
+
 ```bash
 make tailor
 ```
 
 ### Import errors
+
 ```bash
 pants dependencies path/to/file.py
 # Check what Pants thinks the dependencies are
 ```
 
 ### Formatting issues
+
 ```bash
 make fmt  # Auto-fix
 ```
 
 ### Cache problems
+
 ```bash
 pants clean-all  # Nuclear option
 ```
 
 ### Pre-commit hook failures
+
 ```bash
 # Fix issues first
 make fmt
@@ -544,6 +590,7 @@ git commit
 ## 📚 Key Files Reference
 
 ### Configuration Files
+
 - `pants.toml` - Pants build system config
 - `pyproject.toml` - Python project + tool configs
 - `.pre-commit-config.yaml` - Pre-commit hooks
@@ -552,17 +599,20 @@ git commit
 - `.sqlfluff` - SQL linting
 
 ### Build Files
+
 - `BUILD` - Defines build targets
 - Generated by Tailor
 - Should be committed to git
 - Can be manually edited if needed
 
 ### Docker Files
+
 - `Dockerfile` - Main application image
 - `db_setup/Dockerfile.db` - Database image
 - Multi-stage builds for optimization
 
 ### Documentation
+
 - `README.md` - Project overview
 - `SETUP.md` - Development setup guide
 - `TEMPLATE.md` - Template file reference
@@ -571,6 +621,7 @@ git commit
 ## 🎯 Best Practices
 
 ### DO ✅
+
 - Run `make tailor` after adding new files
 - Run `make fmt` before committing
 - Let pre-commit hooks run (don't skip)
@@ -580,6 +631,7 @@ git commit
 - Use meaningful commit messages
 
 ### DON'T ❌
+
 - Manually maintain BUILD files
 - Skip pre-commit hooks
 - Commit untested code
@@ -591,17 +643,20 @@ git commit
 ## 📈 Performance Tips
 
 ### Pants Performance
+
 - Pants caches everything aggressively
 - First build is slow, subsequent builds are fast
 - Use `--changed-since=origin/main` for targeted operations
 - Pants runs tests in parallel automatically
 
 ### Docker Performance
+
 - Use `.dockerignore` to exclude unnecessary files
 - Layer caching speeds up rebuilds
 - Build PEX files first, then Docker image
 
 ### Pre-commit Performance
+
 - Hooks only run on changed files
 - Use `--all-files` sparingly
 - Some hooks cache results
@@ -609,18 +664,21 @@ git commit
 ## 🔐 Security
 
 ### Secrets Management
+
 - Never commit secrets to git
 - Use environment variables
 - `.env` files are gitignored
 - Bandit scans for security issues
 
 ### Database Security
+
 - Change default passwords in production
 - Use strong passwords
 - Don't expose port 5432 publicly
 - Use connection pooling
 
 ### Docker Security
+
 - Base images are regularly updated
 - hadolint checks Dockerfile best practices
 - Don't run containers as root (not configured here)
@@ -628,6 +686,7 @@ git commit
 ## 🚢 Production Deployment
 
 ### Building for Production
+
 ```bash
 # Build optimized images
 docker build -t myapp:prod .
@@ -639,13 +698,16 @@ docker push registry.example.com/myapp:prod
 ```
 
 ### Environment Variables
+
 Set these in production:
+
 - `POSTGRES_USER` - Database user
 - `POSTGRES_PASSWORD` - Database password
 - `POSTGRES_DB` - Database name
 - Any app-specific env vars
 
 ### Monitoring
+
 - Application logs to stdout/stderr
 - Database logs available via `docker logs`
 - Add monitoring/observability as needed
