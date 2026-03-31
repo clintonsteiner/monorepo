@@ -1,0 +1,94 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  packages: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build-and-publish:
+    name: Build And Publish
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Bootstrap Pants
+        uses: ./.github/actions/setup-pants
+
+      - name: Determine release version
+        id: version
+        env:
+          REF_TYPE: ${{ github.ref_type }}
+          REF_NAME: ${{ github.ref_name }}
+        run: |
+          if [ "${REF_TYPE}" = "tag" ]; then
+            VERSION="${REF_NAME}"
+          else
+            VERSION="manual-${GITHUB_RUN_NUMBER}"
+          fi
+          echo "value=${VERSION}" >> "$GITHUB_OUTPUT"
+
+      - name: Validate release inputs
+        run: |
+          pants tailor --check ::
+          pants update-build-files --check ::
+          pants lint ::
+          pants test ::
+
+      - name: Build release artifacts
+        run: |
+          pants package //ercot_lmp:pex //examples/hello_world:pex
+          pants package //ercot_lmp:docker //infra/db_setup:docker
+
+      - name: Log in to GHCR
+        if: github.ref_type == 'tag'
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Push Docker images to GHCR
+        if: github.ref_type == 'tag'
+        env:
+          IMAGE_PREFIX: ghcr.io/${{ github.repository_owner }}
+          VERSION: ${{ steps.version.outputs.value }}
+        run: |
+          docker tag ercot-lmp:latest "${IMAGE_PREFIX}/ercot-lmp:${VERSION}"
+          docker tag ercot-lmp:latest "${IMAGE_PREFIX}/ercot-lmp:latest"
+          docker push "${IMAGE_PREFIX}/ercot-lmp:${VERSION}"
+          docker push "${IMAGE_PREFIX}/ercot-lmp:latest"
+          docker tag ercot-db:latest "${IMAGE_PREFIX}/ercot-db:${VERSION}"
+          docker tag ercot-db:latest "${IMAGE_PREFIX}/ercot-db:latest"
+          docker push "${IMAGE_PREFIX}/ercot-db:${VERSION}"
+          docker push "${IMAGE_PREFIX}/ercot-db:latest"
+
+      - name: Create GitHub release
+        if: github.ref_type == 'tag'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/*.pex
+          generate_release_notes: true
+
+      - name: Upload release artifacts
+        if: github.ref_type != 'tag'
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-preview-${{ steps.version.outputs.value }}
+          path: |
+            dist/*.pex
+          retention-days: 14

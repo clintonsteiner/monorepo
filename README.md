@@ -2,9 +2,15 @@
 
 ## Overview
 
-This repo is a small Python monorepo built around [Pants](https://www.pantsbuild.org/). It combines a real ERCOT LMP monitoring app, shared libraries, Docker packaging, database bootstrap assets, and a few example projects that show different monorepo layouts.
+This repo is a small Python monorepo built around [Pants](https://www.pantsbuild.org/). It combines a real ERCOT LMP monitoring app, shared libraries, infrastructure assets, and example projects without keeping every concern mixed at the repo root.
 
-The root project uses Pants 2.30.0 for dependency inference, linting, formatting, testing, packaging, and Docker image builds. There is also a separate `uv_only_monorepo/` example for a workspace-first layout that does not depend on Pants.
+The root project uses Pants 2.30.0 for dependency inference, linting, formatting, testing, packaging, and Docker image builds. The repo is organized around a few stable buckets:
+
+- `ercot_lmp/` and `lib_ercot/` for core application code
+- `infra/` for deployable infrastructure assets
+- `examples/` for sample packages and binaries
+- `docs/` for long-form documentation
+- `uv_only_monorepo/` for a separate workspace-first example layout
 
 ## Install / Setup
 
@@ -35,8 +41,8 @@ Common commands:
 
 #### Method 3: Explore examples only
 
-- Read the package-specific READMEs such as [`example_lib/README.md`](/Users/cs/git/monorepo/example_lib/README.md) and [`db_setup/README.md`](/Users/cs/git/monorepo/db_setup/README.md).
-- Run individual targets with Pants as needed, for example `pants test hello_world::` or `pants package ercot_lmp:docker`.
+- Read the package-specific READMEs such as [`examples/example_lib/README.md`](/Users/cs/git/monorepo/examples/example_lib/README.md) and [`infra/db_setup/README.md`](/Users/cs/git/monorepo/infra/db_setup/README.md).
+- Run individual targets with Pants as needed, for example `pants test examples/hello_world::` or `pants package ercot_lmp:docker`.
 
 ## Common commands
 
@@ -57,17 +63,13 @@ Main application package. Contains the monitor entry point and Docker packaging 
 
 Shared support library for parsing, validation, retries, CSV output, and other utility logic used by the monitor.
 
-#### `/db_setup`
+#### `/infra`
 
-PostgreSQL image definition plus SQL initialization scripts for local database setup.
+Infrastructure assets such as the PostgreSQL image definition and other container-oriented support files.
 
-#### `/hello_world`
+#### `/examples`
 
-Minimal executable example with tests and a PEX target.
-
-#### `/example_lib`
-
-Small reusable library example that demonstrates a clean package layout, tests, and library documentation.
+Example packages and binaries such as `hello_world` and `example_lib`.
 
 #### `/sample_flask`
 
@@ -81,9 +83,9 @@ Separate example monorepo organized around `uv` workspaces rather than Pants.
 
 Repository-level tests that exercise the integrated project behavior.
 
-#### `/3rdparty`
+#### `/docs`
 
-Third-party dependency target definitions used by Pants.
+Long-form setup, release, template, and implementation notes.
 
 #### `/.github/workflows`
 
@@ -93,4 +95,4 @@ GitHub Actions workflows for CI and release automation.
 
 - `pants fmt --check` is not a valid Pants invocation in this repo. Use `pants lint ::` for non-mutating formatting checks and `pants fmt ::` to apply changes.
 - BUILD file formatting is handled separately with `pants update-build-files --check ::`.
-- Docker packaging targets live in [`ercot_lmp/BUILD`](/Users/cs/git/monorepo/ercot_lmp/BUILD) and [`db_setup/BUILD`](/Users/cs/git/monorepo/db_setup/BUILD).
+- Docker packaging targets live in [`ercot_lmp/BUILD`](/Users/cs/git/monorepo/ercot_lmp/BUILD) and [`infra/db_setup/BUILD`](/Users/cs/git/monorepo/infra/db_setup/BUILD).

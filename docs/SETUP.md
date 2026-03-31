@@ -182,7 +182,7 @@ Installed hooks:
 make test
 
 # Run tests for specific package
-pants test hello_world::
+pants test examples/hello_world::
 pants test lib_ercot::
 
 # Run specific test file
@@ -197,7 +197,7 @@ make pex
 
 # Build specific PEX
 pants package ercot_lmp:pex
-pants package hello_world:pex
+pants package examples/hello_world:pex
 
 # Run PEX locally
 ./dist/hello_world.pex --help
@@ -229,7 +229,7 @@ pants list ::
 
 # List targets in a package
 pants list ercot_lmp::
-pants list hello_world::
+pants list examples/hello_world::
 
 # Show dependencies
 pants dependencies lib_ercot::

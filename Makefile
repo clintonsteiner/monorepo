@@ -49,14 +49,14 @@ hooks:
 
 pex:
 	@echo "Building PEX executables..."
-	pants package ercot_lmp:pex hello_world:pex
+	pants package ercot_lmp:pex examples/hello_world:pex
 	@echo "✓ PEX files built:"
 	@echo "  - dist/ercot_lmp.pex"
 	@echo "  - dist/hello_world.pex"
 
 docker-build:
 	@echo "Building Docker images with Pants..."
-	pants package ercot_lmp:docker db_setup:docker
+	pants package ercot_lmp:docker infra/db_setup:docker
 	@echo "✓ Docker images built via Pants"
 
 docker-run:
@@ -65,13 +65,13 @@ docker-run:
 
 docker-hello:
 	@echo "Running hello_world.pex in Docker..."
-	docker run --rm --entrypoint /app/bin/hello_world.pex ercot-lmp:latest --name "Docker"
+	docker run --rm --entrypoint /app/hello_world.pex ercot-lmp:latest --name "Docker"
 
 docker: docker-build docker-run
 
 db-build:
 	@echo "Building PostgreSQL database image with Pants..."
-	pants package db_setup:docker
+	pants package infra/db_setup:docker
 	@echo "✓ Database image built: ercot-db:latest"
 
 db-run:

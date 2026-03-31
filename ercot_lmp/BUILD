@@ -18,8 +18,8 @@ docker_image(
     dependencies=[
         ":pex",
         ":ercot_lmp",
-        "//hello_world:pex",
-        "//hello_world:hello_world",
+        "//examples/hello_world:pex",
+        "//examples/hello_world:hello_world",
         "//lib_ercot:lib_ercot",
     ],
     image_tags=["latest"],

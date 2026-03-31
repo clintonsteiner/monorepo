@@ -89,42 +89,54 @@ python_sources(
 ### Core Module (`core.py`)
 
 #### `ExampleClass`
+
 A sample class demonstrating proper structure.
 
 **Attributes:**
+
 - `name` (str): Object name
 - `value` (int): Numeric value
 
 **Methods:**
+
 - `increment(amount=1)`: Increment value by amount
 
 #### `process_data(data)`
+
 Process a list of data items.
 
 **Args:**
+
 - `data` (list): Input data
 
 **Returns:**
+
 - list: Processed data
 
 ### Utils Module (`utils/`)
 
 #### `validate_input(value)`
+
 Validate string input.
 
 **Args:**
+
 - `value` (str): Value to validate
 
 **Returns:**
+
 - bool: True if valid
 
 #### `format_output(data)`
+
 Format dictionary as string.
 
 **Args:**
+
 - `data` (dict): Data to format
 
 **Returns:**
+
 - str: Formatted output
 
 ## Best Practices
@@ -143,6 +155,7 @@ This template follows these best practices:
 To create a new library based on this template:
 
 1. **Copy the structure:**
+
    ```bash
    cp -r example_lib my_new_lib
    ```
@@ -155,11 +168,13 @@ To create a new library based on this template:
    - `README.md`: Document your library
 
 3. **Generate BUILD file:**
+
    ```bash
    make tailor
    ```
 
 4. **Test it:**
+
    ```bash
    pants test my_new_lib::
    ```

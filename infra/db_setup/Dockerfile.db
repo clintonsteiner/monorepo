@@ -6,7 +6,7 @@ ENV POSTGRES_USER=ercot_user \
     POSTGRES_DB=ercot_db
 
 # Copy SQL initialization files
-# With context_root=".", the sql/ directory is at db_setup/sql
-COPY db_setup/sql /docker-entrypoint-initdb.d/
+# With context_root=".", the sql/ directory is at infra/db_setup/sql
+COPY infra/db_setup/sql /docker-entrypoint-initdb.d/
 
 EXPOSE 5432

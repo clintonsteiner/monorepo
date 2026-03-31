@@ -1,0 +1,35 @@
+name: Setup Pants
+description: Checkout prerequisites for Pants-based jobs
+
+inputs:
+  python-version:
+    description: Python version to install
+    required: false
+    default: "3.11"
+  cache-key-suffix:
+    description: Optional suffix for the Pants cache key
+    required: false
+    default: "v2"
+
+runs:
+  using: composite
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@v6
+      with:
+        python-version: ${{ inputs.python-version }}
+
+    - name: Initialize Pants
+      uses: pantsbuild/actions/init-pants@main
+      env:
+        # Some runners and local GitHub Actions emulators expose HOME or the
+        # workspace cache path as read-only. Keep scie/Pants bootstrap state in
+        # the runner temp directory so bootstrap is always writable.
+        PANTS_BUILDROOT: ${{ github.workspace }}
+        PANTS_TOML: ${{ github.workspace }}/pants.toml
+        XDG_CACHE_HOME: ${{ runner.temp }}/xdg-cache
+        SCIE_BASE: ${{ runner.temp }}/scie
+        PANTS_GLOBAL_CACHE_DIR: ${{ runner.temp }}/pants-cache
+      with:
+        gha-cache-key: ${{ inputs.cache-key-suffix }}
+        named-caches-hash: ${{ hashFiles('pants.toml', 'pyproject.toml', 'uv.lock') }}

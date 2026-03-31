@@ -1,0 +1,23 @@
+services:
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: newsdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  web:
+    build: .
+    ports:
+      - "5001:5000"
+    environment:
+      - DATABASE_URL=postgresql://user:password@db:5432/newsdb
+    depends_on:
+      - db
+
+volumes:
+  pgdata:
