@@ -13,17 +13,16 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v5
 
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
       - name: Initialize Pants
         uses: pantsbuild/actions/init-pants@main
         with:
-          pants-python-version: "3.11"
           gha-cache-key: v1
           named-caches-hash: ${{ hashFiles('pants.toml') }}
 
@@ -44,7 +43,7 @@ jobs:
 
       - name: Check formatting
         run: |
-          pants fmt ::
+          pants fmt --check ::
           echo "✓ Code formatting is correct"
 
       - name: Run unit tests (no Docker)
@@ -64,7 +63,7 @@ jobs:
 
       - name: Upload test results
         if: always()
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v4
         with:
           name: test-results
           path: .pants.d/test/reports/
@@ -76,17 +75,16 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v5
 
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
       - name: Initialize Pants
         uses: pantsbuild/actions/init-pants@main
         with:
-          pants-python-version: "3.11"
           gha-cache-key: v1
           named-caches-hash: ${{ hashFiles('pants.toml') }}
 
@@ -97,7 +95,7 @@ jobs:
           echo "✓ PEX files built successfully"
 
       - name: Upload PEX artifacts
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v4
         with:
           name: pex-files
           path: dist/*.pex

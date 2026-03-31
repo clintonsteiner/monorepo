@@ -36,6 +36,11 @@ fmt = true
 [tailor]
 check = false
 build_file_name = "BUILD"
+ignore_paths = [
+    "docker_linux/**",
+    "sample_flask/**",
+    "uv_only_monorepo/**",
+]
 
 [docker]
 default_repository = "ercot-lmp"

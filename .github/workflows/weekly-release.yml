@@ -29,7 +29,6 @@ jobs:
       - name: Initialize Pants
         uses: pantsbuild/actions/init-pants@main
         with:
-          pants-python-version: "3.11"
           gha-cache-key: v1
           named-caches-hash: ${{ hashFiles('pants.toml') }}
 
@@ -90,7 +89,6 @@ jobs:
       - name: Initialize Pants
         uses: pantsbuild/actions/init-pants@main
         with:
-          pants-python-version: "3.11"
           gha-cache-key: v1
           named-caches-hash: ${{ hashFiles('pants.toml') }}
 
