@@ -39,7 +39,7 @@ Shared composite action used by both workflows.
 
 It installs Python and initializes Pants with a single cache configuration, which keeps the workflows easy to extend without copy-pasting the bootstrap block everywhere.
 
-The action also pins `XDG_CACHE_HOME`, `SCIE_BASE`, and `PANTS_GLOBAL_CACHE_DIR` to `runner.temp`. That avoids bootstrap failures on runners where `HOME` or workspace-backed cache paths are read-only, which is a common failure mode for `scie-pants` under local Actions emulators and some containerized setups.
+The action also pins `PANTS_BUILDROOT` and `PANTS_TOML` to `github.workspace`, and `XDG_CACHE_HOME`, `SCIE_BASE`, and `PANTS_GLOBAL_CACHE_DIR` to `runner.temp`. That avoids two common bootstrap failures under local Actions emulators and some containerized runners: inherited host-local Pants config paths that do not exist inside the job, and read-only cache paths under `HOME` or the workspace.
 
 ### Tagged test split
 

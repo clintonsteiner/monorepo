@@ -25,6 +25,8 @@ runs:
         # Some runners and local GitHub Actions emulators expose HOME or the
         # workspace cache path as read-only. Keep scie/Pants bootstrap state in
         # the runner temp directory so bootstrap is always writable.
+        PANTS_BUILDROOT: ${{ github.workspace }}
+        PANTS_TOML: ${{ github.workspace }}/pants.toml
         XDG_CACHE_HOME: ${{ runner.temp }}/xdg-cache
         SCIE_BASE: ${{ runner.temp }}/scie
         PANTS_GLOBAL_CACHE_DIR: ${{ runner.temp }}/pants-cache
