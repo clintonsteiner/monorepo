@@ -3,10 +3,10 @@ name = "ercot-lmp-monitor"
 version = "0.1.0"
 requires-python = ">=3.11"
 dependencies = [
-  "requests>=2.31.0",
-  "pandas>=2.0.0",
-  "beautifulsoup4>=4.12.0",
-  "lxml>=5.0.0",
+  "requests>=2.33.1",
+  "pandas>=3.0.2",
+  "beautifulsoup4>=4.14.3",
+  "lxml>=6.0.4",
   "html5lib>=1.1",
   "docker>=7.1.0",
 ]
@@ -38,5 +38,5 @@ members = [
 
 [dependency-groups]
 dev = [
-    "pytest>=9.0.2",
+    "pytest>=9.0.3",
 ]
