@@ -1,6 +1,6 @@
 # Release Process
 
-This repo now uses a tag-driven release flow instead of an automated weekly version bump.
+This repo now uses a tag-driven release flow with a single packaging entrypoint: `pants package ::`.
 
 ## Normal release path
 
@@ -19,7 +19,8 @@ That tag triggers [`release.yml`](/Users/cs/git/monorepo/.github/workflows/relea
 
 - validates BUILD files and lint state again
 - runs the full Pants test suite
-- packages the PEX binaries
+- packages Python distributions and PEX binaries
+- packages the Go binaries
 - builds the Docker images
 - pushes tagged images to GHCR
 - creates a GitHub release with the generated `.pex` files attached
@@ -42,12 +43,12 @@ That is useful when you want to verify packaging changes before creating a publi
 - `pants update-build-files --check ::`
 - `pants lint ::`
 - `pants test ::`
-- `pants package //ercot_lmp:pex //examples/hello_world:pex`
-- `pants package //ercot_lmp:docker //infra/db_setup:docker`
+- `pants package ::`
 
 ## Why this is simpler
 
 - No bot-generated version bump commits.
 - No scheduled release job mutating the default branch.
+- One packaging command covers Python distributions, Go binaries, and Docker images.
 - The same release process works for normal releases and hotfixes.
 - CI and release responsibilities are clearly separated.

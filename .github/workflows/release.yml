@@ -50,8 +50,7 @@ jobs:
 
       - name: Build release artifacts
         run: |
-          pants package //ercot_lmp:pex //examples/hello_world:pex
-          pants package //ercot_lmp:docker //infra/db_setup:docker
+          pants package ::
 
       - name: Log in to GHCR
         if: github.ref_type == 'tag'
@@ -81,7 +80,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            dist/*.pex
+            dist/*
           generate_release_notes: true
 
       - name: Upload release artifacts
@@ -90,5 +89,5 @@ jobs:
         with:
           name: release-preview-${{ steps.version.outputs.value }}
           path: |
-            dist/*.pex
+            dist/**
           retention-days: 14

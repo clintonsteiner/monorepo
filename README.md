@@ -1,6 +1,6 @@
 # ercot-lmp-monitor monorepo
 
-This repository is a small Python monorepo built around [Pants](https://www.pantsbuild.org/). It includes the ERCOT LMP monitor, shared libraries, Docker images, and a few example projects without keeping every concern at the repo root.
+This repository is a small multi-language monorepo built around [Pants](https://www.pantsbuild.org/). It includes Python packages, Go binaries, Docker images, and a few example projects without keeping every concern at the repo root.
 
 ## Repo layout
 
@@ -8,6 +8,7 @@ This repository is a small Python monorepo built around [Pants](https://www.pant
 - `lib_ercot/`: shared utility library
 - `infra/`: infrastructure-oriented assets, including the PostgreSQL image
 - `examples/`: sample Pants packages and binaries
+- `examples/go_hello/`: sample Go binary shipped through Pants
 - `sample_flask/`: separate Flask example app
 - `uv_only_monorepo/`: uv-workspace example project
 - `tests/`: repository-level integration and Docker tests
@@ -17,7 +18,7 @@ This repository is a small Python monorepo built around [Pants](https://www.pant
 
 Requirements:
 
-- Python 3.11+
+- Python 3.14
 - Pants 2.30.0
 - Docker for Docker packaging or Docker-tagged tests
 - `pre-commit` if you want local hook enforcement
@@ -29,7 +30,7 @@ Common commands:
 - `make fmt`
 - `make tailor`
 - `make update-build-files`
-- `make pex`
+- `make ship`
 - `make docker-build`
 
 Direct Pants equivalents:
@@ -40,6 +41,13 @@ Direct Pants equivalents:
 - `pants fmt ::`
 - `pants test ::`
 - `pants package ::`
+
+Shipping model:
+
+- Use `pants package ::` for every release artifact.
+- Python packages build as wheels and sdists via `python_distribution` targets.
+- Go binaries build via `go_binary` targets.
+- Docker images build via `docker_image` targets.
 
 ## Documentation
 
