@@ -6,10 +6,14 @@ inputs:
     description: Python version to install
     required: false
     default: "3.14"
+  go-version:
+    description: Go version to install
+    required: false
+    default: "1.26"
   cache-key-suffix:
     description: Optional suffix for the Pants cache key
     required: false
-    default: "v3"
+    default: "v4"
 
 runs:
   using: composite
@@ -18,6 +22,11 @@ runs:
       uses: actions/setup-python@v6
       with:
         python-version: ${{ inputs.python-version }}
+
+    - name: Set up Go
+      uses: actions/setup-go@v6
+      with:
+        go-version: ${{ inputs.go-version }}
 
     - name: Initialize Pants
       uses: pantsbuild/actions/init-pants@main
@@ -32,4 +41,4 @@ runs:
         PANTS_GLOBAL_CACHE_DIR: ${{ runner.temp }}/pants-cache
       with:
         gha-cache-key: ${{ inputs.cache-key-suffix }}
-        named-caches-hash: ${{ hashFiles('pants.toml', 'pyproject.toml', 'uv.lock', '**/Dockerfile') }}
+        named-caches-hash: ${{ hashFiles('pants.toml', 'pyproject.toml', 'uv.lock', '**/go.mod', '**/go.sum', '**/Dockerfile') }}

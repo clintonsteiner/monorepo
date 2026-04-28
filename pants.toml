@@ -6,13 +6,18 @@ backend_packages = [
     "pants.backend.python.lint.isort",
     "pants.backend.python.lint.flake8",
     "pants.backend.docker",
+    "pants.backend.experimental.go",
 ]
 
 [source]
 root_patterns = [
     "/",
     "/examples",
+    "/examples/go_hello",
     "/infra",
+    "/uv_only_monorepo",
+    "/uv_only_monorepo/apps",
+    "/uv_only_monorepo/libs/math_library/src",
 ]
 
 [python]
@@ -43,7 +48,9 @@ build_file_name = "BUILD"
 ignore_paths = [
     "infra/docker_linux/**",
     "sample_flask/**",
-    "uv_only_monorepo/**",
+    "uv_only_monorepo/**/.venv/**",
+    "uv_only_monorepo/**/__pycache__/**",
+    "uv_only_monorepo/apps/only_uv_monorepo.egg-info/**",
 ]
 
 [docker]

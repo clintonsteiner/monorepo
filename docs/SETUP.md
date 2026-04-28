@@ -4,7 +4,7 @@ Complete setup guide for the ERCOT LMP Monorepo.
 
 ## Prerequisites
 
-- Python 3.11 or higher
+- Python 3.14
 - Docker and Docker Compose
 - [Pants](https://www.pantsbuild.org/docs/installation) 2.30.0
 - `pre-commit` for git hooks
@@ -43,8 +43,8 @@ make lint
 ### 3. Build Artifacts
 
 ```bash
-# Build all PEX executables
-make pex
+# Build all ship artifacts
+make ship
 
 # Build Docker images
 make docker-build
@@ -189,19 +189,21 @@ pants test lib_ercot::
 pants test lib_ercot/test_main.py
 ```
 
-### Building PEX Files
+### Building Ship Artifacts
 
 ```bash
-# Build all PEX executables
-make pex
+# Build every shippable artifact
+make ship
 
-# Build specific PEX
+# Build specific artifacts
+pants package ::
 pants package ercot_lmp:pex
-pants package examples/hello_world:pex
+pants package examples/go_hello:bin
 
-# Run PEX locally
+# Run packaged artifacts locally
 ./dist/hello_world.pex --help
 ./dist/ercot_lmp.pex
+./dist/go_hello
 ```
 
 ### Docker Operations

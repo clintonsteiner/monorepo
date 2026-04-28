@@ -1,4 +1,4 @@
-.PHONY: help test lint fmt tailor update-build-files pex docker-build docker-run docker-hello db-build db-run db-stop db-shell db-clean docker clean all hooks
+.PHONY: help test lint fmt tailor update-build-files ship pex docker-build docker-run docker-hello db-build db-run db-stop db-shell db-clean docker clean all hooks
 
 help:
 	@echo "Available targets:"
@@ -8,9 +8,10 @@ help:
 	@echo "  fmt               - Auto-format code (black, isort)"
 	@echo "  tailor            - Auto-generate/update BUILD files"
 	@echo "  update-build-files- Update BUILD file formatting"
+	@echo "  ship              - Build every shippable artifact with Pants"
 	@echo "  hooks             - Install pre-commit hooks"
-	@echo "  pex               - Build all PEX executables (ercot_lmp, hello_world, git_utils)"
-	@echo "  docker-build      - Build Docker image (includes PEX files)"
+	@echo "  pex               - Build the legacy PEX executables"
+	@echo "  docker-build      - Build the Docker images"
 	@echo "  docker-run        - Run Docker container (ercot_lmp)"
 	@echo "  docker-hello      - Run hello_world.pex in Docker"
 	@echo "  docker            - Build and run Docker container"
@@ -49,15 +50,21 @@ hooks:
 
 pex:
 	@echo "Building PEX executables..."
-	pants package ercot_lmp:pex examples/hello_world:pex git_utils:pex
+	pants package //ercot_lmp:pex //examples/hello_world:pex //git_utils:pex //uv_only_monorepo/apps/service_a:bin
 	@echo "✓ PEX files built:"
 	@echo "  - dist/ercot_lmp.pex"
 	@echo "  - dist/hello_world.pex"
 	@echo "  - dist/git_utils.pex"
+	@echo "  - dist/service_a.pex"
+
+ship:
+	@echo "Building all ship artifacts with Pants..."
+	pants package ::
+	@echo "✓ All shippable artifacts built via Pants"
 
 docker-build:
 	@echo "Building Docker images with Pants..."
-	pants package ercot_lmp:docker infra/db_setup:docker
+	pants package //ercot_lmp:docker //infra/db_setup:docker
 	@echo "✓ Docker images built via Pants"
 
 docker-run:
@@ -106,7 +113,7 @@ db-clean: db-stop
 	docker rmi -f ercot-db:latest 2>/dev/null || true
 	@echo "✓ Database cleaned"
 
-all: test pex
+all: test ship
 
 clean:
 	@echo "Cleaning build artifacts..."

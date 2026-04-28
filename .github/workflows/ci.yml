@@ -55,7 +55,7 @@ jobs:
           pants --tag='-docker' test ::
 
   package:
-    name: Build PEX Artifacts
+    name: Build Ship Artifacts
     runs-on: ubuntu-latest
     needs:
       - validate
@@ -68,16 +68,16 @@ jobs:
       - name: Bootstrap Pants
         uses: ./.github/actions/setup-pants
 
-      - name: Package PEX files
+      - name: Package all shippable artifacts
         run: |
-          pants package //ercot_lmp:pex //examples/hello_world:pex
+          pants package ::
 
-      - name: Upload PEX artifacts
+      - name: Upload packaged artifacts
         uses: actions/upload-artifact@v7
         with:
-          name: pex-files
+          name: ship-artifacts
           path: |
-            dist/*.pex
+            dist/**
           retention-days: 14
 
   docker-integration:
@@ -94,7 +94,7 @@ jobs:
       - name: Bootstrap Pants
         uses: ./.github/actions/setup-pants
 
-      - name: Build Docker images
+      - name: Build Docker images through the shared package flow
         run: |
           pants package //ercot_lmp:docker //infra/db_setup:docker
 

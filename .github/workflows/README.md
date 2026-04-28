@@ -12,7 +12,7 @@ Jobs:
 
 - `validate`: BUILD hygiene plus lint and formatting checks
 - `unit-tests`: non-Docker Pants tests
-- `package`: PEX packaging for the supported binaries
+- `package`: shared Pants packaging for Python, Go, and Docker artifacts
 - `docker-integration`: Docker image build plus Docker-tagged tests
 - `summary`: one final status gate with a compact job summary
 
@@ -25,10 +25,10 @@ Runs on version tags like `v1.2.3` or manual dispatch.
 Responsibilities:
 
 - re-run repo validation before publishing
-- build PEX artifacts
+- build every release artifact through `pants package ::`
 - build Docker images
 - push Docker images to GHCR for tagged releases
-- create a GitHub release and attach PEX files for tagged releases
+- create a GitHub release and attach packaged artifacts for tagged releases
 - upload a preview artifact set for manual runs
 
 ### `pages.yml`
